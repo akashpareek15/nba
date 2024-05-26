@@ -1,0 +1,20 @@
+.container {
+    display: flex;
+    gap: 5px;
+    height: 100%;
+}
+
+.nav-panel {
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 250px;
+    border-right: 1px solid;
+}
+
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+

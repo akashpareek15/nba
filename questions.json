@@ -1,0 +1,38 @@
+[
+    {
+        "description": "State the Vision and Mission of the Department and Institute",
+        "criteriaId": 1,
+        "question_number": "1.1",
+        "marks": 5,
+        "subQuestions": [
+            {
+                "description": "Availability of the Vision & Mission statements of the Department",
+                "question_number": "A",
+                "marks": 1
+            },
+            {
+                "description": "Appropriateness/Relevance of the Statements",
+                "question_number": "B",
+                "marks": 2
+            },
+            {
+                "description": "Consistency of the Department statements with the Institute statements",
+                "question_number": "C",
+                "marks": 3
+            }
+        ]
+    },
+    {
+        "description": "State    the    Program Objectives (PEOs)",
+        "criteriaId": 1,
+        "question_number": "1.1",
+        "marks": 5,
+        "subQuestions": [
+            {
+                "description": "Listing of the Program Educational Objectives (3 to 5) of the program under consideration",
+                "question_number": "A",
+                "marks": 5
+            }
+        ]
+    }
+]
