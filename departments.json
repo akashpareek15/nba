@@ -1,58 +1,54 @@
 [
     {
-        "departmentName": "Department 1",
+        "departmentName": "ES & H",
         "departmentId": 1
     },
     {
-        "departmentName": "Department 2",
+        "departmentName": "COMP",
         "departmentId": 2
     },
     {
-        "departmentName": "Department 3",
+        "departmentName": "IT",
         "departmentId": 3
     },
     {
-        "departmentName": "Department 4",
+        "departmentName": "E&TC",
         "departmentId": 3
     },
     {
-        "departmentName": "Department 1",
+        "departmentName": "ECS",
         "departmentId": 4
     },
     {
-        "departmentName": "Department 5",
+        "departmentName": "MECH",
         "departmentId": 5
     },
     {
-        "departmentName": "Department 6",
+        "departmentName": "CIVIL",
         "departmentId": 6
     },
     {
-        "departmentName": "Department 7",
+        "departmentName": "CSE",
         "departmentId": 7
     },
     {
-        "departmentName": "Department 8",
+        "departmentName": "MME",
         "departmentId": 8
     },
     {
-        "departmentName": "Department 9",
+        "departmentName": "AI/ML",
         "departmentId": 9
     },
     {
-        "departmentName": "Department 10",
+        "departmentName": "AIDS",
         "departmentId": 10
     },
     {
-        "departmentName": "Department 11",
+        "departmentName": "IOT",
         "departmentId": 11
     },
     {
-        "departmentName": "Department 12",
+        "departmentName": "B.VOC",
         "departmentId": 12
-    },
-    {
-        "departmentName": "Department 13",
-        "departmentId": 13
     }
 ]

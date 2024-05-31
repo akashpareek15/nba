@@ -9,10 +9,15 @@ import { Divider, List, Toolbar } from '@mui/material';
 import { SettingsSuggest } from '@mui/icons-material';
 import axios from 'axios';
 import * as logo from './assets/logo.jpg';
+import { useNavigate } from 'react-router-dom';
+
 
 
 export const NavigationPanel = () => {
     const [criteriaList, setCriteriaList] = React.useState<{ criteriaName: string, criteriaId }[]>([]);
+    const navigate = useNavigate();
+
+    const [selectedItem, setSelectedItem] = React.useState<string>('dashboard');
 
     React.useEffect(() => {
         axios.get('http://localhost:5555/criteria').then((res) => {
@@ -34,14 +39,14 @@ export const NavigationPanel = () => {
         <Divider />
         <List component="nav" dense={true} style={{ backgroundColor: 'black', color: '#fff', height: '100%' }}>
             <React.Fragment>
-                <ListItemButton>
-                    <ListItemIcon  sx={{ color: '#fff' }}>
+                <ListItemButton selected={selectedItem === 'dashboard'} onClick={() => { setSelectedItem('dashboard'); navigate("/criteria/dashboard"); }}>
+                    <ListItemIcon sx={{ color: '#fff' }}>
                         <DashboardIcon />
                     </ListItemIcon>
                     <ListItemText primary="Dashboard" />
                 </ListItemButton>
                 {criteriaList.map((m) => (
-                    <ListItemButton color='primary'>
+                    <ListItemButton color='primary' selected={selectedItem === m.criteriaId} onClick={() => { setSelectedItem(m.criteriaId); navigate(`/criteria/${m.criteriaId}`); }}>
                         <ListItemIcon>
                             <BarChartIcon sx={{ color: '#fff' }} />
                         </ListItemIcon>
@@ -51,7 +56,7 @@ export const NavigationPanel = () => {
 
 
                 <ListItemButton>
-                    <ListItemIcon  sx={{ color: '#fff' }}>
+                    <ListItemIcon sx={{ color: '#fff' }}>
                         <SettingsSuggest />
                     </ListItemIcon>
                     <ListItemText primary="Settings" />
