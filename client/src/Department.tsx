@@ -11,7 +11,7 @@ export const Department = (props: { departmentId: number, departmentName: string
       display: 'flex',
       flexDirection: 'column',
       width: '100%',
-      borderLeft: '5px solid'
+      borderLeft: `5px solid  #${Math.random().toString(16).substring(10,6)}`
     }}
   >
     <div style={{ minHeight: 50, cursor: props.clickable ? 'pointer' : null }} onClick={() => { props.clickable && navigate(`/criteria/${params.criteriaId}/departments/${props.departmentId}/questions`); }}>

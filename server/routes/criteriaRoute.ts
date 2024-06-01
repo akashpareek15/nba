@@ -1,7 +1,6 @@
 const express = require('express');
 import { db } from '../db/db.ts';
-import { Criteria } from '../models/Criteria.ts';
-import { Question } from '../models/Questions.ts';
+import { verifyToken } from '../handlers/verifyToken.ts';
 
 export const criteriaRoute = express.Router();
 
@@ -22,9 +21,7 @@ criteriaRoute.get('/', async (request, response) => {
 criteriaRoute.get('/:criteriaId/departments/:departmentId/questions', async (request, response) => {
   try {
     const { departmentId, criteriaId } = request.params;
-
     const answer = await db.collection("answer").findOne({ criteriaId: parseInt(criteriaId), departmentId: parseInt(departmentId) });
-    console.log(answer, departmentId, criteriaId);
     const questions = answer ? answer.questions : await db.collection("question").find({ criteriaId: parseInt(criteriaId) }).toArray();
     return response.status(200).json(questions);
   } catch (error) {
