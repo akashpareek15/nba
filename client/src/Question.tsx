@@ -23,13 +23,13 @@ export const Question = (props: QuestionProps) => {
         {isQuestion ?
             <>
                 <div style={{ width: 150 }} >
-                    <RadioGroup row value={props.value ?? ''} onChange={handleRadioChange} >
-                        <FormControlLabel value="Y" control={<Radio />} label="Yes" />
-                        <FormControlLabel value="N" control={<Radio />} label="No" />
+                    <RadioGroup sx={{ fontSize: 8 }} row value={props.value ?? ''} onChange={handleRadioChange} >
+                        <FormControlLabel sx={{ fontSize: 8 }} value="Y" control={<Radio size="small" />} label="Yes" />
+                        <FormControlLabel value="N" control={<Radio size="small" />} label="No" />
                     </RadioGroup>
                 </div>
                 <div style={{ flex: 0.8 }} >
-                    {props.value === 'Y' && <TextField variant="standard" onBlur={onFocus} value={props.reason} placeholder="Please provide the reason" style={{ width: '80%' }} error={!props.reason} />}
+                    {props.value === 'Y' && <TextField variant="standard" sx={{ fontSize: 8 }} onBlur={onFocus} value={props.reason} placeholder="Please provide the reason" style={{ width: '80%' }} error={!props.reason} />}
                 </div>
             </> :
             props.subQuestions.map((sq: IQuestion, subQuestionIndex: number) => (<div style={{ marginLeft: '20px', width: '98%' }}> <Question {...sq} index={`${props.index}_${subQuestionIndex}`} onChange={props.onChange} />  </div>))

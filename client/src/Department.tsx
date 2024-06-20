@@ -1,23 +1,32 @@
-import { Paper } from "@mui/material";
-import { useNavigate, useParams } from "react-router-dom";
+import { Card, CardContent, LinearProgress, Stack, Typography } from "@mui/material";
 
-export const Department = (props: { departmentId: number, departmentName: string, clickable?: boolean }) => {
+export const Department = (props: { departmentId: number, departmentName: string, total: number, submittedCriteria: number, criteriaCount: number }) => {
+  return (
+    <>
+      <Card sx={{ borderLeft: `5px solid  ${props.criteriaCount === props.submittedCriteria ? 'green' : props.total > 0 ? 'orange' : 'red'}` }}>
+        <CardContent>
+          <Stack spacing={2}>
+            <Stack direction="row" sx={{ alignItems: 'flex-start', justifyContent: 'space-between' }} spacing={3}>
+              <Stack spacing={1} sx={{ width: '100%' }}>
+                <Typography color="text.secondary" gutterBottom variant="overline">
+                  {props.departmentName}
+                </Typography>
+                <Typography variant="caption" >
+                  <Stack direction="row" sx={{ justifyContent: 'space-between', width: '100%' }} >
+                    <div>{(props.submittedCriteria ?? 0)}/{props.criteriaCount} Criteria Submitted</div>
+                    <div>{props.total ?? 0}Marks</div>
+                  </Stack>
+                </Typography>
 
-  const params = useParams();
-  const navigate = useNavigate();
-  return (<Paper
-    sx={{
-      p: 2,
-      display: 'flex',
-      flexDirection: 'column',
-      width: '100%',
-      borderLeft: `5px solid  #${Math.random().toString(16).substring(10,6)}`
-    }}
-  >
-    <div style={{ minHeight: 50, cursor: props.clickable ? 'pointer' : null }} onClick={() => { props.clickable && navigate(`/criteria/${params.criteriaId}/departments/${props.departmentId}/questions`); }}>
-      <div>{props.departmentName}</div>
-      <div>0</div>
-    </div>
-  </Paper>
+              </Stack>
+
+            </Stack>
+            <div>
+              <LinearProgress value={(props.submittedCriteria ?? 0) * props.criteriaCount} variant="determinate" />
+            </div>
+          </Stack>
+        </CardContent>
+      </Card >
+    </>
   );
 }

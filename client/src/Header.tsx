@@ -8,6 +8,9 @@ import IconButton from '@mui/material/IconButton';
 import InputBase from '@mui/material/InputBase';
 import Toolbar from '@mui/material/Toolbar';
 import { alpha, styled } from '@mui/material/styles';
+import { UserProfilePopup } from './UserProfilePopup';
+import * as logo from './assets/logo.jpg';
+import { useNavigate } from 'react-router-dom';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -42,9 +45,13 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }));
 export const Header = () => {
+    const img = logo.default;
+    const navigate = useNavigate();
+
     return (
-        <Toolbar>
-            <Search sx={{ flexGrow: 1 }}>
+        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
+            <img onClick={() => navigate('/home/dashboard')} src={img} style={{ width: '300px', height: '50px', cursor: 'pointer' }}></img>
+            {/* <Search sx={{ flexGrow: 1 }}>
                 <SearchIconWrapper sx={{ flexGrow: 1 }}>
                     <SearchIcon />
                 </SearchIconWrapper>
@@ -52,9 +59,9 @@ export const Header = () => {
                     sx={{ flexGrow: 1 }}
                     inputProps={{ 'aria-label': 'search' }}
                 />
-            </Search>
+            </Search> */}
             <Box sx={{ display: 'flex', gap: '5px' }}>
-                <IconButton size="medium" aria-label="show 4 new mails" color="inherit">
+                {/* <IconButton size="medium" aria-label="show 4 new mails" color="inherit">
                     <Badge badgeContent={4} color="error">
                         <MailOutlineOutlined />
                     </Badge>
@@ -66,9 +73,9 @@ export const Header = () => {
                     <Badge badgeContent={17} color="primary">
                         <BellOutlined />
                     </Badge>
-                </IconButton>
+                </IconButton> */}
 
-                <IconButton
+                {/* <IconButton
                     size="medium"
                     edge="end"
                     aria-label="account of current user"
@@ -76,7 +83,8 @@ export const Header = () => {
                     color="inherit"
                 >
                     <AccountCircleOutlined />
-                </IconButton>
+                </IconButton> */}
+                <UserProfilePopup></UserProfilePopup>
             </Box>
         </Toolbar>
 

@@ -5,12 +5,15 @@ import { verifyToken } from '../handlers/verifyToken.ts';
 export const criteriaRoute = express.Router();
 
 // Route for Get All Questions from database
-criteriaRoute.get('/', async (request, response) => {
+criteriaRoute.get('/:departmentId', async (request, response) => {
   try {
+    const { departmentId, criteriaId } = request.params;
+
+    const answers: any[] = await db.collection("answer").find({ departmentId: parseInt(departmentId) }).toArray();
 
     let collection = await db.collection("criteria");
     const criteria = await collection.find({}).toArray()
-    return response.status(200).json(criteria);
+    return response.status(200).json(criteria.map(m => ({ ...m, total: answers.find(x => x.criteriaId === m.criteriaId)?.total })));
   } catch (error) {
     console.log(error.message);
     response.status(500).send({ message: error.message });
