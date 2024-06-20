@@ -8,7 +8,12 @@
             {
                 "description": "Availability of the Vision & Mission statements of the Department",
                 "question_number": "A",
-                "marks": 1,
+                "marks": 1
+            },
+            {
+                "description": "Appropriateness/Relevance of the Statements",
+                "question_number": "B",
+                "marks": 2,
                 "keywords": [
                     "creativity",
                     "new ideas",
@@ -42,11 +47,6 @@
                     "community engagement",
                     "societal contribution"
                 ]
-            },
-            {
-                "description": "Appropriateness/Relevance of the Statements",
-                "question_number": "B",
-                "marks": 2
             },
             {
                 "description": "Consistency of the Department statements with the Institute statements",

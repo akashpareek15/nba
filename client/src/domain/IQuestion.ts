@@ -9,6 +9,7 @@ export interface IQuestion {
   value?: string;
   reason?: string;
   keywords?: string[];
+  obtainedMarks?: number;
 }
 
 export interface SubQuestion {
@@ -18,5 +19,6 @@ export interface SubQuestion {
   value?: string;
   keywords?: string[];
   reason?: string;
+  obtainedMarks?: number;
   subQuestions?: SubQuestion[];
 }

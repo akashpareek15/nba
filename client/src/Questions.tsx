@@ -47,12 +47,16 @@ export const Questions = () => {
         }
     }
 
-    const total = useMemo(() => questions.flatMap(m => m.subQuestions ?? m).reduce((acc, cur) => cur.value === 'Y' ? acc + cur.marks : acc, 0), [questions]);
+    const total = useMemo(() => questions.flatMap(m => m.subQuestions ?? m).reduce((acc, cur) => {
+        const marks = isNaN(Number(cur.obtainedMarks)) ? 0 : Number(cur.obtainedMarks);
+        return (acc + marks)
+    }, 0), [questions]);
 
-    const calculateMatchedKeywords = (question: IQuestion | SubQuestion) => {
-        return question.keywords?.reduce((acc, curr) => {
+    const calculateMarks = (question: IQuestion | SubQuestion) => {
+        const matched = question.keywords?.reduce((acc, curr) => {
             return question.reason?.toLowerCase().indexOf(curr?.toLowerCase()) > -1 ? acc + 1 : acc;
-        }, 0)
+        }, 0);
+        return matched >= 3 ? 2 : matched >= 2 ? 1.5 : 1;
     }
 
     const onChange = (index: string, value: string, type: ChangeType) => {
@@ -62,11 +66,16 @@ export const Questions = () => {
             question.value = value;
             if (value === 'N') {
                 question.reason = undefined;
-
+                question.obtainedMarks = 0;
+            } else if (value === 'Y' && !question.keywords?.length) {
+                question.obtainedMarks = question.marks;
             }
         } else if (type === 'text') {
             question.reason = value;
-            question.marks = calculateMatchedKeywords(question);
+        } else if (type === 'calculate_marks') {
+            question.obtainedMarks = calculateMarks(question)
+        } else if (type === 'marks_change') {
+            question.obtainedMarks = question.reason ? isNaN(Number(value)) ? 0 : Number(value) ?? 0 : undefined;
         }
 
         setQuestions([...questions]);
