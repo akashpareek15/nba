@@ -1,0 +1,85 @@
+[
+    {
+        "userName": "admin",
+        "password": "admin",
+        "role": "admin"
+    },
+    {
+        "userName": "ES_N_H",
+        "password": "ES_N_H",
+        "role": "hod",
+        "departmentId": 1
+    },
+    {
+        "userName": "COMP",
+        "password": "COMP",
+        "role": "hod",
+        "departmentId": 2
+    },
+    {
+        "userName": "IT",
+        "password": "IT",
+        "role": "hod",
+        "departmentId": 3
+    },
+    {
+        "userName": "E_TC",
+        "password": "E_TC",
+        "role": "hod",
+        "departmentId": 3
+    },
+    {
+        "userName": "ECS",
+        "password": "ECS",
+        "role": "hod",
+        "departmentId": 4
+    },
+    {
+        "userName": "MECH",
+        "password": "MECH",
+        "role": "hod",
+        "departmentId": 5
+    },
+    {
+        "userName": "CIVIL",
+        "password": "CIVIL",
+        "role": "hod",
+        "departmentId": 6
+    },
+    {
+        "userName": "CSE",
+        "password": "CSE",
+        "role": "hod",
+        "departmentId": 7
+    },
+    {
+        "userName": "MME",
+        "password": "MME",
+        "role": "hod",
+        "departmentId": 8
+    },
+    {
+        "userName": "AI_ML",
+        "password": "AI_ML",
+        "role": "hod",
+        "departmentId": 9
+    },
+    {
+        "userName": "AIDS",
+        "password": "AIDS",
+        "role": "hod",
+        "departmentId": 10
+    },
+    {
+        "userName": "IOT",
+        "password": "IOT",
+        "role": "hod",
+        "departmentId": 11
+    },
+    {
+        "userName": "B_VOC",
+        "password": "B_VOC",
+        "role": "hod",
+        "departmentId": 12
+    }
+]

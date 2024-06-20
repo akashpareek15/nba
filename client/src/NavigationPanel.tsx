@@ -14,14 +14,14 @@ import { useNavigate } from 'react-router-dom';
 
 
 export const NavigationPanel = () => {
-    const [criteriaList, setCriteriaList] = React.useState<{ criteriaName: string, criteriaId }[]>([]);
+    const [departments, setDepartments] = React.useState<{ departmentName: string, departmentId }[]>([]);
     const navigate = useNavigate();
 
     const [selectedItem, setSelectedItem] = React.useState<string>('dashboard');
 
     React.useEffect(() => {
-        axios.get('http://localhost:5555/criteria').then((res) => {
-            setCriteriaList(res.data);
+        axios.get('http://localhost:5555/departments').then((res) => {
+            setDepartments(res.data);
         });
     }, [])
     const img = logo.default;
@@ -45,12 +45,12 @@ export const NavigationPanel = () => {
                     </ListItemIcon>
                     <ListItemText primary="Dashboard" />
                 </ListItemButton>
-                {criteriaList.map((m) => (
-                    <ListItemButton color='primary' selected={selectedItem === m.criteriaId} onClick={() => { setSelectedItem(m.criteriaId); navigate(`/criteria/${m.criteriaId}`); }}>
+                {departments.map((m) => (
+                    <ListItemButton color='primary' selected={selectedItem === m.departmentId} onClick={() => { setSelectedItem(m.departmentId); navigate(`/criteria/${m.departmentId}`); }}>
                         <ListItemIcon>
                             <BarChartIcon sx={{ color: '#fff' }} />
                         </ListItemIcon>
-                        <ListItemText primary={m.criteriaName} />
+                        <ListItemText primary={m.departmentName} />
                     </ListItemButton>
                 ))}
 

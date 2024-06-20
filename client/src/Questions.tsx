@@ -1,22 +1,26 @@
 import axios from "axios";
 import { useEffect, useMemo, useState } from "react";
 import { ChangeType, Question } from "./Question";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { IQuestion, SubQuestion } from "./domain/IQuestion";
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
+import { useUser } from "./useUser";
 
 export const Questions = () => {
     const [questions, setQuestions] = useState<IQuestion[]>([]);
-    const { departmentId, criteriaId } = useParams();
+    const { criteriaId } = useParams();
+    const { loggedInUser } = useUser();
     const [isChanged, setIsChanged] = useState(false);
+    const navigate = useNavigate();
+
     useEffect(() => {
-        if (criteriaId && departmentId) {
-            axios.get(`http://localhost:5555/criteria/${criteriaId}/departments/${departmentId}/questions`).then((res) => {
+        if (criteriaId && loggedInUser?.departmentId) {
+            axios.get(`http://localhost:5555/criteria/${criteriaId}/departments/${loggedInUser?.departmentId}/questions`).then((res) => {
                 setQuestions(res.data);
             });
 
         }
-    }, [criteriaId, departmentId]);
+    }, [criteriaId, loggedInUser?.departmentId]);
 
     const findSubQuestion = (questions: IQuestion[] | SubQuestion[], questionIndexes: number[], counter = 0): IQuestion | SubQuestion => {
         if (questionIndexes.length == 1) {
@@ -35,14 +39,21 @@ export const Questions = () => {
 
     const onSaveQuestion = () => {
         if (isChanged && allAnswered()) {
-            axios.post(`http://localhost:5555/criteria/${criteriaId}/departments/${departmentId}`, { questions, total }).then((res) => {
+            axios.post(`http://localhost:5555/criteria/${criteriaId}/departments/${loggedInUser?.departmentId}`, { questions, total }).then((res) => {
                 setIsChanged(false);
                 console.log(res);
+                navigate('/home/dashboard');
             });
         }
     }
 
     const total = useMemo(() => questions.flatMap(m => m.subQuestions ?? m).reduce((acc, cur) => cur.value === 'Y' ? acc + cur.marks : acc, 0), [questions]);
+
+    const calculateMatchedKeywords = (question: IQuestion | SubQuestion) => {
+        return question.keywords?.reduce((acc, curr) => {
+            return question.reason?.toLowerCase().indexOf(curr?.toLowerCase()) > -1 ? acc + 1 : acc;
+        }, 0)
+    }
 
     const onChange = (index: string, value: string, type: ChangeType) => {
         setIsChanged(true);
@@ -55,20 +66,24 @@ export const Questions = () => {
             }
         } else if (type === 'text') {
             question.reason = value;
+            question.marks = calculateMatchedKeywords(question);
         }
 
         setQuestions([...questions]);
     }
 
 
-    return <div style={{ display: 'flex', flexDirection: 'column', gap: '50px' }}>
-        {
-            questions.map((question, index) => <Question key={question._id} {...question} onChange={onChange} index={`${index}`} ></Question>)
-        }
-        <div style={{ display: 'flex', alignItems: 'center', gap: 30 }}>
-            <div>Total: {total}</div>
-            <Button variant="contained" color="primary" onClick={onSaveQuestion}>Save</Button>
-        </div>
-    </div>
+    return <Typography variant="body2" fontSize={12}  >
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '50px' }}>
+            {
+                questions.map((question, index) => <Question key={question._id} {...question} onChange={onChange} index={`${index}`} ></Question>)
+            }
+            <div style={{ display: 'flex', alignItems: 'center', gap: 30 }}>
 
+                <Button variant="contained" color="primary" onClick={onSaveQuestion}>Save</Button>
+
+                <div>Total: {total}</div>
+            </div>
+        </div>
+    </Typography>
 }

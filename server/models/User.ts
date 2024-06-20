@@ -4,7 +4,7 @@ export interface IUser extends Document {
     lastName: string;
     email: string;
     role: string;
-    department: string[];
+    department: number;
     password: string;
 }
 
@@ -34,7 +34,7 @@ var userSchema = new Schema({
     },
 
     department: {
-        type: Array<String>,
+        type: Number,
         // required: [true, "At least one department should be provided"],
         // validate: {
         //     validator: (v) => v && Array.isArray(v) && v.length,

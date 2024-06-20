@@ -1,6 +1,6 @@
 
 import { DB_URL } from "../config";
-import { handleDBConnection } from "../db/db";
+import { db, handleDBConnection } from "../db/db";
 import { IUser, UserSchema } from "../models/User";
 
 
@@ -34,37 +34,25 @@ authRoute.post('/register', async (req, res) => {
     })
 });
 authRoute.post('/login', async (req, res) => {
-    handleDBConnection(res, () => {
-        UserSchema.findOne({
-            email: req.body.email
-        })
-            .exec().then((user: IUser) => {
-                if (!user) {
-                    return res.status(404)
-                        .send({
-                            message: "User Not found."
-                        });
-                }
-                const { department, email, firstName, lastName, password, role, id } = user;
-                const passwordIsValid = bcrypt.compareSync(req.body.password, password);
-                if (!passwordIsValid) {
-                    return res.status(401)
-                        .send({
-                            accessToken: null,
-                            message: "Invalid Password!"
-                        });
-                }
-                //signing token with user id
-                var token = jwt.sign({ id }, process.env.API_SECRET, { expiresIn: 60 * 60 * 24 });
-
-                res.status(200)
-                    .send({
-                        user: {
-                            department, email, firstName, lastName, role, id
-                        },
-                        message: "Login successful",
-                        accessToken: token,
-                    });
+    const { userName, password } = req.body;
+    const user = await db.collection("users").findOne({ userName, password });
+    if (!user) {
+        return res.status(404)
+            .send({
+                message: "Invalid Credentials."
             });
-    });
+    }
+    var token = jwt.sign({
+        departmentId: user.departmentId, role: user.role, userName: user.userName
+    }, process.env.API_SECRET, { expiresIn: 60 * 60 * 24 });
+
+    res.status(200)
+        .send({
+            user: {
+                departmentId: user.departmentId, role: user.role, userName: user.userName
+            },
+            message: "Login successful",
+            accessToken: token
+        });
+
 });

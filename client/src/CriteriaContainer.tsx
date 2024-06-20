@@ -1,5 +1,5 @@
-import { Dashboard } from "./Dashboard"
+import { AdminHome } from "./AdminHome"
 
 export const CriteriaContainer = () => {
-    return <Dashboard clickable={true} />
+    return <AdminHome />
 }
