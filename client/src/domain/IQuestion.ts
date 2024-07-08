@@ -1,24 +1,25 @@
 
-export interface IQuestion {
-  _id: string;
+interface QuestionBase {
   description: string;
-  criteriaId: number;
   question_number: string;
   marks: number;
-  subQuestions?: SubQuestion[];
+  keywords?: string[][] | string[];
+  obtainedMarks?: number;
+  code?: string;
+  type?: string;
+  disabled?: boolean;
+  helperText?: string;
   value?: string;
   reason?: string;
-  keywords?: string[];
-  obtainedMarks?: number;
+  error?: string;
 }
 
-export interface SubQuestion {
-  description: string;
-  question_number: string;
-  marks: number;
-  value?: string;
-  keywords?: string[];
-  reason?: string;
-  obtainedMarks?: number;
+export interface IQuestion extends QuestionBase {
+  _id: string;
+  criteriaId: number;
+  subQuestions?: SubQuestion[];
+}
+
+export interface SubQuestion extends QuestionBase {
   subQuestions?: SubQuestion[];
 }

@@ -34,14 +34,23 @@ export const Questions = () => {
 
     }
 
-    const allAnswered = () => !questions.flatMap(m => m.subQuestions ?? m).some((question) => !question.value || (question.value === 'Y' && !question.reason));
+    const isValidAnswer = (type: string, reason?: string, error?: string,): boolean => {
+        return type === 'text' ? !!reason && !error : true;
+    }
+
+    const allAnswered = () => {
+        return questions.every(m => {
+            const { reason, error, type } = m;
+            const isValid = isValidAnswer(type, reason, error);
+            return isValid;
+        })
+    };
 
 
     const onSaveQuestion = () => {
         if (isChanged && allAnswered()) {
-            axios.post(`http://localhost:5555/criteria/${criteriaId}/departments/${loggedInUser?.departmentId}`, { questions, total }).then((res) => {
+            axios.post(`http://localhost:5555/criteria/${criteriaId}/departments/${loggedInUser?.departmentId}`, { questions, total }).then(() => {
                 setIsChanged(false);
-                console.log(res);
                 navigate('/home/dashboard');
             });
         }
@@ -52,9 +61,15 @@ export const Questions = () => {
         return (acc + marks)
     }, 0), [questions]);
 
+    const findMatchedKeywords = (keywords: string[], reason?: string) => {
+        return keywords?.reduce((acc, curr) => {
+            return reason?.toLowerCase().indexOf(curr?.toLowerCase()) > -1 ? acc + 1 : acc;
+        }, 0);
+    }
+
     const calculateMarks = (question: IQuestion | SubQuestion) => {
         const matched = question.keywords?.reduce((acc, curr) => {
-            return question.reason?.toLowerCase().indexOf(curr?.toLowerCase()) > -1 ? acc + 1 : acc;
+            return question.reason?.toLowerCase().indexOf((curr as string)?.toLowerCase()) > -1 ? acc + 1 : acc;
         }, 0);
         return matched >= 3 ? 2 : matched >= 2 ? 1.5 : 1;
     }
@@ -73,14 +88,49 @@ export const Questions = () => {
         } else if (type === 'text') {
             question.reason = value;
         } else if (type === 'calculate_marks') {
-            question.obtainedMarks = calculateMarks(question)
+            console.log(question);
+            if (question.code === 'VISION_MISSION_HEADING') {
+                calculateVision(question);
+            } else if (question.code === 'PROGRAM_OBJECTIVE_HEADING') {
+                calculatePEO(question);
+            } else {
+                question.obtainedMarks = calculateMarks(question);
+            }
         } else if (type === 'marks_change') {
             question.obtainedMarks = question.reason ? isNaN(Number(value)) ? 0 : Number(value) ?? 0 : undefined;
         }
-
         setQuestions([...questions]);
     }
+    const calculateVision = (question: IQuestion | SubQuestion) => {
 
+        question.subQuestions?.forEach(sq => {
+            if (sq.type === 'radio') {
+                const isAnswered = !!question.reason?.toString().trim();
+                sq.value = isAnswered ? 'Y' : 'N';
+                sq.obtainedMarks = isAnswered ? 1 : 0;
+            }
+            else if (sq.type === 'keyword') {
+                sq.obtainedMarks = sq.keywords?.reduce((prev, curr) => {
+                    const matchedKeywords = findMatchedKeywords(curr as string[], question.reason);
+                    return matchedKeywords > 0 ? prev + 1 : prev;
+                }, 0);
+            }
+        });
+    }
+
+    const calculatePEO = (question: IQuestion | SubQuestion) => {
+        const min3Sentences = question.reason?.split('.').length >= 3;
+        question.error = !min3Sentences ? 'Error' : '';
+        question.subQuestions?.forEach(sq => {
+
+            if (sq.type === 'keyword') {
+                sq.obtainedMarks = min3Sentences ? sq.keywords?.reduce((prev, curr) => {
+                    const matchedKeywords = findMatchedKeywords(curr as string[], question.reason);
+                    return matchedKeywords > 0 ? prev + 1 : prev;
+                }, 0) : 0;
+            }
+        });
+    }
 
     return <Typography variant="body2" fontSize={12}  >
         <div style={{ display: 'flex', flexDirection: 'column', gap: '50px' }}>
