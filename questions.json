@@ -337,21 +337,206 @@
         "criteriaId": 1,
         "question_number": "1.3",
         "marks": 15,
+        "code": "INDICATE_VISION_MISSION",
+        "type": "upload",
         "subQuestions": [
             {
                 "description": "Adequacy in respect of publication & dissemination",
                 "question_number": "A",
-                "marks": 3
+                "marks": 3,
+                "type": "keyword",
+                "code": "INDICATE_VISION_MISSION_ADEQUACY",
+                "keywords": [
+                    [
+                        "Website",
+                        "social media",
+                        "newsletters",
+                        "email",
+                        "public meetings",
+                        "workshops",
+                        "seminars",
+                        "brochures",
+                        "flyers",
+                        "bulletin boards"
+                    ],
+                    [
+                        "Stakeholders",
+                        "students",
+                        "faculty",
+                        "staff",
+                        "industry partners",
+                        "alumni",
+                        "community",
+                        "engagement",
+                        "involvement",
+                        "participation",
+                        "Accessible",
+                        "easily accessible",
+                        "user-friendly",
+                        "inclusive",
+                        "wide reach",
+                        "available",
+                        "open access",
+                        "multi-channel",
+                        "Effective",
+                        "efficiently",
+                        "adequately",
+                        "successfully",
+                        "impactful"
+                    ],
+                    [
+                        "reach",
+                        "coverage",
+                        "comprehensive",
+                        "Feedback",
+                        "surveys",
+                        "comments",
+                        "suggestions",
+                        "input",
+                        "response",
+                        "review",
+                        "assessment",
+                        "evaluation",
+                        "Awareness",
+                        "knowledge",
+                        "informed",
+                        "notification",
+                        "visibility",
+                        "promotion",
+                        "communication",
+                        "dissemination"
+                    ]
+                ]
             },
             {
                 "description": "Process of dissemination among stakeholders",
                 "question_number": "B",
-                "marks": 3
+                "marks": 3,
+                "type": "keyword",
+                "code": "INDICATE_VISION_MISSION_PROCESS",
+                "keywords": [
+                    [
+                        "Website",
+                        "social media",
+                        "newsletters",
+                        "email",
+                        "public meetings",
+                        "workshops",
+                        "seminars",
+                        "brochures",
+                        "flyers",
+                        "bulletin boards",
+                        "Stakeholders"
+                    ],
+                    [
+                        "students",
+                        "faculty",
+                        "staff",
+                        "industry partners",
+                        "alumni",
+                        "community",
+                        "parents",
+                        "employers",
+                        "Strategies",
+                        "methods",
+                        "approaches",
+                        "techniques",
+                        "channels",
+                        "platforms",
+                        "tools",
+                        "Regularly",
+                        "periodically",
+                        "annually",
+                        "quarterly"
+                    ],
+                    [
+                        "monthly",
+                        "frequently",
+                        "ongoing",
+                        "continuous",
+                        "Accessible",
+                        "easily accessible",
+                        "user-friendly",
+                        "inclusive",
+                        "widely available",
+                        "open access",
+                        "multi-channel",
+                        "Feedback",
+                        "surveys",
+                        "comments",
+                        "suggestions",
+                        "input",
+                        "response",
+                        "review",
+                        "assessment",
+                        "evaluation"
+                    ]
+                ]
             },
             {
                 "description": "Extent of awareness of Vision, Mission & PEOs among the stakeholder",
                 "question_number": "C",
-                "marks": 9
+                "marks": 9,
+                "type": "keyword",
+                "code": "INDICATE_VISION_MISSION_EXTENT",
+                "keywords": [
+                    [
+                        "Aware",
+                        "awareness",
+                        "knowledgeable",
+                        "informed",
+                        "understanding"
+                    ],
+                    [
+                        "familiarity",
+                        "recognition",
+                        "consciousness",
+                        "Effective communication"
+                    ],
+                    [
+                        "clear communication",
+                        "communication success",
+                        "information dissemination"
+                    ],
+                    [
+                        "message clarity",
+                        "Stakeholders",
+                        "students"
+                    ],
+                    [
+                        "faculty",
+                        "staff",
+                        "industry partners"
+                    ],
+                    [
+                        "alumni",
+                        "community",
+                        "parents",
+                        "employers",
+                        "Engagement"
+                    ],
+                    [
+                        "involvement",
+                        "participation",
+                        "interaction",
+                        "collaboration"
+                    ],
+                    [
+                        "Website",
+                        "social media",
+                        "newsletters",
+                        "email",
+                        "public meetings",
+                        "workshops"
+                    ],
+                    [
+                        "seminars",
+                        "brochures",
+                        "flyers",
+                        "bulletin boards",
+                        "online portals"
+                    ]
+                ]
             }
         ]
     },
@@ -360,16 +545,158 @@
         "criteriaId": 1,
         "question_number": "1.4",
         "marks": 15,
+        "code": "PROCESS_VISION_MISSION",
+        "type": "text",
         "subQuestions": [
             {
                 "description": "Description of process involved in defining the Vision, Mission of the Department",
                 "question_number": "A",
-                "marks": 7
+                "marks": 7,
+                "type": "keyword",
+                "keywords": [
+                    [
+                        "Strategic planning",
+                        "strategy",
+                        "planning",
+                        "framework",
+                        "roadmap",
+                        "vision statement"
+                    ],
+                    [
+                        "mission statement",
+                        "Stakeholders",
+                        "students",
+                        "faculty",
+                        "staff",
+                        "industry partners"
+                    ],
+                    [
+                        "alumni",
+                        "community",
+                        "involvement",
+                        "participation",
+                        "collaboration",
+                        "input",
+                        "Research",
+                        "benchmarking",
+                        "best practices",
+                        "analysis"
+                    ],
+                    [
+                        "market analysis",
+                        "needs assessment",
+                        "environmental scan"
+                    ],
+                    [
+                        "peer institutions",
+                        "Workshops",
+                        "meetings"
+                    ],
+                    [
+                        "brainstorming",
+                        "discussions",
+                        "focus groups",
+                        "seminars",
+                        "retreats",
+                        "Feedback",
+                        "surveys",
+                        "comments",
+                        "suggestions",
+                        "input",
+                        "review",
+                        "assessment"
+                    ],
+                    [
+                        "evaluation",
+                        "Consensus",
+                        "agreement",
+                        "alignment",
+                        "validation",
+                        "approval",
+                        "ratification",
+                        "decision-making"
+                    ]
+                ]
             },
             {
                 "description": "Description of process involved in defining the PEOs of the program",
                 "question_number": "B",
-                "marks": 8
+                "marks": 8,
+                "type": "keyword",
+                "keywords": [
+                    [
+                        "Strategic planning",
+                        "strategy",
+                        "planning",
+                        "framework",
+                        "roadmap",
+                        "educational objectives"
+                    ],
+                    [
+                        "PEOs",
+                        "goals",
+                        "objectives",
+                        "Stakeholders",
+                        "students",
+                        "faculty",
+                        "staff",
+                        "industry] [partners",
+                        "alumni",
+                        "community",
+                        "involvement",
+                        "participation",
+                        "collaboration",
+                        "input"
+                    ],
+                    [
+                        "Data collection",
+                        "data analysis",
+                        "surveys",
+                        "research",
+                        "feedback",
+                        "input",
+                        "assessment"
+                    ],
+                    [
+                        "evaluation",
+                        "Benchmarking",
+                        "best practices",
+                        "peer institutions"
+                    ],
+                    [
+                        "market analysis",
+                        "standards",
+                        "comparison",
+                        "Workshops",
+                        "meetings"
+                    ],
+                    [
+                        "brainstorming",
+                        "discussions",
+                        "focus groups",
+                        "seminars",
+                        "retreats",
+                        "Feedback",
+                        "surveys"
+                    ],
+                    [
+                        "comments",
+                        "suggestions",
+                        "input",
+                        "review",
+                        "assessment"
+                    ],
+                    [
+                        "evaluation",
+                        "Consensus",
+                        "agreement",
+                        "alignment",
+                        "validation",
+                        "approval",
+                        "ratification",
+                        "decision-making"
+                    ]
+                ]
             }
         ]
     },
@@ -378,16 +705,106 @@
         "criteriaId": 1,
         "question_number": "1.5",
         "marks": 10,
+        "code": "CONSISTENCY_PEO",
+        "type": "text",
         "subQuestions": [
             {
                 "description": "Preparation of a matrix of PEOs and elements of Mission statement",
                 "question_number": "A",
-                "marks": 5
+                "marks": 5,
+                "type": "keyword",
+                "keywords": [
+                    [
+                        "Alignment",
+                        "consistency",
+                        "congruence",
+                        "coherence"
+                    ],
+                    [
+                        "correlation",
+                        "integration",
+                        "harmony",
+                        "Assessment",
+                        "review",
+                        "evaluation",
+                        "analysis"
+                    ],
+                    [
+                        "monitoring",
+                        "audit",
+                        "validation",
+                        "Mapping",
+                        "linking",
+                        "connecting"
+                    ],
+                    [
+                        "relationship",
+                        "association",
+                        "Feedback",
+                        "surveys",
+                        "comments",
+                        "suggestions"
+                    ],
+                    [
+                        "input",
+                        "response",
+                        "review",
+                        "Matrix",
+                        "framework",
+                        "table",
+                        "chart",
+                        "diagram",
+                        "structure"
+                    ]
+                ]
             },
             {
                 "description": "Consistency/justification of co-relation parameters of the above matrix",
                 "question_number": "B",
-                "marks": 5
+                "marks": 5,
+                "type": "keyword",
+                "keywords": [
+                    [
+                        "Alignment",
+                        "mapping",
+                        "correlation",
+                        "connection",
+                        "linkage",
+                        "integration",
+                        "Criteria"
+                    ],
+                    [
+                        "parameters",
+                        "factors",
+                        "standards",
+                        "metrics",
+                        "guidelines",
+                        "benchmarks"
+                    ],
+                    [
+                        "Rationale",
+                        "justification",
+                        "reasoning",
+                        "logic",
+                        "explanation"
+                    ],
+                    [
+                        "basis",
+                        "grounds",
+                        "Relevance",
+                        "coherence",
+                        "consistency"
+                    ],
+                    [
+                        "fit",
+                        "suitability",
+                        "Validation",
+                        "assessment",
+                        "evaluation",
+                        "verification",
+                        "analysis"
+                    ]
+                ]
             }
         ]
     }

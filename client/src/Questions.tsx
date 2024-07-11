@@ -47,6 +47,8 @@ export const Questions = () => {
     };
 
 
+
+
     const onSaveQuestion = () => {
         if (isChanged && allAnswered()) {
             axios.post(`http://localhost:5555/criteria/${criteriaId}/departments/${loggedInUser?.departmentId}`, { questions, total }).then(() => {
@@ -89,7 +91,7 @@ export const Questions = () => {
             question.reason = value;
         } else if (type === 'calculate_marks') {
             console.log(question);
-            if (question.code === 'VISION_MISSION_HEADING') {
+            if (['VISION_MISSION_HEADING', 'CONSISTENCY_PEO', 'PROCESS_VISION_MISSION'].includes(question.code)) {
                 calculateVision(question);
             } else if (question.code === 'PROGRAM_OBJECTIVE_HEADING') {
                 calculatePEO(question);
@@ -101,6 +103,21 @@ export const Questions = () => {
         }
         setQuestions([...questions]);
     }
+
+    const onUploadHandler = async (e, index: string, _code: string) => {
+        setIsChanged(true);
+        const question = findSubQuestion(questions, index.split('_').map(m => +m), 0);
+        const formData = new FormData();
+        formData.append('file', e.target.files[0]);
+        try {
+            const response = await axios.post('http://localhost:5555/document/upload', formData, { headers: { 'Content-Type': 'multipart/form-data' } });
+            calculateIndicate(question, response.data);
+        } catch (error) {
+            console.error('Error uploading file:', error);
+        }
+        setQuestions([...questions]);
+    };
+
     const calculateVision = (question: IQuestion | SubQuestion) => {
 
         question.subQuestions?.forEach(sq => {
@@ -112,6 +129,17 @@ export const Questions = () => {
             else if (sq.type === 'keyword') {
                 sq.obtainedMarks = sq.keywords?.reduce((prev, curr) => {
                     const matchedKeywords = findMatchedKeywords(curr as string[], question.reason);
+                    return matchedKeywords > 0 ? prev + 1 : prev;
+                }, 0);
+            }
+        });
+    }
+
+    const calculateIndicate = (question: IQuestion | SubQuestion, reason) => {
+        question.subQuestions?.forEach(sq => {
+            if (sq.type === 'keyword') {
+                sq.obtainedMarks = sq.keywords?.reduce((prev, curr) => {
+                    const matchedKeywords = findMatchedKeywords(curr as string[], reason);
                     return matchedKeywords > 0 ? prev + 1 : prev;
                 }, 0);
             }
@@ -135,7 +163,7 @@ export const Questions = () => {
     return <Typography variant="body2" fontSize={12}  >
         <div style={{ display: 'flex', flexDirection: 'column', gap: '50px' }}>
             {
-                questions.map((question, index) => <Question key={question._id} {...question} onChange={onChange} index={`${index}`} ></Question>)
+                questions.map((question, index) => <Question key={question._id} {...question} onChange={onChange} onUploadHandler={onUploadHandler} index={`${index}`} ></Question>)
             }
             <div style={{ display: 'flex', alignItems: 'center', gap: 30 }}>
 

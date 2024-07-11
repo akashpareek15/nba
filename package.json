@@ -20,8 +20,11 @@
     "esrun": "^3.2.26",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.4.1",
-    "nodemon": "^3.1.0"
+    "mongoose": "^8.5.0",
+    "multer": "^1.4.4",
+    "nodemon": "^3.1.0",
+    "officeparser": "^4.1.1",
+    "ulid": "^2.3.0"
   },
   "devDependencies": {
     "@types/node": "^20.12.11",

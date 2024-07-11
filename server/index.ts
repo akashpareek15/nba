@@ -3,8 +3,10 @@ import express from 'express';
 import { PORT } from './config.ts';
 import { criteriaRoute } from './routes/criteriaRoute.ts';
 
-import { departmentRoute } from './routes/departmentRoute.ts';
+
 import { authRoute } from './routes/authRoute.ts';
+import { departmentRoute } from './routes/departmentRoute.ts';
+import { documentRoute } from './routes/documentRoute.ts';
 
 require("dotenv")
   .config();
@@ -14,14 +16,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// app.get('/', (request, response) => {
-//   console.log(request);
-//   return response.status(234).send('Welcome To MERN Stack Tutorial');
-// });
 app.use('/criteria', criteriaRoute);
 app.use('/departments', departmentRoute);
 app.use('/auth', authRoute);
-
+app.use('/document', documentRoute);
 // Global error handling
 app.use((err, _req, res, next) => {
   res.status(500).send("An unexpected error occurred.")
