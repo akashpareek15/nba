@@ -12,6 +12,7 @@ interface QuestionBase {
   value?: string;
   reason?: string;
   error?: string;
+  documentId?: string;
 }
 
 export interface IQuestion extends QuestionBase {
