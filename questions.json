@@ -807,5 +807,90 @@
                 ]
             }
         ]
+    },
+    {
+        "description": "Program Curriculum",
+        "criteriaId": 2,
+        "question_number": "2.1",
+        "marks": 30,
+        "code": "PROGRAM_CURRICULUM",
+        "type": "label",
+        "subQuestions": [
+            {
+                "description": "State the process for designing the program curriculum",
+                "question_number": "2.1.1",
+                "marks": 10,
+                "type": "document",
+                "code": "PROGRAM_CURRICULUM_DESIGN",
+                "keywords": []
+            },
+            {
+                "description": "Structure of the Curriculum",
+                "question_number": "2.1.2",
+                "marks": 5,
+                "type": "document",
+                "keywords": []
+            },
+            {
+                "description": "State curriculum the components of the curriculum",
+                "question_number": "2.1.3",
+                "marks": 5,
+                "type": "document",
+                "keywords": []
+            },
+            {
+                "description": "State the process used to identify extent of compliance of the curriculum for attaining the Program Outcomes(POs) & Program Specific Outcomes(PSOs)",
+                "question_number": "2.1.4",
+                "marks": 10,
+                "type": "document",
+                "keywords": []
+            }
+        ]
+    },
+    {
+        "description": "Teaching-Learning Processes",
+        "criteriaId": 2,
+        "question_number": "2.2",
+        "marks": 70,
+        "code": "TEACH_LEARN_PROCESSES",
+        "type": "label",
+        "subQuestions": [
+            {
+                "description": "Describe the Process followed to improve quality of Teaching Learning",
+                "question_number": "2.2.1",
+                "marks": 15,
+                "type": "label",
+                "code": "TEACH_LEARN_PROCESSES_QUALITY",
+                "keywords": []
+            },
+            {
+                "description": "Quality of end semester examination, internal semester question papers, assignments and evaluation",
+                "question_number": "2.2.2",
+                "marks": 15,
+                "type": "label",
+                "keywords": []
+            },
+            {
+                "description": "Quality of student projects",
+                "question_number": "2.2.3",
+                "marks": 20,
+                "type": "label",
+                "keywords": []
+            },
+            {
+                "description": "Initiatives related to industry interaction",
+                "question_number": "2.2.4",
+                "marks": 10,
+                "type": "label",
+                "keywords": []
+            },
+            {
+                "description": "Initiatives related to industry internship/summer training",
+                "question_number": "2.2.5",
+                "marks": 10,
+                "type": "label",
+                "keywords": []
+            }
+        ]
     }
 ]
