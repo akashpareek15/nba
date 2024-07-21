@@ -13,6 +13,7 @@ interface QuestionBase {
   reason?: string;
   error?: string;
   documentId?: string;
+  fileName?: string;
 }
 
 export interface IQuestion extends QuestionBase {

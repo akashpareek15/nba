@@ -31,7 +31,11 @@ documentRoute.post("/upload", upload.single("file"), async (req, res) => {
       originalFileName,
     });
     const data = await officeParser.parseOfficeAsync(req.file.path);
-    res.send({ parsedData: data, documentId: name });
+    res.send({
+      parsedData: data,
+      documentId: name,
+      fileName: req.file.originalname,
+    });
   } catch (error) {
     console.log(error);
     res.status(500).send(error);

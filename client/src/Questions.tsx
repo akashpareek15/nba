@@ -170,14 +170,14 @@ export const Questions = () => {
     setQuestions([...questions]);
   };
 
-  const onDownload = async (documentId: string) => {
+  const onDownload = async (documentId: string, fileName: string) => {
     try {
       const response = await fetch(
         `http://localhost:5555/document/${documentId}/download`
       );
       console.log(response);
       const blob = await response.blob();
-      saveAs(blob, documentId);
+      saveAs(blob, fileName);
     } catch (error) {
       console.error("Error downloading file:", error);
     }
@@ -203,9 +203,10 @@ export const Questions = () => {
 
   const calculateIndicate = (
     question: IQuestion | SubQuestion,
-    { parsedData, documentId }
+    { parsedData, documentId, fileName }
   ) => {
     question.documentId = documentId;
+    question.fileName = fileName;
     question.subQuestions?.forEach((sq) => {
       if (sq.type === "keyword") {
         sq.obtainedMarks = sq.keywords?.reduce((prev, curr) => {
@@ -226,12 +227,12 @@ export const Questions = () => {
       if (sq.type === "keyword") {
         sq.obtainedMarks = min3Sentences
           ? sq.keywords?.reduce((prev, curr) => {
-              const matchedKeywords = findMatchedKeywords(
-                curr as string[],
-                question.reason
-              );
-              return matchedKeywords > 0 ? prev + 1 : prev;
-            }, 0)
+            const matchedKeywords = findMatchedKeywords(
+              curr as string[],
+              question.reason
+            );
+            return matchedKeywords > 0 ? prev + 1 : prev;
+          }, 0)
           : 0;
       }
     });

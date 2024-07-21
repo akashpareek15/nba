@@ -1,4 +1,4 @@
-import { CloudUpload, DownloadOutlined } from "@mui/icons-material";
+import { CloudUpload, } from "@mui/icons-material";
 import {
   FormControlLabel,
   IconButton,
@@ -19,7 +19,7 @@ type QuestionProps = IQuestion & {
   ) => void;
   index: string;
   onUploadHandler: (event, index: string, code: string) => void;
-  onDownload: (documentId) => void;
+  onDownload: (documentId: string, fileName: string) => void;
 };
 
 const Input = styled("input")({
@@ -108,7 +108,7 @@ export const Question = (props: QuestionProps) => {
               error={!!props.error}
             />
           ) : props.type === "upload" ? (
-            <>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
               <label htmlFor="icon-button-file">
                 <Input
                   accept="pdf"
@@ -125,16 +125,11 @@ export const Question = (props: QuestionProps) => {
                 </IconButton>
               </label>
               {props.documentId && (
-                <IconButton
-                  color="primary"
-                  aria-label="upload document"
-                  component="span"
-                  onClick={() => props.onDownload(props.documentId)}
-                >
-                  <DownloadOutlined />
-                </IconButton>
+                <div style={{ cursor: 'pointer', textDecoration: 'underline' }} onClick={() => props.onDownload(props.documentId, props.fileName)}>
+                  {props.fileName}
+                </div>
               )}
-            </>
+            </div>
           ) : (
             <></>
           )}
@@ -155,14 +150,13 @@ export const Question = (props: QuestionProps) => {
       <div>
         {props.subQuestions?.map((sq: IQuestion, subQuestionIndex: number) => (
           <div>
-            {" "}
             <Question
               onDownload={props.onDownload}
               {...sq}
               index={`${props.index}_${subQuestionIndex}`}
               onUploadHandler={props.onUploadHandler}
               onChange={props.onChange}
-            />{" "}
+            />
           </div>
         ))}
       </div>
