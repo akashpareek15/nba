@@ -1,4 +1,4 @@
-import { CloudUpload, } from "@mui/icons-material";
+import { CloudUpload } from "@mui/icons-material";
 import {
   FormControlLabel,
   IconButton,
@@ -108,7 +108,7 @@ export const Question = (props: QuestionProps) => {
               error={!!props.error}
             />
           ) : props.type === "upload" ? (
-            <div style={{ display: 'flex', alignItems: 'center' }}>
+            <div style={{ display: "flex", alignItems: "center" }}>
               <label htmlFor="icon-button-file">
                 <Input
                   accept="pdf"
@@ -125,7 +125,12 @@ export const Question = (props: QuestionProps) => {
                 </IconButton>
               </label>
               {props.documentId && (
-                <div style={{ cursor: 'pointer', textDecoration: 'underline' }} onClick={() => props.onDownload(props.documentId, props.fileName)}>
+                <div
+                  style={{ cursor: "pointer", textDecoration: "underline" }}
+                  onClick={() =>
+                    props.onDownload(props.documentId, props.fileName)
+                  }
+                >
                   {props.fileName}
                 </div>
               )}
