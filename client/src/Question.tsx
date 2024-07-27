@@ -8,6 +8,7 @@ import {
   TextField,
 } from "@mui/material";
 import { IQuestion } from "./domain/IQuestion";
+import { useId } from "react";
 
 export type ChangeType = "radio" | "text" | "calculate_marks" | "marks_change";
 type QuestionProps = IQuestion & {
@@ -32,6 +33,7 @@ export const Question = (props: QuestionProps) => {
   };
 
   const isSubQuestions = !props.subQuestions?.length;
+  const id = useId();
 
   const onChange = (event) => {
     props.onChange(props.index, event.target.value, "text", props.code);
@@ -109,10 +111,10 @@ export const Question = (props: QuestionProps) => {
             />
           ) : props.type === "upload" ? (
             <div style={{ display: "flex", alignItems: "center" }}>
-              <label htmlFor="icon-button-file">
+              <label htmlFor={id}>
                 <Input
                   accept="pdf"
-                  id="icon-button-file"
+                  id={id}
                   onChange={onUploadHandler}
                   type="file"
                 />

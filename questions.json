@@ -521,13 +521,13 @@
     "question_number": "1.4",
     "marks": 15,
     "code": "PROCESS_VISION_MISSION",
-    "type": "text",
+    "type": "label",
     "subQuestions": [
       {
         "description": "Description of process involved in defining the Vision, Mission of the Department",
         "question_number": "A",
         "marks": 7,
-        "type": "keyword",
+        "type": "upload",
         "keywords": [
           [
             "Strategic planning",
@@ -589,7 +589,7 @@
         "description": "Description of process involved in defining the PEOs of the program",
         "question_number": "B",
         "marks": 8,
-        "type": "keyword",
+        "type": "upload",
         "keywords": [
           [
             "Strategic planning",

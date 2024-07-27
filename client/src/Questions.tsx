@@ -124,7 +124,6 @@ export const Questions = () => {
     } else if (type === "text") {
       question.reason = value;
     } else if (type === "calculate_marks") {
-      console.log(question);
       if (
         [
           "VISION_MISSION_HEADING",
@@ -227,12 +226,12 @@ export const Questions = () => {
       if (sq.type === "keyword") {
         sq.obtainedMarks = min3Sentences
           ? sq.keywords?.reduce((prev, curr) => {
-            const matchedKeywords = findMatchedKeywords(
-              curr as string[],
-              question.reason
-            );
-            return matchedKeywords > 0 ? prev + 1 : prev;
-          }, 0)
+              const matchedKeywords = findMatchedKeywords(
+                curr as string[],
+                question.reason
+              );
+              return matchedKeywords > 0 ? prev + 1 : prev;
+            }, 0)
           : 0;
       }
     });
