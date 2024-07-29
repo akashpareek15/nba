@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import { IQuestion } from "./domain/IQuestion";
 import { useId } from "react";
-
+import AddIcon from "@mui/icons-material/Add";
 export type ChangeType = "radio" | "text" | "calculate_marks" | "marks_change";
 type QuestionProps = IQuestion & {
   onChange: (
@@ -21,6 +21,15 @@ type QuestionProps = IQuestion & {
   index: string;
   onUploadHandler: (event, index: string, code: string) => void;
   onDownload: (documentId: string, fileName: string) => void;
+  addNewRow: (index: string, code: string) => void;
+  onRowValueChange: (
+    index: string,
+    code: string,
+    rowIndex: number,
+    value: string | boolean,
+    type: string,
+    field: string
+  ) => void;
 };
 
 const Input = styled("input")({
@@ -55,8 +64,8 @@ export const Question = (props: QuestionProps) => {
       <div
         style={{
           display: "flex",
-          alignItems: "center",
-          flexDirection: "row",
+          alignItems: props.type === "table" ? "start" : "center",
+          flexDirection: props.type === "table" ? "column" : "row",
           gap: 10,
         }}
       >
@@ -137,6 +146,127 @@ export const Question = (props: QuestionProps) => {
                 </div>
               )}
             </div>
+          ) : props.type === "table" ? (
+            <div>
+              {props.headers && (
+                <section>
+                  <header>
+                    <div
+                      className="col"
+                      style={{
+                        width: 50,
+                      }}
+                    >
+                      S.No.
+                    </div>
+                    {props.headers.map((header) => (
+                      <div
+                        className="col"
+                        style={{
+                          width: header.width,
+                          flex: header.width ? null : 1,
+                        }}
+                      >
+                        {header.label}
+                      </div>
+                    ))}
+                    <div
+                      className="col"
+                      style={{
+                        width: 50,
+                      }}
+                    ></div>
+                  </header>
+                  {props.rows?.map((row, index) => (
+                    <div className="row">
+                      <div
+                        className="col"
+                        style={{
+                          width: 50,
+                        }}
+                      >
+                        {index + 1}
+                      </div>
+                      {props.headers.map((header) => {
+                        const type = row.types?.[header.key] ?? header.type;
+                        return (
+                          <div
+                            className="col"
+                            style={{
+                              width: header.width,
+                              flex: header.width ? null : 1,
+                            }}
+                          >
+                            <>
+                              {type === "label" ? (
+                                row[header.key]
+                              ) : type === "checkbox" ? (
+                                <>
+                                  <input
+                                    type="checkbox"
+                                    checked={row[header.key]}
+                                    onChange={(event) =>
+                                      props.onRowValueChange(
+                                        props.index,
+                                        props.code,
+                                        index,
+                                        event.target.checked,
+                                        "checkbox",
+                                        header.key
+                                      )
+                                    }
+                                  />
+                                </>
+                              ) : type === "textbox" ? (
+                                <TextField
+                                  style={{ width: "90%" }}
+                                  label=""
+                                  value={row[header.key]}
+                                  variant="standard"
+                                  onChange={(event) =>
+                                    props.onRowValueChange(
+                                      props.index,
+                                      props.code,
+                                      index,
+                                      event.target.value,
+                                      "textbox",
+                                      header.key
+                                    )
+                                  }
+                                />
+                              ) : (
+                                <></>
+                              )}
+                            </>
+                          </div>
+                        );
+                      })}
+                      <div
+                        className="col"
+                        style={{
+                          width: 50,
+                        }}
+                      >
+                        {index + 1 === props.rows.length && (
+                          <>
+                            <IconButton
+                              color="primary"
+                              onClick={() =>
+                                props.addNewRow(props.index, props.code)
+                              }
+                              size="small"
+                              aria-label="add new"
+                            >
+                              <AddIcon></AddIcon>
+                            </IconButton>
+                          </>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </section>
+              )}
+            </div>
           ) : (
             <></>
           )}
@@ -163,6 +293,8 @@ export const Question = (props: QuestionProps) => {
               index={`${props.index}_${subQuestionIndex}`}
               onUploadHandler={props.onUploadHandler}
               onChange={props.onChange}
+              addNewRow={props.addNewRow}
+              onRowValueChange={props.onRowValueChange}
             />
           </div>
         ))}

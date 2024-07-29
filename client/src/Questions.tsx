@@ -61,7 +61,7 @@ export const Questions = () => {
   };
 
   const onSaveQuestion = () => {
-    if (isChanged && allAnswered()) {
+    if (allAnswered()) {
       axios
         .post(
           `http://localhost:5555/criteria/${criteriaId}/departments/${loggedInUser?.departmentId}`,
@@ -206,17 +206,22 @@ export const Questions = () => {
   ) => {
     question.documentId = documentId;
     question.fileName = fileName;
+    if (question.keywords.length && !question.subQuestions?.length) {
+      question.obtainedMarks = checkKeywords(question, parsedData);
+    }
+
     question.subQuestions?.forEach((sq) => {
       if (sq.type === "keyword") {
-        sq.obtainedMarks = sq.keywords?.reduce((prev, curr) => {
-          const matchedKeywords = findMatchedKeywords(
-            curr as string[],
-            parsedData
-          );
-          return matchedKeywords > 0 ? prev + 1 : prev;
-        }, 0);
+        sq.obtainedMarks = checkKeywords(sq, parsedData);
       }
     });
+  };
+
+  const checkKeywords = (sq: IQuestion | SubQuestion, parsedData) => {
+    return sq.keywords?.reduce((prev, curr) => {
+      const matchedKeywords = findMatchedKeywords(curr as string[], parsedData);
+      return matchedKeywords > 0 ? prev + 1 : prev;
+    }, 0);
   };
 
   const calculatePEO = (question: IQuestion | SubQuestion) => {
@@ -237,6 +242,51 @@ export const Questions = () => {
     });
   };
 
+  const addNewRow = (index: string, code: string) => {
+    const question = findSubQuestion(
+      questions,
+      index.split("_").map((m) => +m),
+      0
+    );
+    if (code === "INDICATE_VISION_MISSION_ADEQUACY") {
+      question.rows.push({
+        isManual: true,
+        types: {
+          location: "textbox",
+        },
+      });
+    }
+
+    setQuestions([...questions]);
+  };
+  const onRowValueChange = (
+    index: string,
+    code: string,
+    rowIndex: number,
+    value: string,
+    type: string,
+    field: string
+  ) => {
+    const question = findSubQuestion(
+      questions,
+      index.split("_").map((m) => +m),
+      0
+    );
+
+    question.rows[rowIndex][field] = value;
+    if (code === "INDICATE_VISION_MISSION_ADEQUACY") {
+      if (type === "checkbox") {
+        question.obtainedMarks = question.headers
+          .filter((h) => h.type === "checkbox")
+          .reduce((acc, curr) => {
+            return question.rows.filter((r) => r[curr.key] === true).length > 4
+              ? acc + 1
+              : acc;
+          }, 0);
+      }
+    }
+    setQuestions([...questions]);
+  };
   return (
     <Typography variant="body2" fontSize={12}>
       <div style={{ display: "flex", flexDirection: "column", gap: "50px" }}>
@@ -248,6 +298,8 @@ export const Questions = () => {
             onDownload={onDownload}
             onUploadHandler={onUploadHandler}
             index={`${index}`}
+            addNewRow={addNewRow}
+            onRowValueChange={onRowValueChange}
           ></Question>
         ))}
         <div style={{ display: "flex", alignItems: "center", gap: 30 }}>

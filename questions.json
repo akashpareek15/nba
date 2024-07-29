@@ -338,14 +338,77 @@
     "question_number": "1.3",
     "marks": 15,
     "code": "INDICATE_VISION_MISSION",
-    "type": "upload",
+    "type": "label",
     "subQuestions": [
       {
         "description": "Adequacy in respect of publication & dissemination",
         "question_number": "A",
         "marks": 3,
-        "type": "keyword",
+        "type": "table",
         "code": "INDICATE_VISION_MISSION_ADEQUACY",
+        "headers": [
+          {
+            "label": "Location (Publication)",
+            "key": "location",
+            "type": "label"
+          },
+          {
+            "label": "Vision",
+            "key": "vision",
+            "type": "checkbox",
+            "width": "50px"
+          },
+          {
+            "label": "Mission",
+            "key": "mission",
+            "type": "checkbox",
+            "width": "50px"
+          },
+          {
+            "label": "PEOs",
+            "key": "peo",
+            "type": "checkbox",
+            "width": "50px"
+          }
+        ],
+        "rows": [
+          {
+            "location": "Department website: https://www.tcetmumbai.in/deptITengg_home.html",
+            "srNo": 1
+          },
+          {
+            "location": "Admission Brochure",
+            "srNo": 2
+          },
+          {
+            "location": "Department Magazine",
+            "srNo": 3
+          },
+          {
+            "location": "Prominent Places in the department",
+            "srNo": 4
+          },
+          {
+            "location": "Displayed on sun-board in the corridor",
+            "srNo": 5
+          },
+          {
+            "location": "Department publications",
+            "srNo": 6
+          },
+          {
+            "location": "Course Resource Books (students/faculty)",
+            "srNo": 7
+          },
+          {
+            "location": "Faculty Diary (only for faculty)",
+            "srNo": 8
+          },
+          {
+            "location": "Autonomy Curriculum",
+            "srNo": 9
+          }
+        ],
         "keywords": [
           [
             "Website",
@@ -412,7 +475,7 @@
         "description": "Process of dissemination among stakeholders",
         "question_number": "B",
         "marks": 3,
-        "type": "keyword",
+        "type": "upload",
         "code": "INDICATE_VISION_MISSION_PROCESS",
         "keywords": [
           [
@@ -477,7 +540,7 @@
         "description": "Extent of awareness of Vision, Mission & PEOs among the stakeholder",
         "question_number": "C",
         "marks": 9,
-        "type": "keyword",
+        "type": "table",
         "code": "INDICATE_VISION_MISSION_EXTENT",
         "keywords": [
           ["Aware", "awareness", "knowledgeable", "informed", "understanding"],
@@ -662,7 +725,7 @@
     "question_number": "1.5",
     "marks": 10,
     "code": "CONSISTENCY_PEO",
-    "type": "text",
+    "type": "table",
     "subQuestions": [
       {
         "description": "Preparation of a matrix of PEOs and elements of Mission statement",

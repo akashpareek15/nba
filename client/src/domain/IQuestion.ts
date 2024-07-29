@@ -1,3 +1,9 @@
+export interface Header {
+  label: string;
+  key: string;
+  type: string;
+  width?: string | number;
+}
 
 interface QuestionBase {
   description: string;
@@ -14,6 +20,12 @@ interface QuestionBase {
   error?: string;
   documentId?: string;
   fileName?: string;
+  headers?: Header[];
+  rows?: object &
+    {
+      isManual: boolean;
+      types?: object;
+    }[];
 }
 
 export interface IQuestion extends QuestionBase {
