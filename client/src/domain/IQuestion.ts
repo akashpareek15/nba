@@ -3,8 +3,12 @@ export interface Header {
   key: string;
   type: string;
   width?: string | number;
+  options?: Option[];
 }
-
+export interface Option {
+  label: string;
+  key: string;
+}
 interface QuestionBase {
   description: string;
   question_number: string;
@@ -26,6 +30,7 @@ interface QuestionBase {
       isManual: boolean;
       types?: object;
     }[];
+  style?: object;
 }
 
 export interface IQuestion extends QuestionBase {

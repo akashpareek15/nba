@@ -373,40 +373,31 @@
         ],
         "rows": [
           {
-            "location": "Department website: https://www.tcetmumbai.in/deptITengg_home.html",
-            "srNo": 1
+            "location": "Department website: https://www.tcetmumbai.in/deptITengg_home.html"
           },
           {
-            "location": "Admission Brochure",
-            "srNo": 2
+            "location": "Admission Brochure"
           },
           {
-            "location": "Department Magazine",
-            "srNo": 3
+            "location": "Department Magazine"
           },
           {
-            "location": "Prominent Places in the department",
-            "srNo": 4
+            "location": "Prominent Places in the department"
           },
           {
-            "location": "Displayed on sun-board in the corridor",
-            "srNo": 5
+            "location": "Displayed on sun-board in the corridor"
           },
           {
-            "location": "Department publications",
-            "srNo": 6
+            "location": "Department publications"
           },
           {
-            "location": "Course Resource Books (students/faculty)",
-            "srNo": 7
+            "location": "Course Resource Books (students/faculty)"
           },
           {
-            "location": "Faculty Diary (only for faculty)",
-            "srNo": 8
+            "location": "Faculty Diary (only for faculty)"
           },
           {
-            "location": "Autonomy Curriculum",
-            "srNo": 9
+            "location": "Autonomy Curriculum"
           }
         ],
         "keywords": [
@@ -542,6 +533,88 @@
         "marks": 9,
         "type": "table",
         "code": "INDICATE_VISION_MISSION_EXTENT",
+        "style": { "width": "80%" },
+        "headers": [
+          {
+            "label": "",
+            "key": "stakeholderType",
+            "type": "label",
+            "options": [
+              { "label": "Internal", "key": "internal" },
+              { "label": "External", "key": "external" }
+            ]
+          },
+          {
+            "label": "Stakeholder",
+            "key": "stakeholder",
+            "type": "label"
+          },
+          {
+            "label": "Frequency of meeting",
+            "key": "meetingFrequency",
+            "type": "dropdown",
+            "options": [
+              { "label": "Twice in a year", "key": "Twice in a year" },
+              { "label": "Monthly", "key": "Monthly" },
+              { "label": "Once in two years", "key": "Once in two years" }
+            ]
+          },
+          {
+            "label": "Dissemination",
+            "key": "dissemination",
+            "type": "textbox"
+          }
+        ],
+        "rows": [
+          {
+            "stakeholderType": "Internal",
+            "stakeholder": "Management and Governing Board Members"
+          },
+          {
+            "stakeholderType": "Internal",
+            "stakeholder": "Academic Council"
+          },
+          {
+            "stakeholderType": "Internal",
+            "stakeholder": "Board of Studies Members"
+          },
+          {
+            "stakeholderType": "Internal",
+            "stakeholder": "Advisory Committee"
+          },
+          {
+            "stakeholderType": "Internal",
+            "stakeholder": "Students"
+          },
+          {
+            "stakeholderType": "Internal",
+            "stakeholder": "Faculty"
+          },
+          {
+            "stakeholderType": "Internal",
+            "stakeholder": "Technical and Supporting Staff"
+          },
+          {
+            "stakeholderType": "External",
+            "stakeholder": "Regulating, affiliating and accrediting bodies"
+          },
+          {
+            "stakeholderType": "External",
+            "stakeholder": "Industry and Funding Agencies"
+          },
+          {
+            "stakeholderType": "External",
+            "stakeholder": "Parents"
+          },
+          {
+            "stakeholderType": "External",
+            "stakeholder": "Alumni"
+          },
+          {
+            "stakeholderType": "External",
+            "stakeholder": "Vendors"
+          }
+        ],
         "keywords": [
           ["Aware", "awareness", "knowledgeable", "informed", "understanding"],
           [

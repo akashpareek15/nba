@@ -2,8 +2,10 @@ import { CloudUpload } from "@mui/icons-material";
 import {
   FormControlLabel,
   IconButton,
+  MenuItem,
   Radio,
   RadioGroup,
+  Select,
   styled,
   TextField,
 } from "@mui/material";
@@ -74,7 +76,7 @@ export const Question = (props: QuestionProps) => {
             flex: 1,
             display: "flex",
             gap: 5,
-            paddingLeft: isSubQuestions ? 20 : 10,
+            paddingLeft: isSubQuestions || props.type === "table" ? 20 : 10,
           }}
         >
           <strong>{props.question_number}.</strong>
@@ -86,7 +88,13 @@ export const Question = (props: QuestionProps) => {
           (<span>{props.marks}</span>)
         </div>
 
-        <div style={{ flex: 0.8 }}>
+        <div
+          style={{
+            flex: 0.8,
+            ...props.style,
+            paddingLeft: props.type === "table" ? 40 : null,
+          }}
+        >
           {props.type === "radio" ? (
             <RadioGroup
               sx={{ fontSize: 8 }}
@@ -205,7 +213,7 @@ export const Question = (props: QuestionProps) => {
                                   <input
                                     type="checkbox"
                                     checked={row[header.key]}
-                                    onChange={(event) =>
+                                    onChange={(event) => {
                                       props.onRowValueChange(
                                         props.index,
                                         props.code,
@@ -213,16 +221,20 @@ export const Question = (props: QuestionProps) => {
                                         event.target.checked,
                                         "checkbox",
                                         header.key
-                                      )
-                                    }
+                                      );
+                                    }}
                                   />
                                 </>
                               ) : type === "textbox" ? (
                                 <TextField
-                                  style={{ width: "90%" }}
+                                  style={{
+                                    width: "100%",
+                                    padding: " 0px 10px",
+                                  }}
                                   label=""
                                   value={row[header.key]}
                                   variant="standard"
+                                  inputProps={{ style: { fontSize: 12 } }}
                                   onChange={(event) =>
                                     props.onRowValueChange(
                                       props.index,
@@ -234,6 +246,37 @@ export const Question = (props: QuestionProps) => {
                                     )
                                   }
                                 />
+                              ) : type === "dropdown" ? (
+                                <Select
+                                  displayEmpty
+                                  size="small"
+                                  value={row[header.key]}
+                                  style={{
+                                    width: "100%",
+                                    
+                                    fontSize: 12,
+                                    height: 25,
+                                  }}
+                                  onChange={(event) =>
+                                    props.onRowValueChange(
+                                      props.index,
+                                      props.code,
+                                      index,
+                                      event.target.value as string,
+                                      "dropdown",
+                                      header.key
+                                    )
+                                  }
+                                >
+                                  {header.options?.map((op) => (
+                                    <MenuItem
+                                      style={{ fontSize: 12 }}
+                                      value={op.key}
+                                    >
+                                      {op.label}
+                                    </MenuItem>
+                                  ))}
+                                </Select>
                               ) : (
                                 <></>
                               )}
@@ -251,6 +294,7 @@ export const Question = (props: QuestionProps) => {
                           <>
                             <IconButton
                               color="primary"
+                              style={{ height: 25 }}
                               onClick={() =>
                                 props.addNewRow(props.index, props.code)
                               }
@@ -271,7 +315,7 @@ export const Question = (props: QuestionProps) => {
             <></>
           )}
         </div>
-        <div style={{ width: 80 }}>
+        <div style={{ width: 80, alignSelf: "end" }}>
           {props.type !== "text" && (
             <TextField
               variant="standard"

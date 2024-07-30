@@ -256,6 +256,15 @@ export const Questions = () => {
         },
       });
     }
+    if (code === "INDICATE_VISION_MISSION_EXTENT") {
+      question.rows.push({
+        isManual: true,
+        types: {
+          stakeholderType: "dropdown",
+          stakeholder: "textbox",
+        },
+      });
+    }
 
     setQuestions([...questions]);
   };
