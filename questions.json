@@ -346,6 +346,7 @@
         "marks": 3,
         "type": "table",
         "code": "INDICATE_VISION_MISSION_ADEQUACY",
+        "showAdditionalCol": true,
         "headers": [
           {
             "label": "Location (Publication)",
@@ -534,6 +535,7 @@
         "type": "table",
         "code": "INDICATE_VISION_MISSION_EXTENT",
         "style": { "width": "80%" },
+        "showAdditionalCol": true,
         "headers": [
           {
             "label": "",
@@ -562,7 +564,9 @@
           {
             "label": "Dissemination",
             "key": "dissemination",
-            "type": "textbox"
+            "type": "textbox",
+            "multiline": true,
+            "maxRows": "2"
           }
         ],
         "rows": [
@@ -798,7 +802,7 @@
     "question_number": "1.5",
     "marks": 10,
     "code": "CONSISTENCY_PEO",
-    "type": "table",
+    "type": "label",
     "subQuestions": [
       {
         "description": "Preparation of a matrix of PEOs and elements of Mission statement",
@@ -849,7 +853,77 @@
         "description": "Consistency/justification of co-relation parameters of the above matrix",
         "question_number": "B",
         "marks": 5,
-        "type": "keyword",
+        "type": "table",
+
+        "style": { "width": "80%" },
+        "showAdditionalCol": false,
+        "headers": [
+          {
+            "label": "PEO Statements",
+            "key": "peoStatement",
+            "type": "label"
+          },
+          {
+            "label": "Mission statements",
+            "key": "missionStatement",
+            "type": "label"
+          },
+          {
+            "label": "Level of Mapping",
+            "key": "mappingLevel",
+            "type": "textbox",
+            "width": "100px",
+            "textBoxType": "number"
+          },
+          {
+            "label": "Justification",
+            "key": "justification",
+            "type": "textbox",
+            "multiline": true,
+            "maxRows": 2
+          }
+        ],
+        "rows": [
+          {
+            "peoStatement": "PEO 1: To prepare learners with a strong foundation in the area of information technology required to solve real life problems arising from software technology. (Knowledge) [CURRICULAR]",
+            "missionStatement": "M1- rigorously implementing Quality education"
+          },
+          {
+            "missionStatement": "M2- focus to make learners industry ready 3"
+          },
+          {
+            "missionStatement": "M3- imbibing in learners professional ethics and social values"
+          },
+          {
+            "missionStatement": "M4- making learners responsible citizens 2"
+          },
+          {
+            "peoStatement": "PEO 2: To prepare learners to be knowledgeable of the ethics, professionalism and cultural diversity in the work environment to meet applicable standards with continued motivation for research and development. (Skills & Professionalism) [CO-CURRICULAR]",
+            "missionStatement": "M1- rigorously implementing Quality education"
+          },
+          {
+            "missionStatement": "M2- focus to make learners industry ready 3"
+          },
+          {
+            "missionStatement": "M3- imbibing in learners professional ethics and social values"
+          },
+          {
+            "missionStatement": "M4- making learners responsible citizens 2"
+          },
+          {
+            "peoStatement": "PEO 3: To prepare learners to understand the need for lifelong learning with effective written and oral communication skills and to be able to readily adapt to new software engineering environments.(Attitude, Presentation and Growth) [EXTRA CURRICULAR]",
+            "missionStatement": "M1- rigorously implementing Quality education"
+          },
+          {
+            "missionStatement": "M2- focus to make learners industry ready 3"
+          },
+          {
+            "missionStatement": "M3- imbibing in learners professional ethics and social values"
+          },
+          {
+            "missionStatement": "M4- making learners responsible citizens 2"
+          }
+        ],
         "keywords": [
           [
             "Alignment",

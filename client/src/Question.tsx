@@ -122,6 +122,8 @@ export const Question = (props: QuestionProps) => {
               onChange={onChange}
               value={props.reason}
               onBlur={onBlur}
+              maxRows={2}
+              multiline
               style={{ width: "95%" }}
               helperText={props.helperText}
               error={!!props.error}
@@ -178,12 +180,14 @@ export const Question = (props: QuestionProps) => {
                         {header.label}
                       </div>
                     ))}
-                    <div
-                      className="col"
-                      style={{
-                        width: 50,
-                      }}
-                    ></div>
+                    {props.showAdditionalCol && (
+                      <div
+                        className="col"
+                        style={{
+                          width: 50,
+                        }}
+                      ></div>
+                    )}
                   </header>
                   {props.rows?.map((row, index) => (
                     <div className="row">
@@ -202,6 +206,7 @@ export const Question = (props: QuestionProps) => {
                             className="col"
                             style={{
                               width: header.width,
+                              display: "flex",
                               flex: header.width ? null : 1,
                             }}
                           >
@@ -229,12 +234,16 @@ export const Question = (props: QuestionProps) => {
                                 <TextField
                                   style={{
                                     width: "100%",
-                                    padding: " 0px 10px",
+                                    padding: " 0px 10px 2px 0px",
+                                    alignSelf: "flex-end",
                                   }}
                                   label=""
                                   value={row[header.key]}
                                   variant="standard"
+                                  type={header.textBoxType ?? "text"}
                                   inputProps={{ style: { fontSize: 12 } }}
+                                  maxRows={header.maxRows ?? 2}
+                                  multiline={header.multiline}
                                   onChange={(event) =>
                                     props.onRowValueChange(
                                       props.index,
@@ -253,7 +262,7 @@ export const Question = (props: QuestionProps) => {
                                   value={row[header.key]}
                                   style={{
                                     width: "100%",
-                                    
+                                    alignSelf: "center",
                                     fontSize: 12,
                                     height: 25,
                                   }}
@@ -284,28 +293,30 @@ export const Question = (props: QuestionProps) => {
                           </div>
                         );
                       })}
-                      <div
-                        className="col"
-                        style={{
-                          width: 50,
-                        }}
-                      >
-                        {index + 1 === props.rows.length && (
-                          <>
-                            <IconButton
-                              color="primary"
-                              style={{ height: 25 }}
-                              onClick={() =>
-                                props.addNewRow(props.index, props.code)
-                              }
-                              size="small"
-                              aria-label="add new"
-                            >
-                              <AddIcon></AddIcon>
-                            </IconButton>
-                          </>
-                        )}
-                      </div>
+                      {props.showAdditionalCol && (
+                        <div
+                          className="col"
+                          style={{
+                            width: 50,
+                          }}
+                        >
+                          {index + 1 === props.rows.length && (
+                            <>
+                              <IconButton
+                                color="primary"
+                                style={{ height: 25 }}
+                                onClick={() =>
+                                  props.addNewRow(props.index, props.code)
+                                }
+                                size="small"
+                                aria-label="add new"
+                              >
+                                <AddIcon></AddIcon>
+                              </IconButton>
+                            </>
+                          )}
+                        </div>
+                      )}
                     </div>
                   ))}
                 </section>

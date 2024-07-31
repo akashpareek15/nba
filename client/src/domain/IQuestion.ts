@@ -4,6 +4,9 @@ export interface Header {
   type: string;
   width?: string | number;
   options?: Option[];
+  textBoxType?: string;
+  multiline?: boolean;
+  maxRows?: number;
 }
 export interface Option {
   label: string;
@@ -31,6 +34,7 @@ interface QuestionBase {
       types?: object;
     }[];
   style?: object;
+  showAdditionalCol?: boolean;
 }
 
 export interface IQuestion extends QuestionBase {
