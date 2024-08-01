@@ -326,18 +326,20 @@ export const Question = (props: QuestionProps) => {
             <></>
           )}
         </div>
-        <div style={{ width: 80, alignSelf: "end" }}>
-          {props.type !== "text" && (
-            <TextField
-              variant="standard"
-              sx={{ fontSize: 8 }}
-              type="number"
-              value={props.obtainedMarks}
-              disabled={true}
-              style={{ width: "90%" }}
-            />
-          )}
-        </div>
+        {!props.hideMarks && (
+          <div style={{ width: 80, alignSelf: "end" }}>
+            {props.type !== "text" && (
+              <TextField
+                variant="standard"
+                sx={{ fontSize: 8 }}
+                type="number"
+                value={props.obtainedMarks}
+                disabled={true}
+                style={{ width: "90%" }}
+              />
+            )}
+          </div>
+        )}
       </div>
       <div>
         {props.subQuestions?.map((sq: IQuestion, subQuestionIndex: number) => (

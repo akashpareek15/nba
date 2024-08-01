@@ -28,6 +28,7 @@ interface QuestionBase {
   documentId?: string;
   fileName?: string;
   headers?: Header[];
+  hideMarks?: boolean;
   rows?: object &
     {
       isManual: boolean;
