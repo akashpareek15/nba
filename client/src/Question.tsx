@@ -9,11 +9,16 @@ import {
   styled,
   TextField,
 } from "@mui/material";
-import { IQuestion } from "./domain/IQuestion";
+import { IQuestion, SubQuestion } from "./domain/IQuestion";
 import { useId } from "react";
 import AddIcon from "@mui/icons-material/Add";
+
 export type ChangeType = "radio" | "text" | "calculate_marks" | "marks_change";
-type QuestionProps = IQuestion & {
+type QuestionProps = {
+  questionId: number;
+  documentId?: string;
+  subQuestions?: SubQuestion[];
+  fileName?: string;
   onChange: (
     index: string,
     value: string,
@@ -23,7 +28,10 @@ type QuestionProps = IQuestion & {
   index: string;
   onUploadHandler: (event, index: string, code: string) => void;
   onDownload: (documentId: string, fileName: string) => void;
-  addNewRow: (index: string, code: string) => void;
+  addNewRow: (index: string, code: string, rowIndex: number) => void;
+  questionMap: object;
+  answers: object;
+  obtainedMarks?: number;
   onRowValueChange: (
     index: string,
     code: string,
@@ -39,26 +47,41 @@ const Input = styled("input")({
 });
 
 export const Question = (props: QuestionProps) => {
+  const question: IQuestion = props.questionMap[props.questionId];
+  const answer: IQuestion = props.answers[props.questionId];
   const handleRadioChange = (event) => {
-    props.onChange(props.index, event.target.value, "radio", props.code);
+    props.onChange(props.index, event.target.value, "radio", question.code);
   };
 
   const isSubQuestions = !props.subQuestions?.length;
   const id = useId();
 
   const onChange = (event) => {
-    props.onChange(props.index, event.target.value, "text", props.code);
+    props.onChange(props.index, event.target.value, "text", question.code);
   };
   const onUploadHandler = (event) => {
-    props.onUploadHandler(event, props.index, props.code);
+    props.onUploadHandler(event, props.index, question.code);
   };
   const onBlur = (event) => {
     props.onChange(
       props.index,
       event.target.value,
       "calculate_marks",
-      props.code
+      question.code
     );
+  };
+
+  const getLabel = (
+    answerRow: object,
+    questionRows: object & { index: number }[],
+    index,
+    field
+  ) => {
+    
+    if (answerRow[field]) {
+      return answerRow[field];
+    }
+    return questionRows.find((m) => m.index === index)?.[field];
   };
 
   return (
@@ -66,8 +89,8 @@ export const Question = (props: QuestionProps) => {
       <div
         style={{
           display: "flex",
-          alignItems: props.type === "table" ? "start" : "center",
-          flexDirection: props.type === "table" ? "column" : "row",
+          alignItems: question.type === "table" ? "start" : "center",
+          flexDirection: question.type === "table" ? "column" : "row",
           gap: 10,
         }}
       >
@@ -76,59 +99,59 @@ export const Question = (props: QuestionProps) => {
             flex: 1,
             display: "flex",
             gap: 5,
-            paddingLeft: isSubQuestions || props.type === "table" ? 20 : 10,
+            paddingLeft: isSubQuestions || question.type === "table" ? 20 : 10,
           }}
         >
-          <strong>{props.question_number}.</strong>
+          <strong>{question.question_number}.</strong>
           {isSubQuestions ? (
-            <div> {props.description} </div>
+            <div> {question.description} </div>
           ) : (
-            <strong>{props.description}</strong>
+            <strong>{question.description}</strong>
           )}
-          (<span>{props.marks}</span>)
+          (<span>{question.marks}</span>)
         </div>
 
         <div
           style={{
             flex: 0.8,
-            ...props.style,
-            paddingLeft: props.type === "table" ? 40 : null,
+            ...question.style,
+            paddingLeft: question.type === "table" ? 40 : null,
           }}
         >
-          {props.type === "radio" ? (
+          {question.type === "radio" ? (
             <RadioGroup
               sx={{ fontSize: 8 }}
               row
-              value={props.value ?? ""}
+              value={answer.value ?? ""}
               aria-readonly={true}
               onChange={handleRadioChange}
             >
               <FormControlLabel
                 sx={{ fontSize: 8 }}
                 value="Y"
-                control={<Radio size="small" disabled={props.disabled} />}
+                control={<Radio size="small" disabled={question.disabled} />}
                 label="Yes"
               />
               <FormControlLabel
                 value="N"
-                control={<Radio size="small" disabled={props.disabled} />}
+                control={<Radio size="small" disabled={question.disabled} />}
                 label="No"
               />
             </RadioGroup>
-          ) : props.type === "text" ? (
+          ) : question.type === "text" ? (
             <TextField
               variant="standard"
               sx={{ fontSize: 8 }}
               onChange={onChange}
-              value={props.reason}
+              value={answer.reason}
               onBlur={onBlur}
               maxRows={2}
               multiline
               style={{ width: "95%" }}
-              helperText={props.helperText}
-              error={!!props.error}
+              helperText={question.helperText}
+              error={!!answer.error}
             />
-          ) : props.type === "upload" ? (
+          ) : question.type === "upload" ? (
             <div style={{ display: "flex", alignItems: "center" }}>
               <label htmlFor={id}>
                 <Input
@@ -145,20 +168,20 @@ export const Question = (props: QuestionProps) => {
                   <CloudUpload />
                 </IconButton>
               </label>
-              {props.documentId && (
+              {answer.documentId && (
                 <div
                   style={{ cursor: "pointer", textDecoration: "underline" }}
                   onClick={() =>
-                    props.onDownload(props.documentId, props.fileName)
+                    props.onDownload(answer.documentId, answer.fileName)
                   }
                 >
-                  {props.fileName}
+                  {answer.fileName}
                 </div>
               )}
             </div>
-          ) : props.type === "table" ? (
+          ) : question.type === "table" ? (
             <div>
-              {props.headers && (
+              {question.headers && (
                 <section>
                   <header>
                     <div
@@ -169,7 +192,7 @@ export const Question = (props: QuestionProps) => {
                     >
                       S.No.
                     </div>
-                    {props.headers.map((header) => (
+                    {question.headers.map((header) => (
                       <div
                         className="col"
                         style={{
@@ -180,7 +203,7 @@ export const Question = (props: QuestionProps) => {
                         {header.label}
                       </div>
                     ))}
-                    {props.showAdditionalCol && (
+                    {question.showAdditionalCol && (
                       <div
                         className="col"
                         style={{
@@ -189,7 +212,7 @@ export const Question = (props: QuestionProps) => {
                       ></div>
                     )}
                   </header>
-                  {props.rows?.map((row, index) => (
+                  {answer.rows?.map((row) => (
                     <div className="row">
                       <div
                         className="col"
@@ -197,9 +220,9 @@ export const Question = (props: QuestionProps) => {
                           width: 50,
                         }}
                       >
-                        {index + 1}
+                        {row.index}
                       </div>
-                      {props.headers.map((header) => {
+                      {question.headers.map((header) => {
                         const type = row.types?.[header.key] ?? header.type;
                         return (
                           <div
@@ -212,7 +235,12 @@ export const Question = (props: QuestionProps) => {
                           >
                             <>
                               {type === "label" ? (
-                                row[header.key]
+                                getLabel(
+                                  row,
+                                  question.rows,
+                                  row.index,
+                                  header.key
+                                )
                               ) : type === "checkbox" ? (
                                 <>
                                   <input
@@ -221,8 +249,8 @@ export const Question = (props: QuestionProps) => {
                                     onChange={(event) => {
                                       props.onRowValueChange(
                                         props.index,
-                                        props.code,
-                                        index,
+                                        question.code,
+                                        row.index,
                                         event.target.checked,
                                         "checkbox",
                                         header.key
@@ -247,8 +275,8 @@ export const Question = (props: QuestionProps) => {
                                   onChange={(event) =>
                                     props.onRowValueChange(
                                       props.index,
-                                      props.code,
-                                      index,
+                                      question.code,
+                                      row.index,
                                       event.target.value,
                                       "textbox",
                                       header.key
@@ -269,8 +297,8 @@ export const Question = (props: QuestionProps) => {
                                   onChange={(event) =>
                                     props.onRowValueChange(
                                       props.index,
-                                      props.code,
-                                      index,
+                                      question.code,
+                                      row.index,
                                       event.target.value as string,
                                       "dropdown",
                                       header.key
@@ -293,20 +321,24 @@ export const Question = (props: QuestionProps) => {
                           </div>
                         );
                       })}
-                      {props.showAdditionalCol && (
+                      {question.showAdditionalCol && (
                         <div
                           className="col"
                           style={{
                             width: 50,
                           }}
                         >
-                          {index + 1 === props.rows.length && (
+                          {row.index === answer.rows.length && (
                             <>
                               <IconButton
                                 color="primary"
                                 style={{ height: 25 }}
                                 onClick={() =>
-                                  props.addNewRow(props.index, props.code)
+                                  props.addNewRow(
+                                    props.index,
+                                    question.code,
+                                    row.index
+                                  )
                                 }
                                 size="small"
                                 aria-label="add new"
@@ -326,14 +358,14 @@ export const Question = (props: QuestionProps) => {
             <></>
           )}
         </div>
-        {!props.hideMarks && (
+        {!question.hideMarks && (
           <div style={{ width: 80, alignSelf: "end" }}>
-            {props.type !== "text" && (
+            {question.type !== "text" && (
               <TextField
                 variant="standard"
                 sx={{ fontSize: 8 }}
                 type="number"
-                value={props.obtainedMarks}
+                value={answer.obtainedMarks}
                 disabled={true}
                 style={{ width: "90%" }}
               />
@@ -352,6 +384,9 @@ export const Question = (props: QuestionProps) => {
               onChange={props.onChange}
               addNewRow={props.addNewRow}
               onRowValueChange={props.onRowValueChange}
+              questionMap={props.questionMap}
+              questionId={sq.questionId}
+              answers={props.answers}
             />
           </div>
         ))}

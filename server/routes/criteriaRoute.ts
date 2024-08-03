@@ -1,6 +1,5 @@
 const express = require("express");
 import { db } from "../db/db.ts";
-import { verifyToken } from "../handlers/verifyToken.ts";
 
 export const criteriaRoute = express.Router();
 
@@ -33,24 +32,19 @@ criteriaRoute.get(
   async (request, response) => {
     try {
       const { departmentId, criteriaId } = request.params;
-      const answer = await db.collection("answer").findOne({
+      const savedAnswers = await db.collection("answer").findOne({
         criteriaId: parseInt(criteriaId),
         departmentId: parseInt(departmentId),
       });
-      const documents = new Map(
-        (await db.collection("document").find({}).toArray()).map((m) => [
-          m.documentId,
-          m,
-        ])
-      );
-      
-      const questions = answer
-        ? answer.questions
-        : await db
-            .collection("question")
-            .find({ criteriaId: parseInt(criteriaId) })
-            .toArray();
-      return response.status(200).json(questions);
+      const questions = await db.collection("question").find({}).toArray();
+      const keywords = await db.collection("keyword").find({}).toArray();
+      const criteriaQuestions = await db
+        .collection("criteria_question")
+        .find({ criteriaId: parseInt(criteriaId) })
+        .toArray();
+      return response
+        .status(200)
+        .json({ questions, savedAnswers, keywords, criteriaQuestions });
     } catch (error) {
       console.log(error.message);
       response.status(500).send({ message: error.message });
@@ -63,7 +57,7 @@ criteriaRoute.post(
   async (request, response) => {
     try {
       const { departmentId, criteriaId } = request.params;
-      const { questions, total } = request.body;
+      const { answers, total } = request.body;
       await db.collection("answer").deleteOne({
         criteriaId: parseInt(criteriaId),
         departmentId: parseInt(departmentId),
@@ -71,7 +65,7 @@ criteriaRoute.post(
       const res = await db.collection("answer").insertOne({
         criteriaId: parseInt(criteriaId),
         departmentId: parseInt(departmentId),
-        questions,
+        answers,
         total,
       });
       return response.status(200).json(res);

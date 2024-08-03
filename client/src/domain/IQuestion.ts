@@ -14,9 +14,9 @@ export interface Option {
 }
 interface QuestionBase {
   description: string;
+  questionId: number;
   question_number: string;
   marks: number;
-  keywords?: string[][] | string[];
   obtainedMarks?: number;
   code?: string;
   type?: string;
@@ -31,6 +31,7 @@ interface QuestionBase {
   hideMarks?: boolean;
   rows?: object &
     {
+      index: number;
       isManual: boolean;
       types?: object;
     }[];

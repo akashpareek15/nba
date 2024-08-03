@@ -1,814 +1,314 @@
 [
   {
     "description": "State the Vision and Mission of the Department and Institute",
-    "criteriaId": 1,
     "question_number": "1.1",
     "marks": 5,
     "code": "VISION_MISSION_HEADING",
     "type": "text",
-    "subQuestions": [
-      {
-        "description": "Availability of the Vision & Mission statements of the Department",
-        "question_number": "A",
-        "marks": 1,
-        "code": "VISION_MISSION",
-        "type": "radio",
-        "disabled": true
-      },
-      {
-        "description": "Appropriateness/Relevance of the Statements",
-        "question_number": "B",
-        "marks": 2,
-        "code": "VISION_MISSION_APPROPRIATENESS",
-        "type": "keyword",
-        "keywords": [
-          [
-            "creativity",
-            "new ideas",
-            "cutting-edge technology",
-            "future-oriented",
-            "high standards",
-            "quality",
-            "superiority",
-            "leading",
-            "forefront",
-            "pioneering",
-            "worldwide",
-            "international",
-            "global presence",
-            "long-term",
-            "enduring",
-            "sustainable practices",
-            "teamwork",
-            "partnership",
-            "synergy",
-            "change",
-            "evolution",
-            "growth",
-            "enable",
-            "empower",
-            "support",
-            "motivate",
-            "inspire",
-            "aspirational",
-            "social impact",
-            "community engagement",
-            "societal contribution"
-          ],
-          [
-            "learning",
-            "teaching",
-            "training",
-            "instruction",
-            "investigation",
-            "inquiry",
-            "study",
-            "exploration",
-            "computing",
-            "software",
-            "hardware",
-            "IT systems",
-            "support",
-            "assistance",
-            "help",
-            "creative solutions",
-            "new technologies",
-            "advancements",
-            "skill enhancement",
-            "career growth",
-            "competency building",
-            "student achievement",
-            "academic success",
-            "learner outcomes",
-            "integrity",
-            "honesty",
-            "ethical standards",
-            "inclusion",
-            "equity",
-            "multiculturalism",
-            "involvement",
-            "participation",
-            "active learning"
-          ]
-        ]
-      },
-      {
-        "description": "Consistency of the Department statements with the Institute statements",
-        "question_number": "C",
-        "marks": 2,
-        "type": "keyword",
-        "code": "VISION_MISSION_CONSISTENCY",
-        "keywords": [
-          [
-            "Consistent",
-            "coherence",
-            "harmony",
-            "congruence",
-            "unified",
-            "integrated",
-            "aligned",
-            "alignment",
-            "parallel",
-            "congruent",
-            "matching",
-            "in sync",
-            "synergy",
-            "collaboration",
-            "partnership",
-            "joint effort",
-            "teamwork",
-            "cooperation",
-            "regular review",
-            "periodic review",
-            "continuous assessment",
-            "evaluation",
-            "monitoring",
-            "oversight",
-            "strategic goals",
-            "objectives",
-            "mission",
-            "vision",
-            "aims",
-            "targets",
-            "priorities",
-            "communication",
-            "information sharing",
-            "feedback",
-            "reporting",
-            "dialogue",
-            "stakeholder engagement",
-            "involvement",
-            "participation",
-            "input",
-            "consultation",
-            "adaptability",
-            "flexibility",
-            "responsiveness",
-            "adjustment",
-            "dynamic"
-          ],
-          [
-            "blended learning",
-            "online education",
-            "e-learning",
-            "student-centred",
-            "experiential learning",
-            "adaptive learning",
-            "AI (artificial intelligence)",
-            "machine learning",
-            "cloud computing",
-            "cybersecurity",
-            "blockchain",
-            "big data",
-            "IoT (Internet of Things)",
-            "AR/VR (augmented reality/virtual reality)",
-            "industry 4.0",
-            "digital transformation",
-            "tech industry",
-            "IT industry standards",
-            "future-proof",
-            "market demands",
-            "competitive edge",
-            "collaboration",
-            "partnerships",
-            "community engagement",
-            "industry connections",
-            "alumni network",
-            "employer feedback",
-            "flexibility",
-            "resilience",
-            "continuous improvement",
-            "agile",
-            "innovation",
-            "change management",
-            "future-ready",
-            "inclusivity",
-            "diversity",
-            "equity",
-            "accessibility",
-            "cultural competence",
-            "sustainable practices",
-            "environmental impact",
-            "green technology",
-            "energy efficiency",
-            "Innovation",
-            "excellence",
-            "leadership",
-            "global",
-            "sustainability",
-            "collaboration",
-            "transformation",
-            "empowerment",
-            "inspiration",
-            "community",
-            "Education",
-            "research",
-            "technology",
-            "service",
-            "professional development",
-            "student success",
-            "ethics",
-            "diversity",
-            "engagement",
-            "Blended learning",
-            "online education",
-            "e-learning",
-            "student-centred",
-            "experiential learning",
-            "adaptive learning",
-            "AI",
-            "artificial intelligence",
-            "machine learning",
-            "cloud computing",
-            "cybersecurity",
-            "blockchain",
-            "big data",
-            "IoT",
-            "Internet of Things",
-            "AR",
-            "VR",
-            "augmented reality",
-            "virtual reality",
-            "industry 4.0",
-            "digital transformation",
-            "tech industry",
-            "IT industry standards",
-            "future-proof",
-            "market demands",
-            "competitive edge",
-            "collaboration",
-            "partnerships",
-            "community engagement",
-            "industry connections",
-            "alumni network",
-            "employer feedback",
-            "flexibility",
-            "resilience",
-            "continuous improvement",
-            "agile",
-            "innovation",
-            "change management",
-            "future-ready",
-            "inclusivity",
-            "diversity",
-            "equity",
-            "accessibility",
-            "cultural competence",
-            "sustainable practices",
-            "environmental impact",
-            "green technology",
-            "energy efficiency"
-          ]
-        ]
-      }
-    ]
+    "questionId": 1
   },
   {
+    "questionId": 2,
+    "description": "Availability of the Vision & Mission statements of the Department",
+    "question_number": "A",
+    "marks": 1,
+    "code": "VISION_MISSION",
+    "type": "radio",
+    "disabled": true
+  },
+  {
+    "questionId": 3,
+    "description": "Appropriateness/Relevance of the Statements",
+    "question_number": "B",
+    "marks": 2,
+    "code": "VISION_MISSION_APPROPRIATENESS",
+    "type": "keyword"
+  },
+  {
+    "questionId": 4,
+    "description": "Consistency of the Department statements with the Institute statements",
+    "question_number": "C",
+    "marks": 2,
+    "type": "keyword",
+    "code": "VISION_MISSION_CONSISTENCY"
+  },
+  {
+    "questionId": 5,
     "description": "State the Program Objectives (PEOs)",
-    "criteriaId": 1,
     "question_number": "1.2",
     "marks": 5,
     "helperText": "At least enter 3 sentences",
     "code": "PROGRAM_OBJECTIVE_HEADING",
-    "type": "text",
-    "subQuestions": [
-      {
-        "description": "Listing of the Program Educational Objectives (3 to 5) of the program under consideration",
-        "question_number": "A",
-        "marks": 5,
-        "type": "keyword",
-        "code": "PROGRAM_OBJECTIVE_LISTING",
-        "keywords": [
-          [
-            "Technical skills",
-            "technical competence",
-            "software development",
-            "systems analysis",
-            "programming",
-            "engineering principles"
-          ],
-          [
-            "IT solutions",
-            "Employment",
-            "career advancement",
-            "industry readiness",
-            "professional development"
-          ],
-          [
-            "job skills",
-            "workplace success",
-            "professional ethics",
-            "integrity",
-            "responsibility",
-            "professional conduct",
-            "societal impact",
-            "Communication skills",
-            "teamwork"
-          ],
-          [
-            "employability",
-            "Lifelong learning",
-            "continuous improvement",
-            "professional growth",
-            "advanced studies",
-            "adaptability",
-            "self-directed learning",
-            "Ethical practices"
-          ],
-          [
-            "collaboration",
-            "leadership",
-            "interpersonal skills",
-            "project management",
-            "Innovation",
-            "creativity",
-            "problem-solving",
-            "critical thinking",
-            "analytical skills",
-            "research",
-            "design solutions"
-          ]
-        ]
-      }
-    ]
+    "type": "text"
   },
   {
+    "questionId": 6,
+    "description": "Listing of the Program Educational Objectives (3 to 5) of the program under consideration",
+    "question_number": "A",
+    "marks": 5,
+    "type": "keyword",
+    "code": "PROGRAM_OBJECTIVE_LISTING"
+  },
+  {
+    "questionId": 7,
     "description": " Indicate where and how the Vision, Mission and PEOs are published and disseminated among stakeholders",
     "criteriaId": 1,
     "question_number": "1.3",
     "marks": 15,
     "code": "INDICATE_VISION_MISSION",
-    "type": "label",
-    "subQuestions": [
+    "type": "label"
+  },
+  {
+    "questionId": 8,
+    "description": "Adequacy in respect of publication & dissemination",
+    "question_number": "A",
+    "marks": 3,
+    "type": "table",
+    "code": "INDICATE_VISION_MISSION_ADEQUACY",
+    "showAdditionalCol": true,
+    "headers": [
       {
-        "description": "Adequacy in respect of publication & dissemination",
-        "question_number": "A",
-        "marks": 3,
-        "type": "table",
-        "code": "INDICATE_VISION_MISSION_ADEQUACY",
-        "showAdditionalCol": true,
-        "headers": [
-          {
-            "label": "Location (Publication)",
-            "key": "location",
-            "type": "label"
-          },
-          {
-            "label": "Vision",
-            "key": "vision",
-            "type": "checkbox",
-            "width": "50px"
-          },
-          {
-            "label": "Mission",
-            "key": "mission",
-            "type": "checkbox",
-            "width": "50px"
-          },
-          {
-            "label": "PEOs",
-            "key": "peo",
-            "type": "checkbox",
-            "width": "50px"
-          }
-        ],
-        "rows": [
-          {
-            "location": "Department website: https://www.tcetmumbai.in/deptITengg_home.html"
-          },
-          {
-            "location": "Admission Brochure"
-          },
-          {
-            "location": "Department Magazine"
-          },
-          {
-            "location": "Prominent Places in the department"
-          },
-          {
-            "location": "Displayed on sun-board in the corridor"
-          },
-          {
-            "location": "Department publications"
-          },
-          {
-            "location": "Course Resource Books (students/faculty)"
-          },
-          {
-            "location": "Faculty Diary (only for faculty)"
-          },
-          {
-            "location": "Autonomy Curriculum"
-          }
-        ],
-        "keywords": [
-          [
-            "Website",
-            "social media",
-            "newsletters",
-            "email",
-            "public meetings",
-            "workshops",
-            "seminars",
-            "brochures",
-            "flyers",
-            "bulletin boards"
-          ],
-          [
-            "Stakeholders",
-            "students",
-            "faculty",
-            "staff",
-            "industry partners",
-            "alumni",
-            "community",
-            "engagement",
-            "involvement",
-            "participation",
-            "Accessible",
-            "easily accessible",
-            "user-friendly",
-            "inclusive",
-            "wide reach",
-            "available",
-            "open access",
-            "multi-channel",
-            "Effective",
-            "efficiently",
-            "adequately",
-            "successfully",
-            "impactful"
-          ],
-          [
-            "reach",
-            "coverage",
-            "comprehensive",
-            "Feedback",
-            "surveys",
-            "comments",
-            "suggestions",
-            "input",
-            "response",
-            "review",
-            "assessment",
-            "evaluation",
-            "Awareness",
-            "knowledge",
-            "informed",
-            "notification",
-            "visibility",
-            "promotion",
-            "communication",
-            "dissemination"
-          ]
-        ]
+        "label": "Location (Publication)",
+        "key": "location",
+        "type": "label"
       },
       {
-        "description": "Process of dissemination among stakeholders",
-        "question_number": "B",
-        "marks": 3,
-        "type": "upload",
-        "code": "INDICATE_VISION_MISSION_PROCESS",
-        "keywords": [
-          [
-            "Website",
-            "social media",
-            "newsletters",
-            "email",
-            "public meetings",
-            "workshops",
-            "seminars",
-            "brochures",
-            "flyers",
-            "bulletin boards",
-            "Stakeholders"
-          ],
-          [
-            "students",
-            "faculty",
-            "staff",
-            "industry partners",
-            "alumni",
-            "community",
-            "parents",
-            "employers",
-            "Strategies",
-            "methods",
-            "approaches",
-            "techniques",
-            "channels",
-            "platforms",
-            "tools",
-            "Regularly",
-            "periodically",
-            "annually",
-            "quarterly"
-          ],
-          [
-            "monthly",
-            "frequently",
-            "ongoing",
-            "continuous",
-            "Accessible",
-            "easily accessible",
-            "user-friendly",
-            "inclusive",
-            "widely available",
-            "open access",
-            "multi-channel",
-            "Feedback",
-            "surveys",
-            "comments",
-            "suggestions",
-            "input",
-            "response",
-            "review",
-            "assessment",
-            "evaluation"
-          ]
-        ]
+        "label": "Vision",
+        "key": "vision",
+        "type": "checkbox",
+        "width": "50px"
       },
       {
-        "description": "Extent of awareness of Vision, Mission & PEOs among the stakeholder",
-        "question_number": "C",
-        "marks": 9,
-        "type": "table",
-        "code": "INDICATE_VISION_MISSION_EXTENT",
-        "style": { "width": "80%" },
-        "showAdditionalCol": true,
-        "headers": [
-          {
-            "label": "",
-            "key": "stakeholderType",
-            "type": "label",
-            "width": "150px",
-            "options": [
-              { "label": "Internal", "key": "internal" },
-              { "label": "External", "key": "external" }
-            ]
-          },
-          {
-            "label": "Stakeholder",
-            "key": "stakeholder",
-            "type": "label",
-            "width": "250px"
-          },
-          {
-            "label": "Frequency of meeting",
-            "key": "meetingFrequency",
-            "type": "dropdown",
-            "width": "180px",
-            "options": [
-              { "label": "Twice in a year", "key": "Twice in a year" },
-              { "label": "Monthly", "key": "Monthly" },
-              { "label": "Once in two years", "key": "Once in two years" }
-            ]
-          },
-          {
-            "label": "Dissemination",
-            "key": "dissemination",
-            "type": "textbox",
-            "multiline": true,
-            "maxRows": "2"
-          }
-        ],
-        "rows": [
-          {
-            "stakeholderType": "Internal",
-            "stakeholder": "Management and Governing Board Members"
-          },
-          {
-            "stakeholderType": "Internal",
-            "stakeholder": "Academic Council"
-          },
-          {
-            "stakeholderType": "Internal",
-            "stakeholder": "Board of Studies Members"
-          },
-          {
-            "stakeholderType": "Internal",
-            "stakeholder": "Advisory Committee"
-          },
-          {
-            "stakeholderType": "Internal",
-            "stakeholder": "Students"
-          },
-          {
-            "stakeholderType": "Internal",
-            "stakeholder": "Faculty"
-          },
-          {
-            "stakeholderType": "Internal",
-            "stakeholder": "Technical and Supporting Staff"
-          },
-          {
-            "stakeholderType": "External",
-            "stakeholder": "Regulating, affiliating and accrediting bodies"
-          },
-          {
-            "stakeholderType": "External",
-            "stakeholder": "Industry and Funding Agencies"
-          },
-          {
-            "stakeholderType": "External",
-            "stakeholder": "Parents"
-          },
-          {
-            "stakeholderType": "External",
-            "stakeholder": "Alumni"
-          },
-          {
-            "stakeholderType": "External",
-            "stakeholder": "Vendors"
-          }
-        ],
-        "keywords": [
-          ["Aware", "awareness", "knowledgeable", "informed", "understanding"],
-          [
-            "familiarity",
-            "recognition",
-            "consciousness",
-            "Effective communication"
-          ],
-          [
-            "clear communication",
-            "communication success",
-            "information dissemination"
-          ],
-          ["message clarity", "Stakeholders", "students"],
-          ["faculty", "staff", "industry partners"],
-          ["alumni", "community", "parents", "employers", "Engagement"],
-          ["involvement", "participation", "interaction", "collaboration"],
-          [
-            "Website",
-            "social media",
-            "newsletters",
-            "email",
-            "public meetings",
-            "workshops"
-          ],
-          [
-            "seminars",
-            "brochures",
-            "flyers",
-            "bulletin boards",
-            "online portals"
-          ]
-        ]
+        "label": "Mission",
+        "key": "mission",
+        "type": "checkbox",
+        "width": "50px"
+      },
+      {
+        "label": "PEOs",
+        "key": "peo",
+        "type": "checkbox",
+        "width": "50px"
+      }
+    ],
+    "rows": [
+      {
+        "location": "Department website: https://www.tcetmumbai.in/deptITengg_home.html",
+        "index": 1
+      },
+      {
+        "location": "Admission Brochure",
+        "index": 2
+      },
+      {
+        "location": "Department Magazine",
+        "index": 3
+      },
+      {
+        "location": "Prominent Places in the department",
+        "index": 4
+      },
+      {
+        "location": "Displayed on sun-board in the corridor",
+        "index": 5
+      },
+      {
+        "location": "Department publications",
+        "index": 6
+      },
+      {
+        "location": "Course Resource Books (students/faculty)",
+        "index": 7
+      },
+      {
+        "location": "Faculty Diary (only for faculty)",
+        "index": 8
+      },
+      {
+        "location": "Autonomy Curriculum",
+        "index": 9
       }
     ]
   },
   {
+    "questionId": 9,
+    "description": "Process of dissemination among stakeholders",
+    "question_number": "B",
+    "marks": 3,
+    "type": "upload",
+    "code": "INDICATE_VISION_MISSION_PROCESS"
+  },
+  {
+    "questionId": 10,
+    "description": "Extent of awareness of Vision, Mission & PEOs among the stakeholder",
+    "question_number": "C",
+    "marks": 9,
+    "type": "table",
+    "code": "INDICATE_VISION_MISSION_EXTENT",
+    "style": {
+      "width": "80%"
+    },
+    "showAdditionalCol": true,
+    "headers": [
+      {
+        "label": "",
+        "key": "stakeholderType",
+        "type": "label",
+        "options": [
+          {
+            "label": "Internal",
+            "key": "internal"
+          },
+          {
+            "label": "External",
+            "key": "external"
+          }
+        ]
+      },
+      {
+        "label": "Stakeholder",
+        "key": "stakeholder",
+        "type": "label"
+      },
+      {
+        "label": "Frequency of meeting",
+        "key": "meetingFrequency",
+        "type": "dropdown",
+        "options": [
+          {
+            "label": "Twice in a year",
+            "key": "Twice in a year"
+          },
+          {
+            "label": "Monthly",
+            "key": "Monthly"
+          },
+          {
+            "label": "Once in two years",
+            "key": "Once in two years"
+          }
+        ]
+      },
+      {
+        "label": "Dissemination",
+        "key": "dissemination",
+        "type": "textbox",
+        "multiline": true,
+        "maxRows": "2"
+      }
+    ],
+    "rows": [
+      {
+        "stakeholderType": "Internal",
+        "stakeholder": "Management and Governing Board Members",
+        "index": 1
+      },
+      {
+        "stakeholderType": "Internal",
+        "stakeholder": "Academic Council",
+        "index": 2
+      },
+      {
+        "stakeholderType": "Internal",
+        "stakeholder": "Board of Studies Members",
+        "index": 3
+      },
+      {
+        "stakeholderType": "Internal",
+        "stakeholder": "Advisory Committee",
+        "index": 4
+      },
+      {
+        "stakeholderType": "Internal",
+        "stakeholder": "Students",
+        "index": 5
+      },
+      {
+        "stakeholderType": "Internal",
+        "stakeholder": "Faculty",
+        "index": 6
+      },
+      {
+        "stakeholderType": "Internal",
+        "stakeholder": "Technical and Supporting Staff",
+        "index": 7
+      },
+      {
+        "stakeholderType": "External",
+        "stakeholder": "Regulating, affiliating and accrediting bodies",
+        "index": 8
+      },
+      {
+        "stakeholderType": "External",
+        "stakeholder": "Industry and Funding Agencies",
+        "index": 9
+      },
+      {
+        "stakeholderType": "External",
+        "stakeholder": "Parents",
+        "index": 10
+      },
+      {
+        "stakeholderType": "External",
+        "stakeholder": "Alumni",
+        "index": 11
+      },
+      {
+        "stakeholderType": "External",
+        "stakeholder": "Vendors",
+        "index": 12
+      }
+    ]
+  },
+  {
+    "questionId": 11,
     "description": "State the process for defining the Vision and Mission of the Department, and PEOs of the program",
     "criteriaId": 1,
     "question_number": "1.4",
     "marks": 15,
     "code": "PROCESS_VISION_MISSION",
-    "type": "label",
-    "subQuestions": [
-      {
-        "description": "Description of process involved in defining the Vision, Mission of the Department",
-        "question_number": "A",
-        "marks": 7,
-        "type": "upload",
-        "keywords": [
-          [
-            "Strategic planning",
-            "strategy",
-            "planning",
-            "framework",
-            "roadmap",
-            "vision statement"
-          ],
-          [
-            "mission statement",
-            "Stakeholders",
-            "students",
-            "faculty",
-            "staff",
-            "industry partners"
-          ],
-          [
-            "alumni",
-            "community",
-            "involvement",
-            "participation",
-            "collaboration",
-            "input",
-            "Research",
-            "benchmarking",
-            "best practices",
-            "analysis"
-          ],
-          ["market analysis", "needs assessment", "environmental scan"],
-          ["peer institutions", "Workshops", "meetings"],
-          [
-            "brainstorming",
-            "discussions",
-            "focus groups",
-            "seminars",
-            "retreats",
-            "Feedback",
-            "surveys",
-            "comments",
-            "suggestions",
-            "input",
-            "review",
-            "assessment"
-          ],
-          [
-            "evaluation",
-            "Consensus",
-            "agreement",
-            "alignment",
-            "validation",
-            "approval",
-            "ratification",
-            "decision-making"
-          ]
-        ]
-      },
-      {
-        "description": "Description of process involved in defining the PEOs of the program",
-        "question_number": "B",
-        "marks": 8,
-        "type": "upload",
-        "keywords": [
-          [
-            "Strategic planning",
-            "strategy",
-            "planning",
-            "framework",
-            "roadmap",
-            "educational objectives"
-          ],
-          [
-            "PEOs",
-            "goals",
-            "objectives",
-            "Stakeholders",
-            "students",
-            "faculty",
-            "staff",
-            "industry] [partners",
-            "alumni",
-            "community",
-            "involvement",
-            "participation",
-            "collaboration",
-            "input"
-          ],
-          [
-            "Data collection",
-            "data analysis",
-            "surveys",
-            "research",
-            "feedback",
-            "input",
-            "assessment"
-          ],
-          ["evaluation", "Benchmarking", "best practices", "peer institutions"],
-          [
-            "market analysis",
-            "standards",
-            "comparison",
-            "Workshops",
-            "meetings"
-          ],
-          [
-            "brainstorming",
-            "discussions",
-            "focus groups",
-            "seminars",
-            "retreats",
-            "Feedback",
-            "surveys"
-          ],
-          ["comments", "suggestions", "input", "review", "assessment"],
-          [
-            "evaluation",
-            "Consensus",
-            "agreement",
-            "alignment",
-            "validation",
-            "approval",
-            "ratification",
-            "decision-making"
-          ]
-        ]
-      }
-    ]
+    "type": "label"
+  },
+  {
+    "questionId": 12,
+    "description": "Description of process involved in defining the Vision, Mission of the Department",
+    "question_number": "A",
+    "marks": 7,
+    "type": "upload"
+  },
+  {
+    "questionId": 13,
+    "description": "Description of process involved in defining the PEOs of the program",
+    "question_number": "B",
+    "marks": 8,
+    "type": "upload"
   },
   {
     "description": "Establish consistency of PEOs with  Mission of the Department",
     "criteriaId": 1,
+    "questionId": 14,
     "question_number": "1.5",
     "marks": 10,
     "code": "CONSISTENCY_PEO",
-    "hideMarks": true,
+    "type": "label",
+    "hideMarks": true
+  },
+  {
+    "questionId": 15,
+    "description": "Preparation of a matrix of PEOs and elements of Mission statement",
+    "question_number": "A",
+    "marks": 5,
+    "type": "keyword"
+  },
+  {
+    "questionId": 16,
+    "description": "Consistency/justification of co-relation parameters of the above matrix",
+    "question_number": "B",
+    "marks": 5,
     "type": "table",
-
-    "style": { "width": "80%" },
+    "style": {
+      "width": "80%"
+    },
     "showAdditionalCol": false,
     "headers": [
       {
@@ -839,403 +339,347 @@
     "rows": [
       {
         "peoStatement": "PEO 1: To prepare learners with a strong foundation in the area of information technology required to solve real life problems arising from software technology. (Knowledge) [CURRICULAR]",
-        "missionStatement": "M1- rigorously implementing Quality education"
+        "missionStatement": "M1- rigorously implementing Quality education",
+        "index": 1
       },
       {
-        "missionStatement": "M2- focus to make learners industry ready 3"
+        "missionStatement": "M2- focus to make learners industry ready 3",
+        "index": 2
       },
       {
-        "missionStatement": "M3- imbibing in learners professional ethics and social values"
+        "missionStatement": "M3- imbibing in learners professional ethics and social values",
+        "index": 3
       },
       {
-        "missionStatement": "M4- making learners responsible citizens 2"
+        "missionStatement": "M4- making learners responsible citizens 2",
+        "index": 4
       },
       {
         "peoStatement": "PEO 2: To prepare learners to be knowledgeable of the ethics, professionalism and cultural diversity in the work environment to meet applicable standards with continued motivation for research and development. (Skills & Professionalism) [CO-CURRICULAR]",
-        "missionStatement": "M1- rigorously implementing Quality education"
+        "missionStatement": "M1- rigorously implementing Quality education",
+        "index": 5
       },
       {
-        "missionStatement": "M2- focus to make learners industry ready 3"
+        "missionStatement": "M2- focus to make learners industry ready 3",
+        "index": 6
       },
       {
-        "missionStatement": "M3- imbibing in learners professional ethics and social values"
+        "missionStatement": "M3- imbibing in learners professional ethics and social values",
+        "index": 7
       },
       {
-        "missionStatement": "M4- making learners responsible citizens 2"
+        "missionStatement": "M4- making learners responsible citizens 2",
+        "index": 8
       },
       {
         "peoStatement": "PEO 3: To prepare learners to understand the need for lifelong learning with effective written and oral communication skills and to be able to readily adapt to new software engineering environments.(Attitude, Presentation and Growth) [EXTRA CURRICULAR]",
-        "missionStatement": "M1- rigorously implementing Quality education"
+        "missionStatement": "M1- rigorously implementing Quality education",
+        "index": 9
       },
       {
-        "missionStatement": "M2- focus to make learners industry ready 3"
+        "missionStatement": "M2- focus to make learners industry ready 3",
+        "index": 10
       },
       {
-        "missionStatement": "M3- imbibing in learners professional ethics and social values"
+        "missionStatement": "M3- imbibing in learners professional ethics and social values",
+        "index": 11
       },
       {
-        "missionStatement": "M4- making learners responsible citizens 2"
-      }
-    ],
-    "subQuestions": [
-      {
-        "description": "Preparation of a matrix of PEOs and elements of Mission statement",
-        "question_number": "A",
-        "marks": 5,
-        "type": "keyword",
-        "keywords": [
-          ["Alignment", "consistency", "congruence", "coherence"],
-          [
-            "correlation",
-            "integration",
-            "harmony",
-            "Assessment",
-            "review",
-            "evaluation",
-            "analysis"
-          ],
-          [
-            "monitoring",
-            "audit",
-            "validation",
-            "Mapping",
-            "linking",
-            "connecting"
-          ],
-          [
-            "relationship",
-            "association",
-            "Feedback",
-            "surveys",
-            "comments",
-            "suggestions"
-          ],
-          [
-            "input",
-            "response",
-            "review",
-            "Matrix",
-            "framework",
-            "table",
-            "chart",
-            "diagram",
-            "structure"
-          ]
-        ]
-      },
-      {
-        "description": "Consistency/justification of co-relation parameters of the above matrix",
-        "question_number": "B",
-        "marks": 5,
-
-        "keywords": [
-          [
-            "Alignment",
-            "mapping",
-            "correlation",
-            "connection",
-            "linkage",
-            "integration",
-            "Criteria"
-          ],
-          [
-            "parameters",
-            "factors",
-            "standards",
-            "metrics",
-            "guidelines",
-            "benchmarks"
-          ],
-          ["Rationale", "justification", "reasoning", "logic", "explanation"],
-          ["basis", "grounds", "Relevance", "coherence", "consistency"],
-          [
-            "fit",
-            "suitability",
-            "Validation",
-            "assessment",
-            "evaluation",
-            "verification",
-            "analysis"
-          ]
-        ]
+        "missionStatement": "M4- making learners responsible citizens 2",
+        "index": 12
       }
     ]
   },
   {
+    "questionId": 17,
     "description": "Program Curriculum",
     "criteriaId": 2,
     "question_number": "2.1",
     "marks": 30,
     "code": "PROGRAM_CURRICULUM",
-    "type": "label",
-    "subQuestions": [
-      {
-        "description": "State the process for designing the program curriculum",
-        "question_number": "2.1.1",
-        "marks": 10,
-        "type": "upload",
-        "code": "PROGRAM_CURRICULUM_DESIGN",
-        "keywords": []
-      },
-      {
-        "description": "Structure of the Curriculum",
-        "question_number": "2.1.2",
-        "marks": 5,
-        "type": "upload",
-        "keywords": []
-      },
-      {
-        "description": "State curriculum the components of the curriculum",
-        "question_number": "2.1.3",
-        "marks": 5,
-        "type": "upload",
-        "keywords": []
-      },
-      {
-        "description": "State the process used to identify extent of compliance of the curriculum for attaining the Program Outcomes(POs) & Program Specific Outcomes(PSOs)",
-        "question_number": "2.1.4",
-        "marks": 10,
-        "type": "upload",
-        "keywords": []
-      }
-    ]
+    "type": "label"
   },
   {
+    "questionId": 18,
+    "description": "State the process for designing the program curriculum",
+    "question_number": "2.1.1",
+    "marks": 10,
+    "type": "upload",
+    "code": "PROGRAM_CURRICULUM_DESIGN"
+  },
+  {
+    "questionId": 19,
+    "description": "Structure of the Curriculum",
+    "question_number": "2.1.2",
+    "marks": 5,
+    "type": "upload"
+  },
+  {
+    "questionId": 20,
+    "description": "State curriculum the components of the curriculum",
+    "question_number": "2.1.3",
+    "marks": 5,
+    "type": "upload"
+  },
+  {
+    "questionId": 21,
+    "description": "State the process used to identify extent of compliance of the curriculum for attaining the Program Outcomes(POs) & Program Specific Outcomes(PSOs)",
+    "question_number": "2.1.4",
+    "marks": 10,
+    "type": "upload"
+  },
+  {
+    "questionId": 22,
     "description": "Teaching-Learning Processes",
     "criteriaId": 2,
     "question_number": "2.2",
     "marks": 70,
     "code": "TEACH_LEARN_PROCESSES",
+    "type": "label"
+  },
+  {
+    "questionId": 23,
+    "description": "Describe the Process followed to improve quality of Teaching Learning",
+    "question_number": "2.2.1",
+    "marks": 15,
     "type": "label",
-    "subQuestions": [
-      {
-        "description": "Describe the Process followed to improve quality of Teaching Learning",
-        "question_number": "2.2.1",
-        "marks": 15,
-        "type": "label",
-        "code": "TEACH_LEARN_PROCESSES_QUALITY",
-        "subQuestions": [
-          {
-            "description": "Adherence to Academic Calendar",
-            "question_number": "A",
-            "marks": 2,
-            "type": "upload",
-            "code": "TEACH_LEARN_PROCESSES_QUALITY_A"
-          },
-          {
-            "description": "Pedagogical initiatives",
-            "question_number": "B",
-            "marks": 2,
-            "type": "upload",
-            "code": "TEACH_LEARN_PROCESSES_QUALITY_B"
-          },
-          {
-            "description": "Methodologies to support weak students and encourage bright students",
-            "question_number": "C",
-            "marks": 2,
-            "type": "upload",
-            "code": "TEACH_LEARN_PROCESSES_QUALITY_C"
-          },
-          {
-            "description": "Quality of classroom teaching (Observation in a Class)",
-            "question_number": "D",
-            "marks": 2,
-            "type": "upload",
-            "code": "TEACH_LEARN_PROCESSES_QUALITY_D"
-          },
-          {
-            "description": "Conduct of experiments (Observation in Lab)",
-            "question_number": "E",
-            "marks": 2,
-            "type": "upload",
-            "code": "TEACH_LEARN_PROCESSES_QUALITY_E"
-          },
-          {
-            "description": "Continuous Assessment in the laboratory",
-            "question_number": "F",
-            "marks": 3,
-            "type": "upload",
-            "code": "TEACH_LEARN_PROCESSES_QUALITY_F"
-          },
-          {
-            "description": "Student feedback of teaching learning process and actions taken",
-            "question_number": "G",
-            "marks": 2,
-            "type": "upload",
-            "code": "TEACH_LEARN_PROCESSES_QUALITY_G"
-          }
-        ]
-      },
-      {
-        "description": "Quality of end semester examination, internal semester question papers, assignments and evaluation",
-        "question_number": "2.2.2",
-        "marks": 15,
-        "type": "label",
-        "keywords": [],
-        "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL",
-        "subQuestions": [
-          {
-            "description": "Process for internal semester question paper setting and evaluation and effective process implementation",
-            "question_number": "A",
-            "marks": 3,
-            "type": "upload",
-            "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_A"
-          },
-          {
-            "description": "Process to ensure questions from outcomes/learning levels perspective",
-            "question_number": "B",
-            "marks": 2,
-            "type": "upload",
-            "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_B"
-          },
-          {
-            "description": "Evidence of COs coverage in class test / mid-term tests",
-            "question_number": "C",
-            "marks": 5,
-            "type": "upload",
-            "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_C"
-          },
-          {
-            "description": "Quality of Assignment and its relevance to COs",
-            "question_number": "D",
-            "marks": 5,
-            "type": "upload",
-            "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_D"
-          }
-        ]
-      },
-      {
-        "description": "Quality of student projects",
-        "question_number": "2.2.3",
-        "marks": 20,
-        "type": "label",
-        "keywords": [],
-        "subQuestions": [
-          {
-            "description": "Identification of projects and allocation methodology to Faculty Members",
-            "question_number": "A",
-            "marks": 2,
-            "type": "upload",
-            "code": "TEACH_LEARN_PROCESSES_QUALITY_A"
-          },
-          {
-            "description": "Types and relevance of the projects and their contribution towards attainment of POs and PSOs",
-            "question_number": "B",
-            "marks": 2,
-            "type": "upload",
-            "code": "TEACH_LEARN_PROCESSES_QUALITY_B"
-          },
-          {
-            "description": "Project related to Industry",
-            "question_number": "C",
-            "marks": 3,
-            "type": "upload",
-            "code": "TEACH_LEARN_PROCESSES_QUALITY_C"
-          },
-          {
-            "description": "Process for monitoring and evaluation",
-            "question_number": "D",
-            "marks": 2,
-            "type": "upload",
-            "code": "TEACH_LEARN_PROCESSES_QUALITY_D"
-          },
-          {
-            "description": "Process to assess individual and team performance",
-            "question_number": "E",
-            "marks": 3,
-            "type": "upload",
-            "code": "TEACH_LEARN_PROCESSES_QUALITY_E"
-          },
-          {
-            "description": "Quality of completed projects/working prototypes",
-            "question_number": "F",
-            "marks": 5,
-            "type": "upload",
-            "code": "TEACH_LEARN_PROCESSES_QUALITY_F"
-          },
-          {
-            "description": "Evidences of papers published /Awards received by projects etc.",
-            "question_number": "G",
-            "marks": 3,
-            "type": "upload",
-            "code": "TEACH_LEARN_PROCESSES_QUALITY_G"
-          }
-        ]
-      },
-      {
-        "description": "Initiatives related to industry interaction",
-        "question_number": "2.2.4",
-        "marks": 10,
-        "type": "label",
-        "keywords": [],
-        "subQuestions": [
-          {
-            "description": "Industry supported laboratories",
-            "question_number": "A",
-            "marks": 2,
-            "type": "upload",
-            "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_A"
-          },
-          {
-            "description": "Industry involvement in the program design and Curriculum.",
-            "question_number": "B",
-            "marks": 3,
-            "type": "upload",
-            "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_B"
-          },
-          {
-            "description": "Industry involvement in partial delivery of any regular courses for students",
-            "question_number": "C",
-            "marks": 3,
-            "type": "upload",
-            "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_C"
-          },
-          {
-            "description": "Impact analysis of industry institute interaction and actions taken thereof",
-            "question_number": "D",
-            "marks": 2,
-            "type": "upload",
-            "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_D"
-          }
-        ]
-      },
-      {
-        "description": "Initiatives related to industry internship/summer training",
-        "question_number": "2.2.5",
-        "marks": 10,
-        "type": "label",
-        "keywords": [],
-        "subQuestions": [
-          {
-            "description": "Industrial training/tours for students",
-            "question_number": "A",
-            "marks": 2,
-            "type": "upload",
-            "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_A"
-          },
-          {
-            "description": "Industrial /internship /summer training of more than two weeks and post training Assessment",
-            "question_number": "B",
-            "marks": 3,
-            "type": "upload",
-            "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_B"
-          },
-          {
-            "description": "Impact analysis of industrial training",
-            "question_number": "C",
-            "marks": 2,
-            "type": "upload",
-            "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_C"
-          },
-          {
-            "description": "Student feedback on initiative",
-            "question_number": "D",
-            "marks": 2,
-            "type": "upload",
-            "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_D"
-          }
-        ]
-      }
-    ]
+    "code": "TEACH_LEARN_PROCESSES_QUALITY"
+  },
+  {
+    "questionId": 24,
+    "description": "Adherence to Academic Calendar",
+    "question_number": "A",
+    "marks": 2,
+    "type": "upload",
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_A"
+  },
+  {
+    "questionId": 25,
+    "description": "Pedagogical initiatives",
+    "question_number": "B",
+    "marks": 2,
+    "type": "upload",
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_B"
+  },
+  {
+    "questionId": 26,
+    "description": "Methodologies to support weak students and encourage bright students",
+    "question_number": "C",
+    "marks": 2,
+    "type": "upload",
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_C"
+  },
+  {
+    "questionId": 27,
+    "description": "Quality of classroom teaching (Observation in a Class)",
+    "question_number": "D",
+    "marks": 2,
+    "type": "upload",
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_D"
+  },
+  {
+    "questionId": 28,
+    "description": "Conduct of experiments (Observation in Lab)",
+    "question_number": "E",
+    "marks": 2,
+    "type": "upload",
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_E"
+  },
+  {
+    "questionId": 29,
+    "description": "Continuous Assessment in the laboratory",
+    "question_number": "F",
+    "marks": 3,
+    "type": "upload",
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_F"
+  },
+  {
+    "questionId": 30,
+    "description": "Student feedback of teaching learning process and actions taken",
+    "question_number": "G",
+    "marks": 2,
+    "type": "upload",
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_G"
+  },
+  {
+    "questionId": 31,
+    "description": "Quality of end semester examination, internal semester question papers, assignments and evaluation",
+    "question_number": "2.2.2",
+    "marks": 15,
+    "type": "label",
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL"
+  },
+  {
+    "questionId": 32,
+    "description": "Process for internal semester question paper setting and evaluation and effective process implementation",
+    "question_number": "A",
+    "marks": 3,
+    "type": "upload",
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_A"
+  },
+  {
+    "questionId": 33,
+    "description": "Process to ensure questions from outcomes/learning levels perspective",
+    "question_number": "B",
+    "marks": 2,
+    "type": "upload",
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_B"
+  },
+  {
+    "questionId": 34,
+    "description": "Evidence of COs coverage in class test / mid-term tests",
+    "question_number": "C",
+    "marks": 5,
+    "type": "upload",
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_C"
+  },
+  {
+    "questionId": 35,
+    "description": "Quality of Assignment and its relevance to COs",
+    "question_number": "D",
+    "marks": 5,
+    "type": "upload",
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_D"
+  },
+  {
+    "questionId": 36,
+    "description": "Quality of student projects",
+    "question_number": "2.2.3",
+    "marks": 20,
+    "type": "label"
+  },
+  {
+    "questionId": 37,
+    "description": "Identification of projects and allocation methodology to Faculty Members",
+    "question_number": "A",
+    "marks": 2,
+    "type": "upload",
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_A"
+  },
+  {
+    "questionId": 38,
+    "description": "Types and relevance of the projects and their contribution towards attainment of POs and PSOs",
+    "question_number": "B",
+    "marks": 2,
+    "type": "upload",
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_B"
+  },
+  {
+    "questionId": 39,
+    "description": "Project related to Industry",
+    "question_number": "C",
+    "marks": 3,
+    "type": "upload",
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_C"
+  },
+  {
+    "questionId": 40,
+    "description": "Process for monitoring and evaluation",
+    "question_number": "D",
+    "marks": 2,
+    "type": "upload",
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_D"
+  },
+  {
+    "questionId": 41,
+    "description": "Process to assess individual and team performance",
+    "question_number": "E",
+    "marks": 3,
+    "type": "upload",
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_E"
+  },
+  {
+    "questionId": 42,
+    "description": "Quality of completed projects/working prototypes",
+    "question_number": "F",
+    "marks": 5,
+    "type": "upload",
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_F"
+  },
+  {
+    "questionId": 43,
+    "description": "Evidences of papers published /Awards received by projects etc.",
+    "question_number": "G",
+    "marks": 3,
+    "type": "upload",
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_G"
+  },
+  {
+    "questionId": 44,
+    "description": "Initiatives related to industry interaction",
+    "question_number": "2.2.4",
+    "marks": 10,
+    "type": "label"
+  },
+  {
+    "questionId": 45,
+    "description": "Industry supported laboratories",
+    "question_number": "A",
+    "marks": 2,
+    "type": "upload",
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_A"
+  },
+  {
+    "questionId": 46,
+    "description": "Industry involvement in the program design and Curriculum.",
+    "question_number": "B",
+    "marks": 3,
+    "type": "upload",
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_B"
+  },
+  {
+    "questionId": 47,
+    "description": "Industry involvement in partial delivery of any regular courses for students",
+    "question_number": "C",
+    "marks": 3,
+    "type": "upload",
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_C"
+  },
+  {
+    "questionId": 48,
+    "description": "Impact analysis of industry institute interaction and actions taken thereof",
+    "question_number": "D",
+    "marks": 2,
+    "type": "upload",
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_D"
+  },
+  {
+    "questionId": 49,
+    "description": "Initiatives related to industry internship/summer training",
+    "question_number": "2.2.5",
+    "marks": 10,
+    "type": "label"
+  },
+  {
+    "questionId": 50,
+    "description": "Industrial training/tours for students",
+    "question_number": "A",
+    "marks": 2,
+    "type": "upload",
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_A"
+  },
+  {
+    "questionId": 51,
+    "description": "Industrial /internship /summer training of more than two weeks and post training Assessment",
+    "question_number": "B",
+    "marks": 3,
+    "type": "upload",
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_B"
+  },
+  {
+    "questionId": 52,
+    "description": "Impact analysis of industrial training",
+    "question_number": "C",
+    "marks": 2,
+    "type": "upload",
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_C"
+  },
+  {
+    "questionId": 53,
+    "description": "Student feedback on initiative",
+    "question_number": "D",
+    "marks": 2,
+    "type": "upload",
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_D"
   }
 ]
