@@ -189,21 +189,24 @@ export const Questions = () => {
     setAnswers({ ...answers });
   };
 
-  const onUploadHandler = async (e, index: string, _code: string) => {
+  const onUpload = (event) => {
+    const formData = new FormData();
+    formData.append("file", event.target.files[0]);
+    return axios.post("http://localhost:5555/document/upload", formData, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+  };
+
+  const onUploadHandler = async (event, index: string, _code: string) => {
     setIsChanged(true);
     const question = findSubQuestion(
       questions,
       index.split("_").map((m) => +m),
       0
     );
-    const formData = new FormData();
-    formData.append("file", e.target.files[0]);
+
     try {
-      const response = await axios.post(
-        "http://localhost:5555/document/upload",
-        formData,
-        { headers: { "Content-Type": "multipart/form-data" } }
-      );
+      const response = await onUpload(event);
       calculateUploadMarks(question, response.data);
     } catch (error) {
       console.error("Error uploading file:", error);
@@ -331,7 +334,7 @@ export const Questions = () => {
 
     setAnswers({ ...answers });
   };
-  const onRowValueChange = (
+  const onRowValueChange = async (
     index: string,
     code: string,
     rowIndex: number,
@@ -347,17 +350,26 @@ export const Questions = () => {
 
     const answer = answers[question.questionId];
     const questionMetadata = questionMap[question.questionId];
-
-    answer.rows[rowIndex - 1][field] = value;
-    if (code === "INDICATE_VISION_MISSION_ADEQUACY") {
-      if (type === "checkbox") {
-        answer.obtainedMarks = questionMetadata.headers
-          .filter((h) => h.type === "checkbox")
-          .reduce((acc, curr) => {
-            return answer.rows.filter((r) => r[curr.key] === true).length > 4
-              ? acc + 1
-              : acc;
-          }, 0);
+    if (type === "upload") {
+      try {
+        const response = await onUpload(value);
+        const { documentId, fileName } = response.data;
+        answer.rows[rowIndex - 1][field] = { documentId, fileName };
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      answer.rows[rowIndex - 1][field] = value;
+      if (code === "INDICATE_VISION_MISSION_ADEQUACY") {
+        if (type === "checkbox") {
+          answer.obtainedMarks = questionMetadata.headers
+            .filter((h) => h.type === "checkbox")
+            .reduce((acc, curr) => {
+              return answer.rows.filter((r) => r[curr.key] === true).length > 4
+                ? acc + 1
+                : acc;
+            }, 0);
+        }
       }
     }
     setAnswers({ ...answers });

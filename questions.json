@@ -89,6 +89,12 @@
         "key": "peo",
         "type": "checkbox",
         "width": "50px"
+      },
+      {
+        "label": "Evidence",
+        "key": "evidence",
+        "type": "upload",
+        "width": "150px"
       }
     ],
     "rows": [

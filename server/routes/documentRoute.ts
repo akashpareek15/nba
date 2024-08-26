@@ -6,6 +6,7 @@ const path = require("path");
 export const documentRoute = express.Router();
 const officeParser = require("officeparser");
 const fs = require("fs");
+const tesseract = require("tesseract.js");
 
 const storage = multer.diskStorage({
   destination: "./documents",
@@ -14,7 +15,6 @@ const storage = multer.diskStorage({
     return cb(null, `${fileName}${path.extname(file.originalname)}`);
   },
 });
-// const  storage =  multer.memoryStorage()
 
 var upload = multer({ storage: storage });
 documentRoute.post("/upload", upload.single("file"), async (req, res) => {
@@ -30,7 +30,11 @@ documentRoute.post("/upload", upload.single("file"), async (req, res) => {
       fileType: ext.slice(1, ext.length),
       originalFileName,
     });
-    const data = await officeParser.parseOfficeAsync(req.file.path);
+    const isImage = req.file.mimetype.indexOf("image") > -1;
+    const data = isImage
+      ? (await tesseract.recognize(`./${req.file.path}`))?.data?.text
+      : await officeParser.parseOfficeAsync(req.file.path);
+
     res.send({
       parsedData: data,
       documentId: name,

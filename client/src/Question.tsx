@@ -36,7 +36,7 @@ type QuestionProps = {
     index: string,
     code: string,
     rowIndex: number,
-    value: string | boolean,
+    value: string | boolean | unknown,
     type: string,
     field: string
   ) => void;
@@ -77,7 +77,6 @@ export const Question = (props: QuestionProps) => {
     index,
     field
   ) => {
-    
     if (answerRow[field]) {
       return answerRow[field];
     }
@@ -212,7 +211,7 @@ export const Question = (props: QuestionProps) => {
                       ></div>
                     )}
                   </header>
-                  {answer.rows?.map((row) => (
+                  {answer.rows?.map((row, innerIndex) => (
                     <div className="row">
                       <div
                         className="col"
@@ -224,6 +223,7 @@ export const Question = (props: QuestionProps) => {
                       </div>
                       {question.headers.map((header) => {
                         const type = row.types?.[header.key] ?? header.type;
+                        const value = row[header.key];
                         return (
                           <div
                             className="col"
@@ -266,7 +266,7 @@ export const Question = (props: QuestionProps) => {
                                     alignSelf: "flex-end",
                                   }}
                                   label=""
-                                  value={row[header.key]}
+                                  value={value}
                                   variant="standard"
                                   type={header.textBoxType ?? "text"}
                                   inputProps={{ style: { fontSize: 12 } }}
@@ -287,7 +287,7 @@ export const Question = (props: QuestionProps) => {
                                 <Select
                                   displayEmpty
                                   size="small"
-                                  value={row[header.key]}
+                                  value={value}
                                   style={{
                                     width: "100%",
                                     alignSelf: "center",
@@ -314,6 +314,56 @@ export const Question = (props: QuestionProps) => {
                                     </MenuItem>
                                   ))}
                                 </Select>
+                              ) : type === "upload" ? (
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                  <label
+                                    htmlFor={`${props.questionId}_${row.index}_${innerIndex}`}
+                                  >
+                                    <Input
+                                      accept="pdf"
+                                      id={`${props.questionId}_${row.index}_${innerIndex}`}
+                                      onChange={(event) =>
+                                        props.onRowValueChange(
+                                          props.index,
+                                          question.code,
+                                          row.index,
+                                          event,
+                                          "upload",
+                                          header.key
+                                        )
+                                      }
+                                      type="file"
+                                    />
+                                    <IconButton
+                                      color="primary"
+                                      aria-label="upload document"
+                                      component="span"
+                                    >
+                                      <CloudUpload />
+                                    </IconButton>
+                                  </label>
+                                  {value?.documentId && (
+                                    <div
+                                      style={{
+                                        cursor: "pointer",
+                                        textDecoration: "underline",
+                                      }}
+                                      onClick={() =>
+                                        props.onDownload(
+                                          value.documentId,
+                                          value.fileName
+                                        )
+                                      }
+                                    >
+                                      {value.fileName}
+                                    </div>
+                                  )}
+                                </div>
                               ) : (
                                 <></>
                               )}
