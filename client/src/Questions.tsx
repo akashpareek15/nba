@@ -334,6 +334,9 @@ export const Questions = () => {
 
     setAnswers({ ...answers });
   };
+
+  const sanitizeText = (text) => text?.replace(/(\r\n|\n|\r)/gm, "");
+
   const onRowValueChange = async (
     index: string,
     code: string,
@@ -353,24 +356,41 @@ export const Questions = () => {
     if (type === "upload") {
       try {
         const response = await onUpload(value);
-        const { documentId, fileName } = response.data;
+        const {
+          documentId,
+          fileName,
+          parsedData,
+        }: { documentId: string; fileName: string; parsedData: string } =
+          response.data;
+        if (code === "INDICATE_VISION_MISSION_ADEQUACY") {
+          const visionMission = answers[1]?.reason;
+          const visionMissionExists = sanitizeText(parsedData)
+            ?.toLowerCase()
+            .includes(sanitizeText(visionMission)?.toLowerCase());
+
+          const peo = answers[5]?.reason;
+
+          const peoExist = sanitizeText(parsedData)
+          ?.toLowerCase()
+          .includes(sanitizeText(peo)?.toLowerCase());
+          answer.rows[rowIndex - 1]["peo"] = peoExist;
+          answer.rows[rowIndex - 1]["vision"] = visionMissionExists;
+          answer.rows[rowIndex - 1]["mission"] = visionMissionExists;
+        }
         answer.rows[rowIndex - 1][field] = { documentId, fileName };
+
+        answer.obtainedMarks = questionMetadata.headers
+          .filter((h) => h.type === "checkbox")
+          .reduce((acc, curr) => {
+            return answer.rows.filter((r) => r[curr.key] === true).length > 4
+              ? acc + 1
+              : acc;
+          }, 0);
       } catch (error) {
         console.log(error);
       }
     } else {
       answer.rows[rowIndex - 1][field] = value;
-      if (code === "INDICATE_VISION_MISSION_ADEQUACY") {
-        if (type === "checkbox") {
-          answer.obtainedMarks = questionMetadata.headers
-            .filter((h) => h.type === "checkbox")
-            .reduce((acc, curr) => {
-              return answer.rows.filter((r) => r[curr.key] === true).length > 4
-                ? acc + 1
-                : acc;
-            }, 0);
-        }
-      }
     }
     setAnswers({ ...answers });
   };

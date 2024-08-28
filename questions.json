@@ -76,19 +76,22 @@
         "label": "Vision",
         "key": "vision",
         "type": "checkbox",
-        "width": "50px"
+        "width": "50px",
+        "disabled": true
       },
       {
         "label": "Mission",
         "key": "mission",
         "type": "checkbox",
-        "width": "50px"
+        "width": "50px",
+        "disabled": true
       },
       {
         "label": "PEOs",
         "key": "peo",
         "type": "checkbox",
-        "width": "50px"
+        "width": "50px",
+        "disabled": true
       },
       {
         "label": "Evidence",

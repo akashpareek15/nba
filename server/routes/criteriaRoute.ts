@@ -4,6 +4,17 @@ import { db } from "../db/db.ts";
 export const criteriaRoute = express.Router();
 
 // Route for Get All Questions from database
+criteriaRoute.get("/", async (request, response) => {
+  try {
+    let collection = await db.collection("criteria");
+    const criteria = await collection.find({}).toArray();
+    return response.status(200).json(criteria);
+  } catch (error) {
+    response.status(500).send({ message: error.message });
+  }
+});
+
+// Route for Get All Questions from database
 criteriaRoute.get("/:departmentId", async (request, response) => {
   try {
     const { departmentId, criteriaId } = request.params;
@@ -46,7 +57,6 @@ criteriaRoute.get(
         .status(200)
         .json({ questions, savedAnswers, keywords, criteriaQuestions });
     } catch (error) {
-      console.log(error.message);
       response.status(500).send({ message: error.message });
     }
   }
@@ -70,7 +80,6 @@ criteriaRoute.post(
       });
       return response.status(200).json(res);
     } catch (error) {
-      console.log(error.message);
       response.status(500).send({ message: error.message });
     }
   }

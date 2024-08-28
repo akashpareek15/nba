@@ -246,6 +246,7 @@ export const Question = (props: QuestionProps) => {
                                   <input
                                     type="checkbox"
                                     checked={row[header.key]}
+                                    disabled={header.disabled}
                                     onChange={(event) => {
                                       props.onRowValueChange(
                                         props.index,

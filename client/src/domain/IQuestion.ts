@@ -7,6 +7,7 @@ export interface Header {
   textBoxType?: string;
   multiline?: boolean;
   maxRows?: number;
+  disabled?: boolean;
 }
 export interface Option {
   label: string;

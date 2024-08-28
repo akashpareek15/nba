@@ -7,7 +7,7 @@ export const AdminHome = () => {
     const [departments, setDepartments] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:5555/departments').then((res) => {
+        axios.get('http://localhost:5555/departments/count').then((res) => {
             setDepartments(res.data);
         });
     }, []);

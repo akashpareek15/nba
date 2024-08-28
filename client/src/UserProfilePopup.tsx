@@ -1,29 +1,31 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-import Box from '@mui/material/Box';
-import Avatar from '@mui/material/Avatar';
-import Divider from '@mui/material/Divider';
-import Popover from '@mui/material/Popover';
-import { alpha } from '@mui/material/styles';
-import MenuItem from '@mui/material/MenuItem';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import { useNavigate } from 'react-router-dom';
-import { useUser } from './useUser';
-
+import Box from "@mui/material/Box";
+import Avatar from "@mui/material/Avatar";
+import Divider from "@mui/material/Divider";
+import Popover from "@mui/material/Popover";
+import { alpha } from "@mui/material/styles";
+import MenuItem from "@mui/material/MenuItem";
+import Typography from "@mui/material/Typography";
+import IconButton from "@mui/material/IconButton";
+import { useNavigate } from "react-router-dom";
+import { useUser } from "./useUser";
 
 export const UserProfilePopup = () => {
   const [open, setOpen] = useState(null);
   const navigate = useNavigate();
 
   const { loggedInUser } = useUser();
-  console.log(loggedInUser);
   const handleOpen = (event) => {
     setOpen(event.currentTarget);
   };
 
   const handleClose = () => {
     setOpen(null);
+  };
+
+  const openKeywordsUpdate = () => {
+    navigate("/home/keywords");
   };
 
   return (
@@ -33,7 +35,7 @@ export const UserProfilePopup = () => {
         sx={{
           width: 40,
           height: 40,
-          color: 'red',
+          color: "red",
           background: (theme) => alpha(theme.palette.grey[500], 0.08),
           ...(open && {
             background: (theme) =>
@@ -42,7 +44,7 @@ export const UserProfilePopup = () => {
         }}
       >
         <Avatar
-          src={''}
+          src={""}
           sx={{
             width: 36,
             height: 36,
@@ -59,8 +61,8 @@ export const UserProfilePopup = () => {
         open={!!open}
         anchorEl={open}
         onClose={handleClose}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-        transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+        transformOrigin={{ vertical: "top", horizontal: "right" }}
         PaperProps={{
           sx: {
             p: 0,
@@ -71,34 +73,31 @@ export const UserProfilePopup = () => {
         }}
       >
         <Box sx={{ my: 1.5, px: 2 }}>
-
-          <Typography variant="body2" sx={{ color: 'text.secondary' }} noWrap>
+          <Typography variant="body2" sx={{ color: "text.secondary" }} noWrap>
             {loggedInUser?.userName}
           </Typography>
         </Box>
 
-        <Divider sx={{ borderStyle: 'dashed' }} />
+        <Divider sx={{ borderStyle: "dashed" }} />
+        <MenuItem onClick={openKeywordsUpdate}>Update keywords</MenuItem>
 
+        <MenuItem onClick={handleClose}>Profile</MenuItem>
 
-        <MenuItem onClick={handleClose}>
-          Profile
-        </MenuItem>
-
-        <Divider sx={{ borderStyle: 'dashed', m: 0 }} />
+        <Divider sx={{ borderStyle: "dashed", m: 0 }} />
 
         <MenuItem
           disableRipple
           disableTouchRipple
           onClick={() => {
-            sessionStorage.removeItem('user');
-            localStorage.removeItem('user');
-            navigate('/login');
+            sessionStorage.removeItem("user");
+            localStorage.removeItem("user");
+            navigate("/login");
           }}
-          sx={{ typography: 'body2', color: 'error.main', py: 1.5 }}
+          sx={{ typography: "body2", color: "error.main", py: 1.5 }}
         >
           Logout
         </MenuItem>
       </Popover>
     </>
   );
-}
+};
