@@ -204,6 +204,12 @@
         "type": "textbox",
         "multiline": true,
         "maxRows": "2"
+      },
+      {
+        "label": "Evidence",
+        "key": "evidence",
+        "type": "upload",
+        "width": "150px"
       }
     ],
     "rows": [
