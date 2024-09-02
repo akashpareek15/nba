@@ -22,7 +22,8 @@
     "question_number": "B",
     "marks": 2,
     "code": "VISION_MISSION_APPROPRIATENESS",
-    "type": "keyword"
+    "type": "keyword",
+    "hasKeywords": true
   },
   {
     "questionId": 4,
@@ -30,6 +31,7 @@
     "question_number": "C",
     "marks": 2,
     "type": "keyword",
+    "hasKeywords": true,
     "code": "VISION_MISSION_CONSISTENCY"
   },
   {
@@ -47,6 +49,7 @@
     "question_number": "A",
     "marks": 5,
     "type": "keyword",
+    "hasKeywords": true,
     "code": "PROGRAM_OBJECTIVE_LISTING"
   },
   {
@@ -145,7 +148,8 @@
     "question_number": "B",
     "marks": 3,
     "type": "upload",
-    "code": "INDICATE_VISION_MISSION_PROCESS"
+    "code": "INDICATE_VISION_MISSION_PROCESS",
+    "hasKeywords": true
   },
   {
     "questionId": 10,
@@ -158,6 +162,7 @@
       "width": "80%"
     },
     "showAdditionalCol": true,
+    "hasKeywords": true,
     "headers": [
       {
         "label": "",
@@ -289,14 +294,16 @@
     "description": "Description of process involved in defining the Vision, Mission of the Department",
     "question_number": "A",
     "marks": 7,
-    "type": "upload"
+    "type": "upload",
+    "hasKeywords": true
   },
   {
     "questionId": 13,
     "description": "Description of process involved in defining the PEOs of the program",
     "question_number": "B",
     "marks": 8,
-    "type": "upload"
+    "type": "upload",
+    "hasKeywords": true
   },
   {
     "description": "Establish consistency of PEOs with  Mission of the Department",
@@ -313,7 +320,8 @@
     "description": "Preparation of a matrix of PEOs and elements of Mission statement",
     "question_number": "A",
     "marks": 5,
-    "type": "keyword"
+    "type": "keyword",
+    "hasKeywords": true
   },
   {
     "questionId": 16,
@@ -325,6 +333,7 @@
       "width": "80%"
     },
     "showAdditionalCol": false,
+    "hasKeywords": true,
     "headers": [
       {
         "label": "PEO Statements",

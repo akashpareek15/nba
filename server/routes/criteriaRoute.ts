@@ -14,10 +14,51 @@ criteriaRoute.get("/", async (request, response) => {
   }
 });
 
+criteriaRoute.get(
+  "/:criteriaId/keyword-question",
+  async (request, response) => {
+    try {
+      const { criteriaId } = request.params;
+      const criteriaQuestionsCollection = await db.collection(
+        "criteria_question"
+      );
+      let criteriaQuestions = await criteriaQuestionsCollection
+        .find({ criteriaId: parseInt(criteriaId) })
+        .toArray();
+
+      criteriaQuestions = flattenSubQuestion(criteriaQuestions);
+
+      const collection = await db.collection("question");
+
+      const question = await collection.find({ hasKeywords: true }).toArray();
+
+      const questionFiltered = question.filter((x) =>
+        criteriaQuestions.includes(x.questionId)
+      );
+      return response.status(200).json(questionFiltered);
+    } catch (error) {
+      response.status(500).send({ message: error.message });
+    }
+  }
+);
+
+const flattenSubQuestion = (questions: any[]) => {
+  const flattened = questions.flatMap((q) => {
+    const { subQuestions, ...rest } = q;
+    return subQuestions ? [rest, ...subQuestions] : rest;
+  });
+
+  const isFlattenedReq = flattened.some((x) => x.subQuestions);
+
+  return isFlattenedReq
+    ? flattenSubQuestion(flattened)
+    : flattened.map((m) => m.questionId);
+};
+
 // Route for Get All Questions from database
 criteriaRoute.get("/:departmentId", async (request, response) => {
   try {
-    const { departmentId, criteriaId } = request.params;
+    const { departmentId } = request.params;
 
     const answers: any[] = await db
       .collection("answer")
@@ -84,3 +125,30 @@ criteriaRoute.post(
     }
   }
 );
+
+criteriaRoute.put("/update-keywords", async (request, response) => {
+  try {
+    const { keywords, departmentId, questionId } = request.body;
+
+    const questionCollection = await db.collection("keyword_test");
+    const question = await questionCollection.findOne({
+      questionId: parseInt(questionId),
+    });
+    const savedKeywords = (question?.keywords ?? []).flat();
+    const newKeywords = keywords?.map((x) => x.toLowerCase()) ?? [];
+    const keywordsToUpdate = Array.from(
+      new Set([...savedKeywords, ...newKeywords])
+    );
+
+    const query = { questionId: parseInt(questionId) };
+    const update = {
+      $set: { questionId: parseInt(questionId), keywords: keywordsToUpdate },
+    };
+    const options = { upsert: true };
+    questionCollection.updateOne(query, update, options);
+
+    return response.status(200).json(keywordsToUpdate);
+  } catch (error) {
+    response.status(500).send({ message: error.message });
+  }
+});

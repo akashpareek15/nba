@@ -249,9 +249,9 @@ export const Questions = () => {
       }
     });
   };
+
   const calculatePEO = (question: IQuestion | SubQuestion) => {
     const answerMain = answers[question.questionId];
-
     const min3Sentences = answerMain?.reason?.split(".").length >= 3;
     answerMain.error = !min3Sentences ? "Error" : "";
     question.subQuestions?.forEach((sq) => {
@@ -270,6 +270,7 @@ export const Questions = () => {
       }
     });
   };
+
   const calculateUploadMarks = (
     question: IQuestion | SubQuestion,
     { parsedData, documentId, fileName }
@@ -335,7 +336,7 @@ export const Questions = () => {
     setAnswers({ ...answers });
   };
 
-  const sanitizeText = (text) => text?.replace(/(\r\n|\n|\r)/gm, "");
+  const sanitizeText = (text) => text?.replace(/(\r\n|\n|\r|\s+|\s+)/gm, "");
 
   const onRowValueChange = async (
     index: string,
@@ -371,8 +372,12 @@ export const Questions = () => {
           const peo = answers[5]?.reason;
 
           const peoExist = sanitizeText(parsedData)
-          ?.toLowerCase()
-          .includes(sanitizeText(peo)?.toLowerCase());
+            ?.toLowerCase()
+            .includes(sanitizeText(peo)?.toLowerCase());
+          console.log(
+            sanitizeText(parsedData)?.toLowerCase(),
+            sanitizeText(visionMission)?.toLowerCase()
+          );
           answer.rows[rowIndex - 1]["peo"] = peoExist;
           answer.rows[rowIndex - 1]["vision"] = visionMissionExists;
           answer.rows[rowIndex - 1]["mission"] = visionMissionExists;

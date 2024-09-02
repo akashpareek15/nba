@@ -14,6 +14,7 @@ import { useUser } from "./useUser";
 export const UserProfilePopup = () => {
   const [open, setOpen] = useState(null);
   const navigate = useNavigate();
+  const { isAdmin } = useUser();
 
   const { loggedInUser } = useUser();
   const handleOpen = (event) => {
@@ -77,14 +78,12 @@ export const UserProfilePopup = () => {
             {loggedInUser?.userName}
           </Typography>
         </Box>
-
         <Divider sx={{ borderStyle: "dashed" }} />
-        <MenuItem onClick={openKeywordsUpdate}>Update keywords</MenuItem>
-
+        {isAdmin && (
+          <MenuItem onClick={openKeywordsUpdate}>Update keywords</MenuItem>
+        )}
         <MenuItem onClick={handleClose}>Profile</MenuItem>
-
         <Divider sx={{ borderStyle: "dashed", m: 0 }} />
-
         <MenuItem
           disableRipple
           disableTouchRipple

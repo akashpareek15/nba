@@ -32,7 +32,6 @@ const AppBar = styled(MuiAppBar)(({ theme }) => ({
 
 const defaultTheme = createTheme();
 export const Home = () => {
-    const { isAdmin } = useUser();
     return (
         <ThemeProvider theme={defaultTheme}>
             <Box sx={{ display: 'flex' }}>
