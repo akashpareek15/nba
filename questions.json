@@ -4,7 +4,7 @@
     "question_number": "1.1",
     "marks": 5,
     "code": "VISION_MISSION_HEADING",
-    "type": "label",
+    "type": "text",
     "questionId": 1
   },
   {
