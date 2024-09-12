@@ -4,13 +4,13 @@
     "question_number": "1.1",
     "marks": 5,
     "code": "VISION_MISSION_HEADING",
-    "type": "text",
+    "type": "label",
     "questionId": 1
   },
   {
     "questionId": 2,
     "description": "Availability of the Vision & Mission statements of the Department",
-    "question_number": "A",
+    "question_number": "C",
     "marks": 1,
     "code": "VISION_MISSION",
     "type": "radio",
@@ -19,7 +19,7 @@
   {
     "questionId": 3,
     "description": "Appropriateness/Relevance of the Statements",
-    "question_number": "B",
+    "question_number": "D",
     "marks": 2,
     "code": "VISION_MISSION_APPROPRIATENESS",
     "type": "keyword",
@@ -28,7 +28,7 @@
   {
     "questionId": 4,
     "description": "Consistency of the Department statements with the Institute statements",
-    "question_number": "C",
+    "question_number": "E",
     "marks": 2,
     "type": "keyword",
     "hasKeywords": true,
@@ -429,28 +429,32 @@
     "question_number": "2.1.1",
     "marks": 10,
     "type": "upload",
-    "code": "PROGRAM_CURRICULUM_DESIGN"
+    "code": "PROGRAM_CURRICULUM_DESIGN",
+    "hasKeywords": true
   },
   {
     "questionId": 19,
     "description": "Structure of the Curriculum",
     "question_number": "2.1.2",
     "marks": 5,
-    "type": "upload"
+    "type": "upload",
+    "hasKeywords": true
   },
   {
     "questionId": 20,
     "description": "State curriculum the components of the curriculum",
     "question_number": "2.1.3",
     "marks": 5,
-    "type": "upload"
+    "type": "upload",
+    "hasKeywords": true
   },
   {
     "questionId": 21,
     "description": "State the process used to identify extent of compliance of the curriculum for attaining the Program Outcomes(POs) & Program Specific Outcomes(PSOs)",
     "question_number": "2.1.4",
     "marks": 10,
-    "type": "upload"
+    "type": "upload",
+    "hasKeywords": true
   },
   {
     "questionId": 22,
@@ -475,6 +479,7 @@
     "question_number": "A",
     "marks": 2,
     "type": "upload",
+    "hasKeywords": true,
     "code": "TEACH_LEARN_PROCESSES_QUALITY_A"
   },
   {
@@ -483,6 +488,7 @@
     "question_number": "B",
     "marks": 2,
     "type": "upload",
+    "hasKeywords": true,
     "code": "TEACH_LEARN_PROCESSES_QUALITY_B"
   },
   {
@@ -491,6 +497,7 @@
     "question_number": "C",
     "marks": 2,
     "type": "upload",
+    "hasKeywords": true,
     "code": "TEACH_LEARN_PROCESSES_QUALITY_C"
   },
   {
@@ -499,6 +506,7 @@
     "question_number": "D",
     "marks": 2,
     "type": "upload",
+    "hasKeywords": true,
     "code": "TEACH_LEARN_PROCESSES_QUALITY_D"
   },
   {
@@ -507,6 +515,7 @@
     "question_number": "E",
     "marks": 2,
     "type": "upload",
+    "hasKeywords": true,
     "code": "TEACH_LEARN_PROCESSES_QUALITY_E"
   },
   {
@@ -515,6 +524,7 @@
     "question_number": "F",
     "marks": 3,
     "type": "upload",
+    "hasKeywords": true,
     "code": "TEACH_LEARN_PROCESSES_QUALITY_F"
   },
   {
@@ -523,6 +533,7 @@
     "question_number": "G",
     "marks": 2,
     "type": "upload",
+    "hasKeywords": true,
     "code": "TEACH_LEARN_PROCESSES_QUALITY_G"
   },
   {
@@ -539,6 +550,7 @@
     "question_number": "A",
     "marks": 3,
     "type": "upload",
+    "hasKeywords": true,
     "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_A"
   },
   {
@@ -547,6 +559,7 @@
     "question_number": "B",
     "marks": 2,
     "type": "upload",
+    "hasKeywords": true,
     "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_B"
   },
   {
@@ -555,6 +568,7 @@
     "question_number": "C",
     "marks": 5,
     "type": "upload",
+    "hasKeywords": true,
     "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_C"
   },
   {
@@ -563,6 +577,7 @@
     "question_number": "D",
     "marks": 5,
     "type": "upload",
+    "hasKeywords": true,
     "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_D"
   },
   {
@@ -578,6 +593,7 @@
     "question_number": "A",
     "marks": 2,
     "type": "upload",
+    "hasKeywords": true,
     "code": "TEACH_LEARN_PROCESSES_QUALITY_A"
   },
   {
@@ -586,6 +602,7 @@
     "question_number": "B",
     "marks": 2,
     "type": "upload",
+    "hasKeywords": true,
     "code": "TEACH_LEARN_PROCESSES_QUALITY_B"
   },
   {
@@ -594,6 +611,7 @@
     "question_number": "C",
     "marks": 3,
     "type": "upload",
+    "hasKeywords": true,
     "code": "TEACH_LEARN_PROCESSES_QUALITY_C"
   },
   {
@@ -602,6 +620,7 @@
     "question_number": "D",
     "marks": 2,
     "type": "upload",
+    "hasKeywords": true,
     "code": "TEACH_LEARN_PROCESSES_QUALITY_D"
   },
   {
@@ -610,6 +629,7 @@
     "question_number": "E",
     "marks": 3,
     "type": "upload",
+    "hasKeywords": true,
     "code": "TEACH_LEARN_PROCESSES_QUALITY_E"
   },
   {
@@ -618,6 +638,7 @@
     "question_number": "F",
     "marks": 5,
     "type": "upload",
+    "hasKeywords": true,
     "code": "TEACH_LEARN_PROCESSES_QUALITY_F"
   },
   {
@@ -626,6 +647,7 @@
     "question_number": "G",
     "marks": 3,
     "type": "upload",
+    "hasKeywords": true,
     "code": "TEACH_LEARN_PROCESSES_QUALITY_G"
   },
   {
@@ -641,6 +663,7 @@
     "question_number": "A",
     "marks": 2,
     "type": "upload",
+    "hasKeywords": true,
     "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_A"
   },
   {
@@ -649,6 +672,7 @@
     "question_number": "B",
     "marks": 3,
     "type": "upload",
+    "hasKeywords": true,
     "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_B"
   },
   {
@@ -657,6 +681,7 @@
     "question_number": "C",
     "marks": 3,
     "type": "upload",
+    "hasKeywords": true,
     "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_C"
   },
   {
@@ -665,6 +690,7 @@
     "question_number": "D",
     "marks": 2,
     "type": "upload",
+    "hasKeywords": true,
     "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_D"
   },
   {
@@ -680,6 +706,7 @@
     "question_number": "A",
     "marks": 2,
     "type": "upload",
+    "hasKeywords": true,
     "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_A"
   },
   {
@@ -688,6 +715,7 @@
     "question_number": "B",
     "marks": 3,
     "type": "upload",
+    "hasKeywords": true,
     "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_B"
   },
   {
@@ -696,6 +724,7 @@
     "question_number": "C",
     "marks": 2,
     "type": "upload",
+    "hasKeywords": true,
     "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_C"
   },
   {
@@ -704,6 +733,21 @@
     "question_number": "D",
     "marks": 2,
     "type": "upload",
+    "hasKeywords": true,
     "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_D"
+  },
+  {
+    "description": "Enter Vision",
+    "question_number": "A",
+    "code": "VISION_TEXT",
+    "type": "text",
+    "questionId": 54
+  },
+  {
+    "description": "Enter Mission",
+    "question_number": "B",
+    "code": "MISSION_TEXT",
+    "type": "text",
+    "questionId": 55
   }
 ]
