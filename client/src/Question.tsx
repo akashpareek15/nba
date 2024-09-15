@@ -107,7 +107,11 @@ export const Question = (props: QuestionProps) => {
           ) : (
             <strong>{question.description}</strong>
           )}
-          (<span>{question.marks}</span>)
+          {question.marks && (
+            <>
+              (<span>{question.marks}</span>)
+            </>
+          )}
         </div>
 
         <div

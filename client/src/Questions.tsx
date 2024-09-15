@@ -165,14 +165,14 @@ export const Questions = () => {
     if (type === "text") {
       answer.reason = value;
     } else if (type === "calculate_marks") {
-      if (
-        [
-          "VISION_MISSION_HEADING",
-          "CONSISTENCY_PEO",
-          "PROCESS_VISION_MISSION",
-        ].includes(questionMetadata.code)
+      if (["MISSION_TEXT", "VISION_TEXT"].includes(questionMetadata.code)) {
+        calculateVision(findSubQuestion(questions, [0], 0));
+      } else if (
+        ["CONSISTENCY_PEO", "PROCESS_VISION_MISSION"].includes(
+          questionMetadata.code
+        )
       ) {
-        calculateVision(question);
+        calculateSubQuestion(question);
       } else if (questionMetadata.code === "PROGRAM_OBJECTIVE_HEADING") {
         calculatePEO(question);
       } else {
@@ -226,7 +226,41 @@ export const Questions = () => {
     }
   };
 
+  const getQuestionIdByCode = (code) => {
+    return (Object.values(questionMap) as (IQuestion | SubQuestion)[]).find(
+      (x) => x.code === code
+    )?.questionId;
+  };
+
   const calculateVision = (question: IQuestion | SubQuestion) => {
+    const mission = answers[getQuestionIdByCode("MISSION_TEXT")]?.reason;
+    const vision = answers[getQuestionIdByCode("VISION_TEXT")]?.reason;
+    const isAnswered = vision && mission;
+    const reason = `${vision ?? ""} ${mission ?? ""}`;
+    question.subQuestions?.forEach((sq) => {
+      const questionMetadata = questionMap[sq.questionId];
+      const answer = answers[sq.questionId];
+      if (questionMetadata.type === "radio") {
+        answer.value = isAnswered ? "Y" : "N";
+        answer.obtainedMarks = isAnswered ? 1 : 0;
+      } else if (questionMetadata.type === "keyword") {
+        if (isAnswered) {
+          answer.obtainedMarks = keywords?.[sq.questionId]?.reduce(
+            (prev, curr) => {
+              const matchedKeywords = findMatchedKeywords(
+                curr as string[],
+                reason
+              );
+              return matchedKeywords > 0 ? prev + 1 : prev;
+            },
+            0
+          );
+        }
+      }
+    });
+  };
+
+  const calculateSubQuestion = (question: IQuestion | SubQuestion) => {
     const reason = answers[question.questionId]?.reason;
     question.subQuestions?.forEach((sq) => {
       const questionMetadata = questionMap[sq.questionId];
@@ -364,23 +398,30 @@ export const Questions = () => {
         }: { documentId: string; fileName: string; parsedData: string } =
           response.data;
         if (code === "INDICATE_VISION_MISSION_ADEQUACY") {
-          const visionMission = answers[1]?.reason;
-          const visionMissionExists = sanitizeText(parsedData)
+          const visionExists = sanitizeText(parsedData)
             ?.toLowerCase()
-            .includes(sanitizeText(visionMission)?.toLowerCase());
+            .includes(
+              sanitizeText(
+                answers[getQuestionIdByCode("VISION_TEXT")]?.reason
+              )?.toLowerCase()
+            );
 
+          const missionExists = sanitizeText(parsedData)
+            ?.toLowerCase()
+            .includes(
+              sanitizeText(
+                answers[getQuestionIdByCode("MISSION_TEXT")]?.reason
+              )?.toLowerCase()
+            );
           const peo = answers[5]?.reason;
 
           const peoExist = sanitizeText(parsedData)
             ?.toLowerCase()
             .includes(sanitizeText(peo)?.toLowerCase());
-          console.log(
-            sanitizeText(parsedData)?.toLowerCase(),
-            sanitizeText(visionMission)?.toLowerCase()
-          );
+
           answer.rows[rowIndex - 1]["peo"] = peoExist;
-          answer.rows[rowIndex - 1]["vision"] = visionMissionExists;
-          answer.rows[rowIndex - 1]["mission"] = visionMissionExists;
+          answer.rows[rowIndex - 1]["vision"] = visionExists;
+          answer.rows[rowIndex - 1]["mission"] = missionExists;
         }
         answer.rows[rowIndex - 1][field] = { documentId, fileName };
 
