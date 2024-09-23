@@ -66,11 +66,17 @@ export const Keywords = () => {
         });
     }
   }, [criteria]);
+
+  const maskedKeywords = ["the"];
+
   const countWords = (text): any => {
     const words = text.toLowerCase().split(/\s+/);
     const frequency = {};
 
     words.forEach((word) => {
+      if (maskedKeywords.includes(word) || word?.length <= 2) {
+        return;
+      }
       if (!frequency[word]) {
         frequency[word] = 1;
       } else {
