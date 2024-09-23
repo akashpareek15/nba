@@ -131,22 +131,6 @@ export const Keywords = () => {
     <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
       <div style={{ display: "flex", alignItems: "baseline" }}>
         <FormControl variant="standard" fullWidth sx={{ m: 1, maxWidth: 200 }}>
-          <InputLabel>Department</InputLabel>
-          <Select
-            displayEmpty
-            size="small"
-            value={department}
-            onChange={(event) => {
-              setDepartment(Number(event.target.value));
-            }}
-          >
-            {departments.map((op) => (
-              <MenuItem value={op.departmentId}>{op.departmentName}</MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-
-        <FormControl variant="standard" fullWidth sx={{ m: 1, maxWidth: 200 }}>
           <InputLabel>Criteria</InputLabel>
           <Select
             displayEmpty
