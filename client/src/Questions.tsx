@@ -2,7 +2,11 @@ import axios from "axios";
 import { useEffect, useMemo, useState } from "react";
 import { ChangeType, Question } from "./Question";
 import { useNavigate, useParams } from "react-router-dom";
-import { IQuestion, SubQuestion } from "./domain/IQuestion";
+import {
+  IQuestion,
+  KeywordsMarksCalculation,
+  SubQuestion,
+} from "./domain/IQuestion";
 import { Button, Typography } from "@mui/material";
 import { useUser } from "./useUser";
 import { saveAs } from "file-saver";
@@ -176,7 +180,10 @@ export const Questions = () => {
       } else if (questionMetadata.code === "PROGRAM_OBJECTIVE_HEADING") {
         calculatePEO(question);
       } else {
-        question.obtainedMarks = calculateMarks(question);
+        question.obtainedMarks = getKeywordsMarks(
+          findMatchedKeywords(keywords?.[question.questionId], question.reason),
+          questionMetadata.keywordsMarksCalculation
+        );
       }
     } else if (type === "marks_change") {
       question.obtainedMarks = question.reason
@@ -232,6 +239,22 @@ export const Questions = () => {
     )?.questionId;
   };
 
+  const getKeywordsMarks = (
+    matchedKeywords: number = 0,
+    keywordsMarksCalculation: KeywordsMarksCalculation[] = []
+  ) => {
+    let marks = 0;
+    keywordsMarksCalculation.forEach((criteria) => {
+      if (
+        matchedKeywords >= criteria.min &&
+        (!criteria.max || matchedKeywords <= criteria.max)
+      ) {
+        marks = criteria.marks;
+      }
+    });
+    return marks;
+  };
+
   const calculateVision = (question: IQuestion | SubQuestion) => {
     const mission = answers[getQuestionIdByCode("MISSION_TEXT")]?.reason;
     const vision = answers[getQuestionIdByCode("VISION_TEXT")]?.reason;
@@ -245,15 +268,9 @@ export const Questions = () => {
         answer.obtainedMarks = isAnswered ? 1 : 0;
       } else if (questionMetadata.type === "keyword") {
         if (isAnswered) {
-          answer.obtainedMarks = keywords?.[sq.questionId]?.reduce(
-            (prev, curr) => {
-              const matchedKeywords = findMatchedKeywords(
-                curr as string[],
-                reason
-              );
-              return matchedKeywords > 0 ? prev + 1 : prev;
-            },
-            0
+          answer.obtainedMarks = getKeywordsMarks(
+            findMatchedKeywords(keywords?.[sq.questionId], reason),
+            questionMetadata.keywordsMarksCalculation
           );
         }
       }
@@ -293,13 +310,10 @@ export const Questions = () => {
       const answer = answers[sq.questionId];
       if (questionMetadata.type === "keyword") {
         answer.obtainedMarks = min3Sentences
-          ? keywords?.[sq.questionId]?.reduce((prev, curr) => {
-              const matchedKeywords = findMatchedKeywords(
-                curr as string[],
-                answerMain.reason
-              );
-              return matchedKeywords > 0 ? prev + 1 : prev;
-            }, 0)
+          ? getKeywordsMarks(
+              findMatchedKeywords(keywords?.[sq.questionId], answerMain.reason),
+              questionMetadata.keywordsMarksCalculation
+            )
           : 0;
       }
     });
@@ -334,10 +348,10 @@ export const Questions = () => {
   };
 
   const checkKeywords = (sq: IQuestion | SubQuestion, parsedData) => {
-    return keywords[sq.questionId]?.reduce((prev, curr) => {
-      const matchedKeywords = findMatchedKeywords(curr as string[], parsedData);
-      return matchedKeywords > 0 ? prev + 1 : prev;
-    }, 0);
+    return getKeywordsMarks(
+      findMatchedKeywords(keywords[sq.questionId], parsedData),
+      sq.keywordsMarksCalculation
+    );
   };
 
   const addNewRow = (index: string, code: string, rowIndex: number) => {

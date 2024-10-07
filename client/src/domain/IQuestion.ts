@@ -28,6 +28,8 @@ interface QuestionBase {
   error?: string;
   documentId?: string;
   fileName?: string;
+  hasKeywords?: boolean;
+  keywordsMarksCalculation?: KeywordsMarksCalculation[];
   headers?: Header[];
   hideMarks?: boolean;
   rows?: object &
@@ -48,4 +50,10 @@ export interface IQuestion extends QuestionBase {
 
 export interface SubQuestion extends QuestionBase {
   subQuestions?: SubQuestion[];
+}
+
+export interface KeywordsMarksCalculation {
+  min: number;
+  marks: number;
+  max?: number;
 }

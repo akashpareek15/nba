@@ -23,7 +23,33 @@
     "marks": 2,
     "code": "VISION_MISSION_APPROPRIATENESS",
     "type": "keyword",
-    "hasKeywords": true
+    "hasKeywords": true,
+    "keywordsMarksCalculation": [
+      {
+        "min": 5,
+        "marks": 2
+      },
+      {
+        "min": 4,
+        "max": 4,
+        "marks": 1.5
+      },
+      {
+        "min": 3,
+        "max": 3,
+        "marks": 1
+      },
+      {
+        "min": 2,
+        "max": 2,
+        "marks": 0.5
+      },
+      {
+        "min": 1,
+        "max": 1,
+        "marks": 0.2
+      }
+    ]
   },
   {
     "questionId": 4,
@@ -32,7 +58,33 @@
     "marks": 2,
     "type": "keyword",
     "hasKeywords": true,
-    "code": "VISION_MISSION_CONSISTENCY"
+    "code": "VISION_MISSION_CONSISTENCY",
+    "keywordsMarksCalculation": [
+      {
+        "min": 5,
+        "marks": 2
+      },
+      {
+        "min": 4,
+        "max": 4,
+        "marks": 1.5
+      },
+      {
+        "min": 3,
+        "max": 3,
+        "marks": 1
+      },
+      {
+        "min": 2,
+        "max": 2,
+        "marks": 0.5
+      },
+      {
+        "min": 1,
+        "max": 1,
+        "marks": 0.2
+      }
+    ]
   },
   {
     "questionId": 5,
@@ -41,7 +93,38 @@
     "marks": 5,
     "helperText": "At least enter 3 sentences",
     "code": "PROGRAM_OBJECTIVE_HEADING",
-    "type": "text"
+    "type": "text",
+    "keywordsMarksCalculation": [
+      {
+        "min": 15,
+        "marks": 5
+      },
+      {
+        "min": 14,
+        "max": 12,
+        "marks": 4
+      },
+      {
+        "min": 11,
+        "max": 10,
+        "marks": 3
+      },
+      {
+        "min": 9,
+        "max": 8,
+        "marks": 2
+      },
+      {
+        "min": 7,
+        "max": 5,
+        "marks": 1
+      },
+      {
+        "min": 4,
+        "max": 1,
+        "marks": 0.5
+      }
+    ]
   },
   {
     "questionId": 6,
@@ -50,7 +133,33 @@
     "marks": 5,
     "type": "keyword",
     "hasKeywords": true,
-    "code": "PROGRAM_OBJECTIVE_LISTING"
+    "code": "PROGRAM_OBJECTIVE_LISTING",
+    "keywordsMarksCalculation": [
+      {
+        "min": 10,
+        "marks": 3.5
+      },
+      {
+        "min": 8,
+        "max": 9,
+        "marks": 3
+      },
+      {
+        "min": 6,
+        "max": 7,
+        "marks": 2.5
+      },
+      {
+        "min": 5,
+        "max": 5,
+        "marks": 2
+      },
+      {
+        "min": 3,
+        "max": 4,
+        "marks": 1
+      }
+    ]
   },
   {
     "questionId": 7,
@@ -59,7 +168,33 @@
     "question_number": "1.3",
     "marks": 15,
     "code": "INDICATE_VISION_MISSION",
-    "type": "label"
+    "type": "label",
+    "keywordsMarksCalculation": [
+      {
+        "min": 10,
+        "marks": 3.5
+      },
+      {
+        "min": 8,
+        "max": 9,
+        "marks": 3
+      },
+      {
+        "min": 6,
+        "max": 7,
+        "marks": 2.5
+      },
+      {
+        "min": 5,
+        "max": 5,
+        "marks": 2
+      },
+      {
+        "min": 3,
+        "max": 4,
+        "marks": 1
+      }
+    ]
   },
   {
     "questionId": 8,
@@ -149,7 +284,28 @@
     "marks": 3,
     "type": "upload",
     "code": "INDICATE_VISION_MISSION_PROCESS",
-    "hasKeywords": true
+    "hasKeywords": true,
+    "keywordsMarksCalculation": [
+      {
+        "min": 100,
+        "marks": 3
+      },
+      {
+        "min": 75,
+        "max": 99,
+        "marks": 2.5
+      },
+      {
+        "min": 50,
+        "max": 74,
+        "marks": 2
+      },
+      {
+        "min": 25,
+        "max": 49,
+        "marks": 1
+      }
+    ]
   },
   {
     "questionId": 10,
@@ -295,7 +451,43 @@
     "question_number": "A",
     "marks": 7,
     "type": "upload",
-    "hasKeywords": true
+    "hasKeywords": true,
+    "keywordsMarksCalculation": [
+      {
+        "min": 25,
+        "marks": 7
+      },
+      {
+        "min": 20,
+        "max": 24,
+        "marks": 6
+      },
+      {
+        "min": 15,
+        "max": 19,
+        "marks": 5
+      },
+      {
+        "min": 12,
+        "max": 14,
+        "marks": 4
+      },
+      {
+        "min": 10,
+        "max": 11,
+        "marks": 3
+      },
+      {
+        "min": 8,
+        "max": 9,
+        "marks": 2
+      },
+      {
+        "min": 5,
+        "max": 7,
+        "marks": 1
+      }
+    ]
   },
   {
     "questionId": 13,
@@ -303,7 +495,48 @@
     "question_number": "B",
     "marks": 8,
     "type": "upload",
-    "hasKeywords": true
+    "hasKeywords": true,
+    "keywordsMarksCalculation": [
+      {
+        "min": 30,
+        "marks": 8
+      },
+      {
+        "max": 29,
+        "min": 25,
+        "marks": 7
+      },
+      {
+        "min": 20,
+        "max": 24,
+        "marks": 6
+      },
+      {
+        "min": 15,
+        "max": 19,
+        "marks": 5
+      },
+      {
+        "min": 12,
+        "max": 14,
+        "marks": 4
+      },
+      {
+        "min": 10,
+        "max": 11,
+        "marks": 3
+      },
+      {
+        "min": 8,
+        "max": 9,
+        "marks": 2
+      },
+      {
+        "min": 5,
+        "max": 7,
+        "marks": 1
+      }
+    ]
   },
   {
     "description": "Establish consistency of PEOs with  Mission of the Department",
@@ -743,6 +976,7 @@
     "type": "text",
     "questionId": 54
   },
+
   {
     "description": "Enter Mission",
     "question_number": "B",
