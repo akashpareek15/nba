@@ -663,7 +663,33 @@
     "marks": 10,
     "type": "upload",
     "code": "PROGRAM_CURRICULUM_DESIGN",
-    "hasKeywords": true
+    "hasKeywords": true,
+    "keywordsMarksCalculation": [
+      {
+        "min": 100,
+        "marks": 10
+      },
+      {
+        "max": 99,
+        "min": 75,
+        "marks": 7
+      },
+      {
+        "min": 50,
+        "max": 74,
+        "marks": 5
+      },
+      {
+        "min": 25,
+        "max": 49,
+        "marks": 2
+      },
+      {
+        "min": 10,
+        "max": 24,
+        "marks": 1
+      }
+    ]
   },
   {
     "questionId": 19,
@@ -671,7 +697,33 @@
     "question_number": "2.1.2",
     "marks": 5,
     "type": "upload",
-    "hasKeywords": true
+    "hasKeywords": true,
+    "keywordsMarksCalculation": [
+      {
+        "min": 100,
+        "marks": 5
+      },
+      {
+        "max": 99,
+        "min": 75,
+        "marks": 4
+      },
+      {
+        "min": 50,
+        "max": 74,
+        "marks": 3
+      },
+      {
+        "min": 25,
+        "max": 49,
+        "marks": 2
+      },
+      {
+        "min": 10,
+        "max": 24,
+        "marks": 1
+      }
+    ]
   },
   {
     "questionId": 20,
@@ -679,7 +731,33 @@
     "question_number": "2.1.3",
     "marks": 5,
     "type": "upload",
-    "hasKeywords": true
+    "hasKeywords": true,
+    "keywordsMarksCalculation": [
+      {
+        "min": 100,
+        "marks": 5
+      },
+      {
+        "max": 99,
+        "min": 75,
+        "marks": 4
+      },
+      {
+        "min": 50,
+        "max": 74,
+        "marks": 3
+      },
+      {
+        "min": 25,
+        "max": 49,
+        "marks": 2
+      },
+      {
+        "min": 10,
+        "max": 24,
+        "marks": 1
+      }
+    ]
   },
   {
     "questionId": 21,
@@ -687,7 +765,33 @@
     "question_number": "2.1.4",
     "marks": 10,
     "type": "upload",
-    "hasKeywords": true
+    "hasKeywords": true,
+    "keywordsMarksCalculation": [
+      {
+        "min": 100,
+        "marks": 10
+      },
+      {
+        "max": 99,
+        "min": 75,
+        "marks": 7
+      },
+      {
+        "min": 50,
+        "max": 74,
+        "marks": 5
+      },
+      {
+        "min": 25,
+        "max": 49,
+        "marks": 2
+      },
+      {
+        "min": 10,
+        "max": 24,
+        "marks": 1
+      }
+    ]
   },
   {
     "questionId": 22,
@@ -713,7 +817,18 @@
     "marks": 2,
     "type": "upload",
     "hasKeywords": true,
-    "code": "TEACH_LEARN_PROCESSES_QUALITY_A"
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_A",
+    "keywordsMarksCalculation": [
+      {
+        "min": 50,
+        "marks": 2
+      },
+      {
+        "min": 25,
+        "max": 49,
+        "marks": 1
+      }
+    ]
   },
   {
     "questionId": 25,
@@ -722,7 +837,18 @@
     "marks": 2,
     "type": "upload",
     "hasKeywords": true,
-    "code": "TEACH_LEARN_PROCESSES_QUALITY_B"
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_B",
+    "keywordsMarksCalculation": [
+      {
+        "min": 50,
+        "marks": 2
+      },
+      {
+        "min": 25,
+        "max": 49,
+        "marks": 1
+      }
+    ]
   },
   {
     "questionId": 26,
@@ -731,7 +857,18 @@
     "marks": 2,
     "type": "upload",
     "hasKeywords": true,
-    "code": "TEACH_LEARN_PROCESSES_QUALITY_C"
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_C",
+    "keywordsMarksCalculation": [
+      {
+        "min": 50,
+        "marks": 2
+      },
+      {
+        "min": 25,
+        "max": 49,
+        "marks": 1
+      }
+    ]
   },
   {
     "questionId": 27,
@@ -740,7 +877,18 @@
     "marks": 2,
     "type": "upload",
     "hasKeywords": true,
-    "code": "TEACH_LEARN_PROCESSES_QUALITY_D"
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_D",
+    "keywordsMarksCalculation": [
+      {
+        "min": 50,
+        "marks": 2
+      },
+      {
+        "min": 25,
+        "max": 49,
+        "marks": 1
+      }
+    ]
   },
   {
     "questionId": 28,
@@ -749,7 +897,18 @@
     "marks": 2,
     "type": "upload",
     "hasKeywords": true,
-    "code": "TEACH_LEARN_PROCESSES_QUALITY_E"
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_E",
+    "keywordsMarksCalculation": [
+      {
+        "min": 50,
+        "marks": 2
+      },
+      {
+        "min": 25,
+        "max": 49,
+        "marks": 1
+      }
+    ]
   },
   {
     "questionId": 29,
@@ -758,7 +917,23 @@
     "marks": 3,
     "type": "upload",
     "hasKeywords": true,
-    "code": "TEACH_LEARN_PROCESSES_QUALITY_F"
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_F",
+    "keywordsMarksCalculation": [
+      {
+        "min": 50,
+        "marks": 3
+      },
+      {
+        "min": 30,
+        "max": 49,
+        "marks": 2
+      },
+      {
+        "min": 29,
+        "max": 25,
+        "marks": 1
+      }
+    ]
   },
   {
     "questionId": 30,
@@ -767,7 +942,18 @@
     "marks": 2,
     "type": "upload",
     "hasKeywords": true,
-    "code": "TEACH_LEARN_PROCESSES_QUALITY_G"
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_G",
+    "keywordsMarksCalculation": [
+      {
+        "min": 50,
+        "marks": 2
+      },
+      {
+        "min": 25,
+        "max": 49,
+        "marks": 1
+      }
+    ]
   },
   {
     "questionId": 31,
@@ -784,7 +970,23 @@
     "marks": 3,
     "type": "upload",
     "hasKeywords": true,
-    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_A"
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_A",
+    "keywordsMarksCalculation": [
+      {
+        "min": 50,
+        "marks": 3
+      },
+      {
+        "min": 30,
+        "max": 49,
+        "marks": 2
+      },
+      {
+        "min": 29,
+        "max": 25,
+        "marks": 1
+      }
+    ]
   },
   {
     "questionId": 33,
@@ -793,7 +995,18 @@
     "marks": 2,
     "type": "upload",
     "hasKeywords": true,
-    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_B"
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_B",
+    "keywordsMarksCalculation": [
+      {
+        "min": 50,
+        "marks": 2
+      },
+      {
+        "min": 25,
+        "max": 49,
+        "marks": 1
+      }
+    ]
   },
   {
     "questionId": 34,
@@ -802,7 +1015,33 @@
     "marks": 5,
     "type": "upload",
     "hasKeywords": true,
-    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_C"
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_C",
+    "keywordsMarksCalculation": [
+      {
+        "min": 100,
+        "marks": 5
+      },
+      {
+        "max": 99,
+        "min": 75,
+        "marks": 4
+      },
+      {
+        "min": 50,
+        "max": 74,
+        "marks": 3
+      },
+      {
+        "min": 25,
+        "max": 49,
+        "marks": 2
+      },
+      {
+        "min": 10,
+        "max": 24,
+        "marks": 1
+      }
+    ]
   },
   {
     "questionId": 35,
@@ -811,7 +1050,33 @@
     "marks": 5,
     "type": "upload",
     "hasKeywords": true,
-    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_D"
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_D",
+    "keywordsMarksCalculation": [
+      {
+        "min": 100,
+        "marks": 5
+      },
+      {
+        "max": 99,
+        "min": 75,
+        "marks": 4
+      },
+      {
+        "min": 50,
+        "max": 74,
+        "marks": 3
+      },
+      {
+        "min": 25,
+        "max": 49,
+        "marks": 2
+      },
+      {
+        "min": 10,
+        "max": 24,
+        "marks": 1
+      }
+    ]
   },
   {
     "questionId": 36,
@@ -827,7 +1092,18 @@
     "marks": 2,
     "type": "upload",
     "hasKeywords": true,
-    "code": "TEACH_LEARN_PROCESSES_QUALITY_A"
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_A",
+    "keywordsMarksCalculation": [
+      {
+        "min": 50,
+        "marks": 2
+      },
+      {
+        "min": 25,
+        "max": 49,
+        "marks": 1
+      }
+    ]
   },
   {
     "questionId": 38,
@@ -836,7 +1112,18 @@
     "marks": 2,
     "type": "upload",
     "hasKeywords": true,
-    "code": "TEACH_LEARN_PROCESSES_QUALITY_B"
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_B",
+    "keywordsMarksCalculation": [
+      {
+        "min": 50,
+        "marks": 2
+      },
+      {
+        "min": 25,
+        "max": 49,
+        "marks": 1
+      }
+    ]
   },
   {
     "questionId": 39,
@@ -845,7 +1132,23 @@
     "marks": 3,
     "type": "upload",
     "hasKeywords": true,
-    "code": "TEACH_LEARN_PROCESSES_QUALITY_C"
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_C",
+    "keywordsMarksCalculation": [
+      {
+        "min": 50,
+        "marks": 3
+      },
+      {
+        "min": 30,
+        "max": 49,
+        "marks": 2
+      },
+      {
+        "min": 29,
+        "max": 25,
+        "marks": 1
+      }
+    ]
   },
   {
     "questionId": 40,
@@ -854,7 +1157,18 @@
     "marks": 2,
     "type": "upload",
     "hasKeywords": true,
-    "code": "TEACH_LEARN_PROCESSES_QUALITY_D"
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_D",
+    "keywordsMarksCalculation": [
+      {
+        "min": 50,
+        "marks": 2
+      },
+      {
+        "min": 25,
+        "max": 49,
+        "marks": 1
+      }
+    ]
   },
   {
     "questionId": 41,
@@ -863,7 +1177,23 @@
     "marks": 3,
     "type": "upload",
     "hasKeywords": true,
-    "code": "TEACH_LEARN_PROCESSES_QUALITY_E"
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_E",
+    "keywordsMarksCalculation": [
+      {
+        "min": 50,
+        "marks": 3
+      },
+      {
+        "min": 30,
+        "max": 49,
+        "marks": 2
+      },
+      {
+        "min": 29,
+        "max": 25,
+        "marks": 1
+      }
+    ]
   },
   {
     "questionId": 42,
@@ -872,7 +1202,33 @@
     "marks": 5,
     "type": "upload",
     "hasKeywords": true,
-    "code": "TEACH_LEARN_PROCESSES_QUALITY_F"
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_F",
+    "keywordsMarksCalculation": [
+      {
+        "min": 100,
+        "marks": 5
+      },
+      {
+        "max": 99,
+        "min": 75,
+        "marks": 4
+      },
+      {
+        "min": 50,
+        "max": 74,
+        "marks": 3
+      },
+      {
+        "min": 25,
+        "max": 49,
+        "marks": 2
+      },
+      {
+        "min": 10,
+        "max": 24,
+        "marks": 1
+      }
+    ]
   },
   {
     "questionId": 43,
@@ -881,7 +1237,23 @@
     "marks": 3,
     "type": "upload",
     "hasKeywords": true,
-    "code": "TEACH_LEARN_PROCESSES_QUALITY_G"
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_G",
+    "keywordsMarksCalculation": [
+      {
+        "min": 50,
+        "marks": 3
+      },
+      {
+        "min": 30,
+        "max": 49,
+        "marks": 2
+      },
+      {
+        "min": 29,
+        "max": 25,
+        "marks": 1
+      }
+    ]
   },
   {
     "questionId": 44,
@@ -897,7 +1269,18 @@
     "marks": 2,
     "type": "upload",
     "hasKeywords": true,
-    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_A"
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_A",
+    "keywordsMarksCalculation": [
+      {
+        "min": 50,
+        "marks": 2
+      },
+      {
+        "min": 25,
+        "max": 49,
+        "marks": 1
+      }
+    ]
   },
   {
     "questionId": 46,
@@ -906,7 +1289,23 @@
     "marks": 3,
     "type": "upload",
     "hasKeywords": true,
-    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_B"
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_B",
+    "keywordsMarksCalculation": [
+      {
+        "min": 50,
+        "marks": 3
+      },
+      {
+        "min": 30,
+        "max": 49,
+        "marks": 2
+      },
+      {
+        "min": 29,
+        "max": 25,
+        "marks": 1
+      }
+    ]
   },
   {
     "questionId": 47,
@@ -915,7 +1314,23 @@
     "marks": 3,
     "type": "upload",
     "hasKeywords": true,
-    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_C"
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_C",
+    "keywordsMarksCalculation": [
+      {
+        "min": 50,
+        "marks": 3
+      },
+      {
+        "min": 30,
+        "max": 49,
+        "marks": 2
+      },
+      {
+        "min": 29,
+        "max": 25,
+        "marks": 1
+      }
+    ]
   },
   {
     "questionId": 48,
@@ -924,7 +1339,18 @@
     "marks": 2,
     "type": "upload",
     "hasKeywords": true,
-    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_D"
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_D",
+    "keywordsMarksCalculation": [
+      {
+        "min": 50,
+        "marks": 2
+      },
+      {
+        "min": 25,
+        "max": 49,
+        "marks": 1
+      }
+    ]
   },
   {
     "questionId": 49,
@@ -940,7 +1366,18 @@
     "marks": 2,
     "type": "upload",
     "hasKeywords": true,
-    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_A"
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_A",
+    "keywordsMarksCalculation": [
+      {
+        "min": 50,
+        "marks": 2
+      },
+      {
+        "min": 25,
+        "max": 49,
+        "marks": 1
+      }
+    ]
   },
   {
     "questionId": 51,
@@ -949,7 +1386,23 @@
     "marks": 3,
     "type": "upload",
     "hasKeywords": true,
-    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_B"
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_B",
+    "keywordsMarksCalculation": [
+      {
+        "min": 50,
+        "marks": 3
+      },
+      {
+        "min": 30,
+        "max": 49,
+        "marks": 2
+      },
+      {
+        "min": 29,
+        "max": 25,
+        "marks": 1
+      }
+    ]
   },
   {
     "questionId": 52,
@@ -958,7 +1411,18 @@
     "marks": 2,
     "type": "upload",
     "hasKeywords": true,
-    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_C"
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_C",
+    "keywordsMarksCalculation": [
+      {
+        "min": 50,
+        "marks": 2
+      },
+      {
+        "min": 25,
+        "max": 49,
+        "marks": 1
+      }
+    ]
   },
   {
     "questionId": 53,
@@ -967,7 +1431,18 @@
     "marks": 2,
     "type": "upload",
     "hasKeywords": true,
-    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_D"
+    "code": "TEACH_LEARN_PROCESSES_QUALITY_EVAL_D",
+    "keywordsMarksCalculation": [
+      {
+        "min": 50,
+        "marks": 2
+      },
+      {
+        "min": 25,
+        "max": 49,
+        "marks": 1
+      }
+    ]
   },
   {
     "description": "Enter Vision",
