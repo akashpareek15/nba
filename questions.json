@@ -371,6 +371,12 @@
         "key": "evidence",
         "type": "upload",
         "width": "150px"
+      },
+      {
+        "label": "Year",
+        "key": "year",
+        "type": "textbox",
+         "width": "150px"
       }
     ],
     "rows": [
