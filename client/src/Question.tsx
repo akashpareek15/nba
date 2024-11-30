@@ -1,4 +1,8 @@
-import { CloudUpload } from "@mui/icons-material";
+import {
+  CloudDownload,
+  CloudUpload,
+  DownloadOutlined,
+} from "@mui/icons-material";
 import {
   FormControlLabel,
   IconButton,
@@ -38,7 +42,8 @@ type QuestionProps = {
     rowIndex: number,
     value: string | boolean | unknown,
     type: string,
-    field: string
+    field: string,
+    multiCheckboxField?: string
   ) => void;
 };
 
@@ -245,6 +250,111 @@ export const Question = (props: QuestionProps) => {
                                   row.index,
                                   header.key
                                 )
+                              ) : type === "multiline-checkboxes" ? (
+                                <div>
+                                  {header.checkboxes.map((c, checkboxIndx) => (
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        gap: 10,
+                                      }}
+                                    >
+                                      <input
+                                        type="checkbox"
+                                        checked={
+                                          row[header.key]?.[c.key]?.checked
+                                        }
+                                        disabled={header.disabled}
+                                        onChange={(event) => {
+                                          props.onRowValueChange(
+                                            props.index,
+                                            question.code,
+                                            row.index,
+                                            event.target.checked,
+                                            "multiline-checkboxes",
+                                            header.key,
+                                            c.key
+                                          );
+                                        }}
+                                      />
+                                      <div style={{ minWidth: 90 }}>
+                                        {c.label}
+                                      </div>
+                                      {c.isUpload && (
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            alignItems: "center",
+                                          }}
+                                        >
+                                          <label
+                                            htmlFor={`${props.questionId}_${row.index}_${innerIndex}_${checkboxIndx}`}
+                                          >
+                                            <Input
+                                              accept="pdf"
+                                              id={`${props.questionId}_${row.index}_${innerIndex}_${checkboxIndx}`}
+                                              style={{ padding: 0, margin: 0 }}
+                                              onChange={(event) =>
+                                                props.onRowValueChange(
+                                                  props.index,
+                                                  question.code,
+                                                  row.index,
+                                                  event,
+                                                  "upload",
+                                                  header.key,
+                                                  c.key
+                                                )
+                                              }
+                                              type="file"
+                                            />
+                                            <IconButton
+                                              color="primary"
+                                              style={{ padding: 0, margin: 0 }}
+                                              aria-label="upload document"
+                                              component="span"
+                                            >
+                                              <CloudUpload />
+                                            </IconButton>
+                                          </label>
+                                          {value?.[c.key]?.document
+                                            ?.documentId && (
+                                            <div
+                                              style={{
+                                                cursor: "pointer",
+                                                textDecoration: "underline",
+                                              }}
+                                              onClick={() =>
+                                                props.onDownload(
+                                                  value?.[c.key]?.document
+                                                    ?.documentId,
+                                                  value?.[c.key]?.document
+                                                    ?.fileName
+                                                )
+                                              }
+                                            >
+                                              <IconButton
+                                                color="primary"
+                                                aria-label="download document"
+                                                component="span"
+                                                style={{
+                                                  padding: 0,
+                                                  margin: 0,
+                                                }}
+                                                title={
+                                                  value?.[c.key]?.document
+                                                    ?.fileName
+                                                }
+                                              >
+                                                <DownloadOutlined />
+                                              </IconButton>
+                                            </div>
+                                          )}
+                                        </div>
+                                      )}
+                                    </div>
+                                  ))}
+                                </div>
                               ) : type === "checkbox" ? (
                                 <>
                                   <input

@@ -130,7 +130,7 @@ criteriaRoute.put("/update-keywords", async (request, response) => {
   try {
     const { keywords, departmentId, questionId } = request.body;
 
-    const questionCollection = await db.collection("keyword_test");
+    const questionCollection = await db.collection("keyword");
     const question = await questionCollection.findOne({
       questionId: parseInt(questionId),
     });

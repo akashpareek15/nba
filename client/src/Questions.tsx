@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import {
   IQuestion,
   KeywordsMarksCalculation,
+  Option,
   SubQuestion,
 } from "./domain/IQuestion";
 import { Button, Typography } from "@mui/material";
@@ -392,14 +393,14 @@ export const Questions = () => {
     rowIndex: number,
     value: string,
     type: string,
-    field: string
+    field: string,
+    multiCheckboxField?: string
   ) => {
     const question = findSubQuestion(
       questions,
       index.split("_").map((m) => +m),
       0
     );
-
     const answer = answers[question.questionId];
     const questionMetadata = questionMap[question.questionId];
     if (type === "upload") {
@@ -411,7 +412,20 @@ export const Questions = () => {
           parsedData,
         }: { documentId: string; fileName: string; parsedData: string } =
           response.data;
-        if (code === "INDICATE_VISION_MISSION_ADEQUACY") {
+        if (multiCheckboxField) {
+          answer.rows[rowIndex - 1][field] =
+            answer.rows[rowIndex - 1][field] ?? {};
+          answer.rows[rowIndex - 1][field][multiCheckboxField] = {
+            ...answer.rows[rowIndex - 1][field][multiCheckboxField],
+            document: { documentId, fileName },
+          };
+        } else {
+          answer.rows[rowIndex - 1][field] = { documentId, fileName };
+        }
+        if (
+          code === "INDICATE_VISION_MISSION_ADEQUACY" ||
+          code === "INDICATE_VISION_MISSION_EXTENT"
+        ) {
           const visionExists = sanitizeText(parsedData)
             ?.toLowerCase()
             .includes(
@@ -432,25 +446,65 @@ export const Questions = () => {
           const peoExist = sanitizeText(parsedData)
             ?.toLowerCase()
             .includes(sanitizeText(peo)?.toLowerCase());
-
-          answer.rows[rowIndex - 1]["peo"] = peoExist;
-          answer.rows[rowIndex - 1]["vision"] = visionExists;
-          answer.rows[rowIndex - 1]["mission"] = missionExists;
+          if (code === "INDICATE_VISION_MISSION_ADEQUACY") {
+            answer.rows[rowIndex - 1]["peo"] = peoExist;
+            answer.rows[rowIndex - 1]["vision"] = visionExists;
+            answer.rows[rowIndex - 1]["mission"] = missionExists;
+          } else if (code === "INDICATE_VISION_MISSION_EXTENT") {
+            answer.rows[rowIndex - 1][field][multiCheckboxField].checked =
+              peoExist && visionExists && missionExists;
+          }
         }
-        answer.rows[rowIndex - 1][field] = { documentId, fileName };
 
-        answer.obtainedMarks = questionMetadata.headers
-          .filter((h) => h.type === "checkbox")
-          .reduce((acc, curr) => {
-            return answer.rows.filter((r) => r[curr.key] === true).length > 4
-              ? acc + 1
-              : acc;
-          }, 0);
+        if (code === "INDICATE_VISION_MISSION_ADEQUACY") {
+          answer.obtainedMarks = questionMetadata.headers
+            .filter((h) => h.type === "checkbox")
+            .reduce((acc, curr) => {
+              return answer.rows.filter((r) => r[curr.key] === true).length > 4
+                ? acc + 1
+                : acc;
+            }, 0);
+        }
       } catch (error) {
         console.log(error);
       }
+    } else if (type === "multiline-checkboxes") {
+      answer.rows[rowIndex - 1][field] = answer.rows[rowIndex - 1][field] ?? {};
+      answer.rows[rowIndex - 1][field][multiCheckboxField] = {
+        ...answer.rows[rowIndex - 1][field][multiCheckboxField],
+        checked: value,
+      };
     } else {
       answer.rows[rowIndex - 1][field] = value;
+    }
+    if (code === "INDICATE_VISION_MISSION_EXTENT") {
+      const obtainedMarksArray: number[] = (answer.rows as any[]).reduce(
+        (acc, curr) => {
+          const checkboxes: Option[] =
+            questionMetadata.headers.find((x) => x.key === field)?.checkboxes ??
+            [];
+          const marksPerCheckbox = 1 / checkboxes.length;
+          acc.push(
+            checkboxes.reduce((prev, currCheck) => {
+              const marks = curr[field]?.[currCheck.key]?.checked
+                ? marksPerCheckbox
+                : 0;
+              return prev + marks;
+            }, 0)
+          );
+
+          return acc;
+        },
+        []
+      );
+      answer.obtainedMarks =
+        Math.round(
+          obtainedMarksArray
+            .sort((a, b) => b - a)
+            .reduce((acc, curr, ind) => {
+              return ind <= 8 ? acc + curr : acc;
+            }, 0) * 100
+        ) / 100;
     }
     setAnswers({ ...answers });
   };

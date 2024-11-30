@@ -8,10 +8,12 @@ export interface Header {
   multiline?: boolean;
   maxRows?: number;
   disabled?: boolean;
+  checkboxes?: Option[];
 }
 export interface Option {
   label: string;
   key: string;
+  isUpload?: boolean;
 }
 interface QuestionBase {
   description: string;
@@ -32,6 +34,7 @@ interface QuestionBase {
   keywordsMarksCalculation?: KeywordsMarksCalculation[];
   headers?: Header[];
   hideMarks?: boolean;
+
   rows?: object &
     {
       index: number;
