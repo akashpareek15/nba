@@ -633,6 +633,7 @@
     "description": "Consistency/justification of co-relation parameters of the above matrix",
     "question_number": "B",
     "marks": 5,
+    "code": "CONSISTENCY_OF_CO_RELATION_OF_THE_ABOVE_MATRIX",
     "type": "table",
     "style": {
       "width": "80%"

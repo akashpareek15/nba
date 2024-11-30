@@ -387,6 +387,7 @@ export const Question = (props: QuestionProps) => {
                                   inputProps={{ style: { fontSize: 12 } }}
                                   maxRows={header.maxRows ?? 2}
                                   multiline={header.multiline}
+                                  onBlur={onBlur}
                                   onChange={(event) =>
                                     props.onRowValueChange(
                                       props.index,

@@ -147,17 +147,6 @@ export const Questions = () => {
     }, 0);
   };
 
-  const calculateMarks = (question: IQuestion | SubQuestion) => {
-    const matched = keywords[question.questionId]?.reduce((acc, curr) => {
-      return question.reason
-        ?.toLowerCase()
-        .indexOf((curr as string)?.toLowerCase()) > -1
-        ? acc + 1
-        : acc;
-    }, 0);
-    return matched >= 3 ? 2 : matched >= 2 ? 1.5 : 1;
-  };
-
   const onChange = (index: string, value: string, type: ChangeType) => {
     setIsChanged(true);
     const question = findSubQuestion(
@@ -180,6 +169,21 @@ export const Questions = () => {
         calculateSubQuestion(question);
       } else if (questionMetadata.code === "PROGRAM_OBJECTIVE_HEADING") {
         calculatePEO(question);
+      } else if (
+        questionMetadata.code ===
+        "CONSISTENCY_OF_CO_RELATION_OF_THE_ABOVE_MATRIX"
+      ) {
+        const obtainedMarks = answer.rows?.reduce((acc, curr) => {
+          const marks = getKeywordsMarks(
+            findMatchedKeywords(
+              keywords?.[question.questionId],
+              curr.justification
+            ),
+            questionMetadata.keywordsMarksCalculation
+          );
+          return acc + marks;
+        }, 0);
+        answer.obtainedMarks = Math.round(obtainedMarks * 100) / 100;
       } else {
         question.obtainedMarks = getKeywordsMarks(
           findMatchedKeywords(keywords?.[question.questionId], question.reason),
