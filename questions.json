@@ -717,6 +717,27 @@
         "missionStatement": "M4- making learners responsible citizens 2",
         "index": 12
       }
+    ],
+    "keywordsMarksCalculation": [
+      {
+        "min": 40,
+        "marks": 0.4
+      },
+      {
+        "min": 39,
+        "max": 30,
+        "marks": 0.3
+      },
+      {
+        "min": 29,
+        "max": 20,
+        "marks": 0.2
+      },
+      {
+        "min": 10,
+        "max": 19,
+        "marks": 0.1
+      }
     ]
   },
   {
