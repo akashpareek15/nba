@@ -11,14 +11,21 @@ import {
 import { Button, Typography } from "@mui/material";
 import { useUser } from "./useUser";
 import { saveAs } from "file-saver";
+/* ES6 */
+
+import { usePDF } from "react-to-pdf";
 
 export const Questions = () => {
+  const { criteriaId } = useParams();
+
+  const { toPDF, targetRef } = usePDF({
+    filename: `Criteria ${criteriaId}.pdf`,
+  });
   const [questions, setQuestions] = useState<IQuestion[]>([]);
   const [answers, setAnswers] = useState<object>({});
   const [questionMap, setQuestionMap] = useState<object>({});
   const [keywords, setKeywords] = useState<object>({});
 
-  const { criteriaId } = useParams();
   const { loggedInUser } = useUser();
   const [isChanged, setIsChanged] = useState(false);
   const navigate = useNavigate();
@@ -512,9 +519,13 @@ export const Questions = () => {
     }
     setAnswers({ ...answers });
   };
+
   return (
     <Typography variant="body2" fontSize={12}>
-      <div style={{ display: "flex", flexDirection: "column", gap: "50px" }}>
+      <div
+        ref={targetRef}
+        style={{ display: "flex", flexDirection: "column", gap: "50px" }}
+      >
         {questions.map((question, index) => {
           return (
             <Question
@@ -533,6 +544,9 @@ export const Questions = () => {
           );
         })}
         <div style={{ display: "flex", alignItems: "center", gap: 30 }}>
+          <Button variant="contained" color="primary" onClick={() => toPDF()}>
+            Generate PDF
+          </Button>
           <Button variant="contained" color="primary" onClick={onSaveQuestion}>
             Save
           </Button>
