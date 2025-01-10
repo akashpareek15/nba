@@ -9,7 +9,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "install-server": "npm install",
     "start-server": "nodemon server/index.ts",
-    "install-client": "cd client && npm install",
+    "install-client": "cd client && npm install && mkdir ./client/build",
     "build-client": "cd client && npm run build",
     "start-client": "cd client && npm run dev"
   },
