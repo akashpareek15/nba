@@ -6,7 +6,12 @@
   "scripts": {
     "server": "nodemon server/index.ts",
     "client": "cd client && npm run dev",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "install-server": "npm install",
+    "start-server": "node server/index.ts",
+    "install-client": "cd client && npm install",
+    "build-client": "cd client && npm run build",
+    "start-client": "cd client && npm run dev"
   },
   "keywords": [],
   "author": "",
