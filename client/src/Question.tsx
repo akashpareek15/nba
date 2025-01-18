@@ -378,31 +378,36 @@ export const Question = (props: QuestionProps) => {
                                   />
                                 </>
                               ) : type === "textbox" ? (
-                                <TextField
-                                  style={{
-                                    width: "100%",
-                                    padding: " 0px 10px 2px 0px",
-                                    alignSelf: "flex-end",
-                                  }}
-                                  label=""
+                                <RenderControl
+                                  isDownload={props.isDownload}
                                   value={value}
-                                  variant="standard"
-                                  type={header.textBoxType ?? "text"}
-                                  inputProps={{ style: { fontSize: 12 } }}
-                                  maxRows={header.maxRows ?? 2}
-                                  multiline={header.multiline}
-                                  onBlur={onBlur}
-                                  onChange={(event) =>
-                                    props.onRowValueChange(
-                                      props.index,
-                                      question.code,
-                                      row.index,
-                                      event.target.value,
-                                      "textbox",
-                                      header.key
-                                    )
-                                  }
-                                />
+                                >
+                                  <TextField
+                                    style={{
+                                      width: "100%",
+                                      padding: " 0px 10px 2px 0px",
+                                      alignSelf: "flex-end",
+                                    }}
+                                    label=""
+                                    value={value}
+                                    variant="standard"
+                                    type={header.textBoxType ?? "text"}
+                                    inputProps={{ style: { fontSize: 12 } }}
+                                    maxRows={header.maxRows ?? 2}
+                                    multiline={header.multiline}
+                                    onBlur={onBlur}
+                                    onChange={(event) =>
+                                      props.onRowValueChange(
+                                        props.index,
+                                        question.code,
+                                        row.index,
+                                        event.target.value,
+                                        "textbox",
+                                        header.key
+                                      )
+                                    }
+                                  />
+                                </RenderControl>
                               ) : type === "dropdown" ? (
                                 <Select
                                   displayEmpty

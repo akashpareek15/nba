@@ -4,8 +4,11 @@ import axios from "axios";
 import { Questions } from "./Questions";
 import { usePDF } from "react-to-pdf";
 import { Button } from "@mui/material";
-
+import * as logo from "./assets/logo.jpg";
+import { Download } from "@mui/icons-material";
 export const DownloadCriteria = () => {
+  const img = logo.default;
+
   const { loggedInUser } = useUser();
   const { toPDF, targetRef } = usePDF({
     filename: `download.pdf`,
@@ -29,10 +32,16 @@ export const DownloadCriteria = () => {
 
   return (
     <>
-      <Button variant="contained" color="primary" onClick={() => toPDF()}>
-        Generate PDF
+      <Button variant="text" color="primary" onClick={() => toPDF()}>
+        <Download />
       </Button>
       <div ref={targetRef}>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <img
+            src={img}
+            style={{ width: "50%", height: "100px", margin: "10px auto" }}
+          ></img>
+        </div>
         {criteriaList.map((c) => {
           return (
             <div
