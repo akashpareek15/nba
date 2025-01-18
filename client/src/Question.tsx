@@ -16,6 +16,7 @@ import {
 import { IQuestion, SubQuestion } from "./domain/IQuestion";
 import { useId } from "react";
 import AddIcon from "@mui/icons-material/Add";
+import { RenderControl } from "./RenderControl";
 
 export type ChangeType = "radio" | "text" | "calculate_marks" | "marks_change";
 type QuestionProps = {
@@ -45,6 +46,7 @@ type QuestionProps = {
     field: string,
     multiCheckboxField?: string
   ) => void;
+  isDownload?: boolean;
 };
 
 const Input = styled("input")({
@@ -147,18 +149,20 @@ export const Question = (props: QuestionProps) => {
               />
             </RadioGroup>
           ) : question.type === "text" ? (
-            <TextField
-              variant="standard"
-              sx={{ fontSize: 8 }}
-              onChange={onChange}
-              value={answer.reason}
-              onBlur={onBlur}
-              maxRows={2}
-              multiline
-              style={{ width: "95%" }}
-              helperText={question.helperText}
-              error={!!answer.error}
-            />
+            <RenderControl isDownload={props.isDownload} value={answer.reason}>
+              <TextField
+                variant="standard"
+                sx={{ fontSize: 8 }}
+                onChange={onChange}
+                value={answer.reason}
+                onBlur={onBlur}
+                maxRows={2}
+                multiline
+                style={{ width: "95%" }}
+                helperText={question.helperText}
+                error={!!answer.error}
+              />
+            </RenderControl>
           ) : question.type === "upload" ? (
             <div style={{ display: "flex", alignItems: "center" }}>
               <label htmlFor={id}>
@@ -553,6 +557,7 @@ export const Question = (props: QuestionProps) => {
               questionMap={props.questionMap}
               questionId={sq.questionId}
               answers={props.answers}
+              isDownload={props.isDownload}
             />
           </div>
         ))}

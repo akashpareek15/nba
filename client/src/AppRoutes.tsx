@@ -4,6 +4,7 @@ import { Login } from "./Login";
 import { Questions } from "./Questions";
 import { Dashboard } from "./Dashboard";
 import { Keywords } from "./Keywords";
+import { DownloadCriteria } from "./DownloadCriteria";
 
 export const AppRoutes = () => {
   return (
@@ -15,6 +16,7 @@ export const AppRoutes = () => {
           <Route path="home/" element={<Home />}>
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="keywords" element={<Keywords />} />
+            <Route path="download" element={<DownloadCriteria />} />
             <Route
               path="criteria/:criteriaId/questions"
               element={<Questions />}

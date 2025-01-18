@@ -29,6 +29,10 @@ export const UserProfilePopup = () => {
     navigate("/home/keywords");
   };
 
+  const openDownloadPage = () => {
+    navigate("/home/download");
+  };
+
   return (
     <>
       <IconButton
@@ -82,6 +86,8 @@ export const UserProfilePopup = () => {
         {isAdmin && (
           <MenuItem onClick={openKeywordsUpdate}>Update keywords</MenuItem>
         )}
+
+        <MenuItem onClick={openDownloadPage}>Download</MenuItem>
         <MenuItem onClick={handleClose}>Profile</MenuItem>
         <Divider sx={{ borderStyle: "dashed", m: 0 }} />
         <MenuItem

@@ -103,6 +103,29 @@ criteriaRoute.get(
   }
 );
 
+criteriaRoute.get(
+  "/departments/:departmentId/questions",
+  async (request, response) => {
+    try {
+      const { departmentId } = request.params;
+      const savedAnswers = await db
+        .collection("answer")
+        .find({
+          departmentId: parseInt(departmentId),
+        })
+        .map((x) => x.criteriaId)
+        .toArray();
+      const collection = await db.collection("criteria");
+      const criteria = await collection.find({}).toArray();
+      return response
+        .status(200)
+        .json(criteria.filter((c) => savedAnswers.indexOf(c.criteriaId) > -1));
+    } catch (error) {
+      response.status(500).send({ message: error.message });
+    }
+  }
+);
+
 criteriaRoute.post(
   "/:criteriaId/departments/:departmentId",
   async (request, response) => {

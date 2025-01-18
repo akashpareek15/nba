@@ -15,9 +15,13 @@ import { saveAs } from "file-saver";
 
 import { usePDF } from "react-to-pdf";
 
-export const Questions = () => {
-  const { criteriaId } = useParams();
-
+export const Questions = (props?: {
+  criteriaId?: string;
+  isDownload?: boolean;
+}) => {
+  const {} = props;
+  let { criteriaId } = useParams();
+  criteriaId = props.criteriaId ?? criteriaId;
   const { toPDF, targetRef } = usePDF({
     filename: `Criteria ${criteriaId}.pdf`,
   });
@@ -540,19 +544,30 @@ export const Questions = () => {
               questionMap={questionMap}
               onRowValueChange={onRowValueChange}
               answers={answers}
+              isDownload={props.isDownload}
             ></Question>
           );
         })}
-        <div style={{ display: "flex", alignItems: "center", gap: 30 }}>
-          <Button variant="contained" color="primary" onClick={() => toPDF()}>
-            Generate PDF
-          </Button>
-          <Button variant="contained" color="primary" onClick={onSaveQuestion}>
-            Save
-          </Button>
-
-          <div>Total: {total}</div>
-        </div>
+        {
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: !props?.isDownload ? 30 : 10,
+            }}
+          >
+            {!props?.isDownload && (
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={onSaveQuestion}
+              >
+                Save
+              </Button>
+            )}
+            <div>Total: {total}</div>
+          </div>
+        }
       </div>
     </Typography>
   );
