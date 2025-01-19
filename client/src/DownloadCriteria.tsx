@@ -12,6 +12,7 @@ export const DownloadCriteria = () => {
   const { loggedInUser } = useUser();
   const { toPDF, targetRef } = usePDF({
     filename: `download.pdf`,
+    page: { margin: 15 },
   });
   const [criteriaList, setCriteriaList] = React.useState<
     { criteriaName: string; criteriaId: string }[]
